@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="frescobol_system_dbDataSet" targetNamespace="http://tempuri.org/frescobol_system_dbDataSet.xsd" xmlns:mstns="http://tempuri.org/frescobol_system_dbDataSet.xsd" xmlns="http://tempuri.org/frescobol_system_dbDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="frescobol_system_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="frescobol_system_dbConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Frescobol.Properties.Settings.GlobalReference.Default.frescobol_system_dbConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="atletaTableAdapter" GeneratorDataComponentClassName="atletaTableAdapter" Name="atleta" UserDataComponentName="atletaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="frescobol_system_dbConnectionString (Settings)" DbObjectName="frescobol_system_db.atleta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idatleta`, `nome`, `apelido`, `nome_arquivo_foto` FROM `atleta`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="frescobol_system_dbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="frescobol_system_dbDataSet" msprop:Generator_UserDSName="frescobol_system_dbDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="atleta" msprop:Generator_TableClassName="atletaDataTable" msprop:Generator_TableVarName="tableatleta" msprop:Generator_TablePropName="atleta" msprop:Generator_RowDeletingName="atletaRowDeleting" msprop:Generator_RowChangingName="atletaRowChanging" msprop:Generator_RowEvHandlerName="atletaRowChangeEventHandler" msprop:Generator_RowDeletedName="atletaRowDeleted" msprop:Generator_UserTableName="atleta" msprop:Generator_RowChangedName="atletaRowChanged" msprop:Generator_RowEvArgName="atletaRowChangeEvent" msprop:Generator_RowClassName="atletaRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
