@@ -19,5 +19,12 @@ namespace Gerenciador
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.atleta' table. You can move, or remove it, as needed.
+            this.atletaTableAdapter.Fill(this.frescobol_system_dbDataSet.atleta);
+
+        }
     }
 }
