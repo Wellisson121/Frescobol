@@ -15,6 +15,9 @@ namespace Gerenciador
         public MainForm()
         {
             InitializeComponent();
+
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
         }
     }
 }
