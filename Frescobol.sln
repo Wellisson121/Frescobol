@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gerenciador", "Frescobol\Gerenciador.csproj", "{7EE112C5-9042-417D-A111-75813EF5061B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plateia", "Plateia\Plateia.csproj", "{C463BF9D-F15C-47E5-AD28-F3421418407C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gerenciador", "Gerenciador\Gerenciador.csproj", "{4DC7535F-B2A5-464C-97FC-8878B8922EAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7EE112C5-9042-417D-A111-75813EF5061B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7EE112C5-9042-417D-A111-75813EF5061B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7EE112C5-9042-417D-A111-75813EF5061B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7EE112C5-9042-417D-A111-75813EF5061B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C463BF9D-F15C-47E5-AD28-F3421418407C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C463BF9D-F15C-47E5-AD28-F3421418407C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C463BF9D-F15C-47E5-AD28-F3421418407C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C463BF9D-F15C-47E5-AD28-F3421418407C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC7535F-B2A5-464C-97FC-8878B8922EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC7535F-B2A5-464C-97FC-8878B8922EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC7535F-B2A5-464C-97FC-8878B8922EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC7535F-B2A5-464C-97FC-8878B8922EAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
