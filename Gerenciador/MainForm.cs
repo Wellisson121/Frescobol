@@ -22,8 +22,13 @@ namespace Gerenciador
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.dupla' table. You can move, or remove it, as needed.
+            this.duplaTableAdapter.Fill(this.frescobol_system_dbDataSet.dupla);
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.atleta' table. You can move, or remove it, as needed.
             this.atletaTableAdapter.Fill(this.frescobol_system_dbDataSet.atleta);
+
+            this.comboBox1.SelectedItem = null;
+            this.comboBox2.SelectedItem = null;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,6 +51,30 @@ namespace Gerenciador
 
             this.atletaTableAdapter.Insert(textBox1.Text, textBox2.Text, openFileDialog1.SafeFileName);
             this.atletaTableAdapter.Fill(this.frescobol_system_dbDataSet.atleta);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+
+            if (cmb.SelectedValue == null) return;
+
+            int selectedIndex = cmb.SelectedIndex;
+            int selectedValue = (int)cmb.SelectedValue;
+
+            this.textBox4.Text = "" + selectedValue;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+
+            if (cmb.SelectedValue == null) return;
+
+            int selectedIndex = cmb.SelectedIndex;
+            int selectedValue = (int)cmb.SelectedValue;
+
+            this.textBox5.Text = "" + selectedValue;
         }
     }
 }

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAtleta = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,10 +48,24 @@
             this.atletaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.frescobol_system_dbDataSet = new Gerenciador.frescobol_system_dbDataSet();
-            this.atletaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.atletaTableAdapter();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.atletaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idduplaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idatl1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeatl1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idatl2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeatl2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duplaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.atletaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.atletaTableAdapter();
+            this.duplaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabAtleta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,12 +73,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frescobol_system_dbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.duplaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabAtleta);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(1, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -89,6 +108,16 @@
             this.tabAtleta.TabIndex = 1;
             this.tabAtleta.Text = "Atleta";
             this.tabAtleta.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(49, 198);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Cadastrar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -220,23 +249,156 @@
             this.frescobol_system_dbDataSet.DataSetName = "frescobol_system_dbDataSet";
             this.frescobol_system_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // atletaTableAdapter
+            // tabPage1
             // 
-            this.atletaTableAdapter.ClearBeforeFill = true;
+            this.tabPage1.Controls.Add(this.textBox5);
+            this.tabPage1.Controls.Add(this.textBox4);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(776, 534);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Dupla";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(404, 73);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(27, 20);
+            this.textBox5.TabIndex = 6;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(49, 73);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(27, 20);
+            this.textBox4.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(401, 56);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Segundo Atleta";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(46, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Primeiro Atleta";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DataSource = this.atletaBindingSource1;
+            this.comboBox2.DisplayMember = "nome";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(437, 72);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(288, 21);
+            this.comboBox2.TabIndex = 2;
+            this.comboBox2.ValueMember = "idatleta";
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // atletaBindingSource1
+            // 
+            this.atletaBindingSource1.DataMember = "atleta";
+            this.atletaBindingSource1.DataSource = this.bindingSource1;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.atletaBindingSource;
+            this.comboBox1.DisplayMember = "nome";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(82, 72);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(288, 21);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.ValueMember = "idatleta";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idduplaDataGridViewTextBoxColumn,
+            this.idatl1DataGridViewTextBoxColumn,
+            this.nomeatl1DataGridViewTextBoxColumn,
+            this.idatl2DataGridViewTextBoxColumn,
+            this.nomeatl2DataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.duplaBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(49, 170);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(676, 356);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // idduplaDataGridViewTextBoxColumn
+            // 
+            this.idduplaDataGridViewTextBoxColumn.DataPropertyName = "iddupla";
+            this.idduplaDataGridViewTextBoxColumn.HeaderText = "iddupla";
+            this.idduplaDataGridViewTextBoxColumn.Name = "idduplaDataGridViewTextBoxColumn";
+            this.idduplaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idatl1DataGridViewTextBoxColumn
+            // 
+            this.idatl1DataGridViewTextBoxColumn.DataPropertyName = "idatl1";
+            this.idatl1DataGridViewTextBoxColumn.HeaderText = "idatl1";
+            this.idatl1DataGridViewTextBoxColumn.Name = "idatl1DataGridViewTextBoxColumn";
+            this.idatl1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nomeatl1DataGridViewTextBoxColumn
+            // 
+            this.nomeatl1DataGridViewTextBoxColumn.DataPropertyName = "nomeatl1";
+            this.nomeatl1DataGridViewTextBoxColumn.HeaderText = "nomeatl1";
+            this.nomeatl1DataGridViewTextBoxColumn.Name = "nomeatl1DataGridViewTextBoxColumn";
+            this.nomeatl1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idatl2DataGridViewTextBoxColumn
+            // 
+            this.idatl2DataGridViewTextBoxColumn.DataPropertyName = "idatl2";
+            this.idatl2DataGridViewTextBoxColumn.HeaderText = "idatl2";
+            this.idatl2DataGridViewTextBoxColumn.Name = "idatl2DataGridViewTextBoxColumn";
+            this.idatl2DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nomeatl2DataGridViewTextBoxColumn
+            // 
+            this.nomeatl2DataGridViewTextBoxColumn.DataPropertyName = "nomeatl2";
+            this.nomeatl2DataGridViewTextBoxColumn.HeaderText = "nomeatl2";
+            this.nomeatl2DataGridViewTextBoxColumn.Name = "nomeatl2DataGridViewTextBoxColumn";
+            this.nomeatl2DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // duplaBindingSource
+            // 
+            this.duplaBindingSource.DataMember = "dupla";
+            this.duplaBindingSource.DataSource = this.bindingSource1;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button2
+            // atletaTableAdapter
             // 
-            this.button2.Location = new System.Drawing.Point(49, 198);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Cadastrar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.atletaTableAdapter.ClearBeforeFill = true;
+            // 
+            // duplaTableAdapter
+            // 
+            this.duplaTableAdapter.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -255,7 +417,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frescobol_system_dbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.duplaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,8 +448,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nomearquivofotoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.BindingSource bindingSource2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource duplaBindingSource;
+        private frescobol_system_dbDataSetTableAdapters.duplaTableAdapter duplaTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idduplaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idatl1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeatl1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idatl2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeatl2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.BindingSource atletaBindingSource1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }
 
