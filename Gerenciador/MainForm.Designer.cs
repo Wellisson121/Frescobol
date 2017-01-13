@@ -57,15 +57,16 @@
             this.atletaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.duplaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.atletaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.atletaTableAdapter();
+            this.duplaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaTableAdapter();
             this.idduplaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idatl1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeatl1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idatl2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeatl2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duplaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.atletaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.atletaTableAdapter();
-            this.duplaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaTableAdapter();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabAtleta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -251,6 +252,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.textBox5);
             this.tabPage1.Controls.Add(this.textBox4);
             this.tabPage1.Controls.Add(this.label5);
@@ -348,41 +350,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(676, 356);
             this.dataGridView1.TabIndex = 0;
             // 
-            // idduplaDataGridViewTextBoxColumn
-            // 
-            this.idduplaDataGridViewTextBoxColumn.DataPropertyName = "iddupla";
-            this.idduplaDataGridViewTextBoxColumn.HeaderText = "iddupla";
-            this.idduplaDataGridViewTextBoxColumn.Name = "idduplaDataGridViewTextBoxColumn";
-            this.idduplaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idatl1DataGridViewTextBoxColumn
-            // 
-            this.idatl1DataGridViewTextBoxColumn.DataPropertyName = "idatl1";
-            this.idatl1DataGridViewTextBoxColumn.HeaderText = "idatl1";
-            this.idatl1DataGridViewTextBoxColumn.Name = "idatl1DataGridViewTextBoxColumn";
-            this.idatl1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomeatl1DataGridViewTextBoxColumn
-            // 
-            this.nomeatl1DataGridViewTextBoxColumn.DataPropertyName = "nomeatl1";
-            this.nomeatl1DataGridViewTextBoxColumn.HeaderText = "nomeatl1";
-            this.nomeatl1DataGridViewTextBoxColumn.Name = "nomeatl1DataGridViewTextBoxColumn";
-            this.nomeatl1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idatl2DataGridViewTextBoxColumn
-            // 
-            this.idatl2DataGridViewTextBoxColumn.DataPropertyName = "idatl2";
-            this.idatl2DataGridViewTextBoxColumn.HeaderText = "idatl2";
-            this.idatl2DataGridViewTextBoxColumn.Name = "idatl2DataGridViewTextBoxColumn";
-            this.idatl2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomeatl2DataGridViewTextBoxColumn
-            // 
-            this.nomeatl2DataGridViewTextBoxColumn.DataPropertyName = "nomeatl2";
-            this.nomeatl2DataGridViewTextBoxColumn.HeaderText = "nomeatl2";
-            this.nomeatl2DataGridViewTextBoxColumn.Name = "nomeatl2DataGridViewTextBoxColumn";
-            this.nomeatl2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // duplaBindingSource
             // 
             this.duplaBindingSource.DataMember = "dupla";
@@ -399,6 +366,56 @@
             // duplaTableAdapter
             // 
             this.duplaTableAdapter.ClearBeforeFill = true;
+            // 
+            // idduplaDataGridViewTextBoxColumn
+            // 
+            this.idduplaDataGridViewTextBoxColumn.DataPropertyName = "iddupla";
+            this.idduplaDataGridViewTextBoxColumn.HeaderText = "iddupla";
+            this.idduplaDataGridViewTextBoxColumn.Name = "idduplaDataGridViewTextBoxColumn";
+            this.idduplaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idduplaDataGridViewTextBoxColumn.Width = 102;
+            // 
+            // idatl1DataGridViewTextBoxColumn
+            // 
+            this.idatl1DataGridViewTextBoxColumn.DataPropertyName = "idatl1";
+            this.idatl1DataGridViewTextBoxColumn.HeaderText = "idatl1";
+            this.idatl1DataGridViewTextBoxColumn.Name = "idatl1DataGridViewTextBoxColumn";
+            this.idatl1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.idatl1DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // nomeatl1DataGridViewTextBoxColumn
+            // 
+            this.nomeatl1DataGridViewTextBoxColumn.DataPropertyName = "nomeatl1";
+            this.nomeatl1DataGridViewTextBoxColumn.HeaderText = "nomeatl1";
+            this.nomeatl1DataGridViewTextBoxColumn.Name = "nomeatl1DataGridViewTextBoxColumn";
+            this.nomeatl1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomeatl1DataGridViewTextBoxColumn.Width = 215;
+            // 
+            // idatl2DataGridViewTextBoxColumn
+            // 
+            this.idatl2DataGridViewTextBoxColumn.DataPropertyName = "idatl2";
+            this.idatl2DataGridViewTextBoxColumn.HeaderText = "idatl2";
+            this.idatl2DataGridViewTextBoxColumn.Name = "idatl2DataGridViewTextBoxColumn";
+            this.idatl2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.idatl2DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // nomeatl2DataGridViewTextBoxColumn
+            // 
+            this.nomeatl2DataGridViewTextBoxColumn.DataPropertyName = "nomeatl2";
+            this.nomeatl2DataGridViewTextBoxColumn.HeaderText = "nomeatl2";
+            this.nomeatl2DataGridViewTextBoxColumn.Name = "nomeatl2DataGridViewTextBoxColumn";
+            this.nomeatl2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomeatl2DataGridViewTextBoxColumn.Width = 215;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(49, 120);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Cadastrar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // MainForm
             // 
@@ -453,11 +470,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource duplaBindingSource;
         private frescobol_system_dbDataSetTableAdapters.duplaTableAdapter duplaTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idduplaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idatl1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeatl1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idatl2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeatl2DataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.BindingSource atletaBindingSource1;
@@ -465,6 +477,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idduplaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idatl1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeatl1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idatl2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeatl2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button3;
     }
 }
 

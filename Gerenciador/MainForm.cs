@@ -59,7 +59,6 @@ namespace Gerenciador
 
             if (cmb.SelectedValue == null) return;
 
-            int selectedIndex = cmb.SelectedIndex;
             int selectedValue = (int)cmb.SelectedValue;
 
             this.textBox4.Text = "" + selectedValue;
@@ -71,10 +70,21 @@ namespace Gerenciador
 
             if (cmb.SelectedValue == null) return;
 
-            int selectedIndex = cmb.SelectedIndex;
             int selectedValue = (int)cmb.SelectedValue;
 
             this.textBox5.Text = "" + selectedValue;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (this.textBox4.Text == "" || this.textBox5.Text == "")
+            {
+                MessageBox.Show("Você deve selecionar dois atletas!");
+                return;
+            }
+
+            this.duplaTableAdapter.Insert(Int32.Parse(this.textBox4.Text), this.comboBox1.Text, Int32.Parse(this.textBox5.Text), this.comboBox2.Text);
+            this.duplaTableAdapter.Fill(this.frescobol_system_dbDataSet.dupla);
         }
     }
 }
