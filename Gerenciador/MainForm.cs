@@ -35,5 +35,17 @@ namespace Gerenciador
                 this.textBox3.Text = this.openFileDialog1.FileName;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos!");
+                return;
+            }
+
+            this.atletaTableAdapter.Insert(textBox1.Text, textBox2.Text, openFileDialog1.SafeFileName);
+            this.atletaTableAdapter.Fill(this.frescobol_system_dbDataSet.atleta);
+        }
     }
 }
