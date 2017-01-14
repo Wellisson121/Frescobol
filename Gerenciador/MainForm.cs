@@ -22,6 +22,8 @@ namespace Gerenciador
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.categoria' table. You can move, or remove it, as needed.
+            this.categoriaTableAdapter.Fill(this.frescobol_system_dbDataSet.categoria);
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.dupla' table. You can move, or remove it, as needed.
             this.duplaTableAdapter.Fill(this.frescobol_system_dbDataSet.dupla);
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.atleta' table. You can move, or remove it, as needed.
@@ -85,6 +87,18 @@ namespace Gerenciador
 
             this.duplaTableAdapter.Insert(Int32.Parse(this.textBox4.Text), this.comboBox1.Text, Int32.Parse(this.textBox5.Text), this.comboBox2.Text);
             this.duplaTableAdapter.Fill(this.frescobol_system_dbDataSet.dupla);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(this.textBox6.Text == "" || this.textBox7.Text == "")
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos!");
+                return;
+            }
+
+            this.categoriaTableAdapter.Insert(this.textBox6.Text, Int32.Parse(this.textBox7.Text));
+            this.categoriaTableAdapter.Fill(this.frescobol_system_dbDataSet.categoria);
         }
     }
 }
