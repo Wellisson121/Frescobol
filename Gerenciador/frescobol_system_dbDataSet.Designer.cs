@@ -1489,9 +1489,9 @@ namespace Gerenciador {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eventoRow FindByidcategoria(int idcategoria) {
+            public eventoRow FindByidevento(int idevento) {
                 return ((eventoRow)(this.Rows.Find(new object[] {
-                            idcategoria})));
+                            idevento})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1534,15 +1534,12 @@ namespace Gerenciador {
                 base.Columns.Add(this.columndatafim);
                 this.columnhorainicio = new global::System.Data.DataColumn("horainicio", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhorainicio);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnidcategoria}, true));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
-                                this.columnidevento}, false));
+                                this.columnidevento}, true));
                 this.columnidcategoria.AutoIncrement = true;
                 this.columnidcategoria.AutoIncrementSeed = -1;
                 this.columnidcategoria.AutoIncrementStep = -1;
                 this.columnidcategoria.AllowDBNull = false;
-                this.columnidcategoria.Unique = true;
                 this.columnnome.AllowDBNull = false;
                 this.columnnome.MaxLength = 45;
                 this.columnidevento.AutoIncrement = true;
@@ -1849,15 +1846,12 @@ namespace Gerenciador {
                 base.Columns.Add(this.columnidduplasevento);
                 this.columniddupla = new global::System.Data.DataColumn("iddupla", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columniddupla);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
-                                this.columnidevento}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidduplasevento}, true));
                 this.columnidevento.AutoIncrement = true;
                 this.columnidevento.AutoIncrementSeed = -1;
                 this.columnidevento.AutoIncrementStep = -1;
                 this.columnidevento.AllowDBNull = false;
-                this.columnidevento.Unique = true;
                 this.columnhorainicio.AllowDBNull = false;
                 this.columnidduplasevento.AutoIncrement = true;
                 this.columnidduplasevento.AutoIncrementSeed = -1;
@@ -4279,14 +4273,6 @@ namespace Gerenciador.frescobol_system_dbDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime p1, System.DateTime p2, System.DateTime p3, string p4, int p6, System.DateTime p7, System.DateTime p8, System.DateTime p9, string p10, int p11) {
-            return this.Update(p1, p2, p3, p4, p11, p6, p7, p8, p9, p10, p11);
         }
     }
     

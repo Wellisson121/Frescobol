@@ -403,16 +403,8 @@
       <xs:selector xpath=".//mstns:categoria" />
       <xs:field xpath="mstns:idcategoria" />
     </xs:unique>
-    <xs:unique name="evento_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+    <xs:unique name="Constraint2" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:evento" />
-      <xs:field xpath="mstns:idcategoria" />
-    </xs:unique>
-    <xs:unique name="Constraint2">
-      <xs:selector xpath=".//mstns:evento" />
-      <xs:field xpath="mstns:idevento" />
-    </xs:unique>
-    <xs:unique name="duplasevento_Constraint2" msdata:ConstraintName="Constraint2">
-      <xs:selector xpath=".//mstns:duplasevento" />
       <xs:field xpath="mstns:idevento" />
     </xs:unique>
     <xs:unique name="duplasevento_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">

@@ -49,6 +49,10 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.frescobol_system_dbDataSet = new Gerenciador.frescobol_system_dbDataSet();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -65,25 +69,43 @@
             this.nomeatl2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duplaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.atletaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.atletaTableAdapter();
-            this.duplaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaTableAdapter();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.categoriaTableAdapter();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.idcategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.velocidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBox11 = new System.Windows.Forms.MaskedTextBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.ideventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datainicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datafimDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horainicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idcategoriaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.categoriaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.atletaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.atletaTableAdapter();
+            this.duplaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaTableAdapter();
+            this.categoriaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.categoriaTableAdapter();
+            this.eventoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.eventoTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabAtleta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -98,6 +120,10 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -294,6 +320,42 @@
             this.tabPage1.Text = "Dupla";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(434, 52);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Nome";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(401, 52);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(16, 13);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Id";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(79, 52);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Nome";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(46, 52);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(16, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Id";
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(49, 113);
@@ -447,17 +509,47 @@
             this.tabPage2.Text = "Categoria";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // openFileDialog1
+            // button4
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.button4.Location = new System.Drawing.Point(49, 113);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Cadastrar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // atletaTableAdapter
+            // label7
             // 
-            this.atletaTableAdapter.ClearBeforeFill = true;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(288, 51);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Velocidade";
             // 
-            // duplaTableAdapter
+            // label6
             // 
-            this.duplaTableAdapter.ClearBeforeFill = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(46, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(98, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Nome da Categoria";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(291, 67);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(57, 20);
+            this.textBox7.TabIndex = 2;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(49, 67);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(219, 20);
+            this.textBox6.TabIndex = 1;
             // 
             // dataGridView2
             // 
@@ -475,57 +567,6 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(676, 356);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // categoriaBindingSource
-            // 
-            this.categoriaBindingSource.DataMember = "categoria";
-            this.categoriaBindingSource.DataSource = this.bindingSource1;
-            // 
-            // categoriaTableAdapter
-            // 
-            this.categoriaTableAdapter.ClearBeforeFill = true;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(49, 67);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(219, 20);
-            this.textBox6.TabIndex = 1;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(291, 67);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(57, 20);
-            this.textBox7.TabIndex = 2;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(46, 51);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Nome da Categoria";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(288, 51);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Velocidade";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(49, 113);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Cadastrar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // idcategoriaDataGridViewTextBoxColumn
             // 
@@ -550,44 +591,26 @@
             this.velocidadeDataGridViewTextBoxColumn.ReadOnly = true;
             this.velocidadeDataGridViewTextBoxColumn.Width = 182;
             // 
-            // label8
+            // categoriaBindingSource
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(46, 52);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(16, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Id";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(79, 52);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Nome";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(434, 52);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(35, 13);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Nome";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(401, 52);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(16, 13);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Id";
+            this.categoriaBindingSource.DataMember = "categoria";
+            this.categoriaBindingSource.DataSource = this.bindingSource1;
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.textBox11);
+            this.tabPage3.Controls.Add(this.monthCalendar1);
+            this.tabPage3.Controls.Add(this.button5);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.label13);
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.textBox10);
+            this.tabPage3.Controls.Add(this.textBox9);
+            this.tabPage3.Controls.Add(this.textBox8);
+            this.tabPage3.Controls.Add(this.dataGridView3);
+            this.tabPage3.Controls.Add(this.comboBox3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -595,6 +618,211 @@
             this.tabPage3.TabIndex = 4;
             this.tabPage3.Text = "Evento";
             this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(261, 76);
+            this.textBox11.Mask = "00:00";
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 20);
+            this.textBox11.TabIndex = 13;
+            this.textBox11.ValidatingType = typeof(System.DateTime);
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.FirstDayOfWeek = System.Windows.Forms.Day.Sunday;
+            this.monthCalendar1.Location = new System.Drawing.Point(136, 120);
+            this.monthCalendar1.MaxSelectionCount = 1;
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 12;
+            this.monthCalendar1.Visible = false;
+            this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalendar1_DateSelected);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(49, 120);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Cadastrar";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(380, 60);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(52, 13);
+            this.label16.TabIndex = 10;
+            this.label16.Text = "Categoria";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(258, 60);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(75, 13);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "Hora de Início";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(152, 60);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 13);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Data de Fim";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(46, 60);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(75, 13);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Data de Início";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(46, 21);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(87, 13);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Nome do Evento";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(155, 76);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(100, 20);
+            this.textBox10.TabIndex = 4;
+            this.textBox10.Click += new System.EventHandler(this.textBox10_Click);
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(49, 76);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.TabIndex = 3;
+            this.textBox9.Click += new System.EventHandler(this.textBox9_Click);
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(49, 37);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(312, 20);
+            this.textBox8.TabIndex = 2;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ideventoDataGridViewTextBoxColumn,
+            this.nomeDataGridViewTextBoxColumn2,
+            this.datainicioDataGridViewTextBoxColumn,
+            this.datafimDataGridViewTextBoxColumn,
+            this.horainicioDataGridViewTextBoxColumn,
+            this.idcategoriaDataGridViewTextBoxColumn1});
+            this.dataGridView3.DataSource = this.eventoBindingSource;
+            this.dataGridView3.Location = new System.Drawing.Point(49, 170);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.Size = new System.Drawing.Size(676, 356);
+            this.dataGridView3.TabIndex = 1;
+            // 
+            // ideventoDataGridViewTextBoxColumn
+            // 
+            this.ideventoDataGridViewTextBoxColumn.DataPropertyName = "idevento";
+            this.ideventoDataGridViewTextBoxColumn.HeaderText = "idevento";
+            this.ideventoDataGridViewTextBoxColumn.Name = "ideventoDataGridViewTextBoxColumn";
+            this.ideventoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ideventoDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // nomeDataGridViewTextBoxColumn2
+            // 
+            this.nomeDataGridViewTextBoxColumn2.DataPropertyName = "nome";
+            this.nomeDataGridViewTextBoxColumn2.HeaderText = "nome";
+            this.nomeDataGridViewTextBoxColumn2.Name = "nomeDataGridViewTextBoxColumn2";
+            this.nomeDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.nomeDataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // datainicioDataGridViewTextBoxColumn
+            // 
+            this.datainicioDataGridViewTextBoxColumn.DataPropertyName = "datainicio";
+            this.datainicioDataGridViewTextBoxColumn.HeaderText = "datainicio";
+            this.datainicioDataGridViewTextBoxColumn.Name = "datainicioDataGridViewTextBoxColumn";
+            this.datainicioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // datafimDataGridViewTextBoxColumn
+            // 
+            this.datafimDataGridViewTextBoxColumn.DataPropertyName = "datafim";
+            this.datafimDataGridViewTextBoxColumn.HeaderText = "datafim";
+            this.datafimDataGridViewTextBoxColumn.Name = "datafimDataGridViewTextBoxColumn";
+            this.datafimDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // horainicioDataGridViewTextBoxColumn
+            // 
+            this.horainicioDataGridViewTextBoxColumn.DataPropertyName = "horainicio";
+            this.horainicioDataGridViewTextBoxColumn.HeaderText = "horainicio";
+            this.horainicioDataGridViewTextBoxColumn.Name = "horainicioDataGridViewTextBoxColumn";
+            this.horainicioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idcategoriaDataGridViewTextBoxColumn1
+            // 
+            this.idcategoriaDataGridViewTextBoxColumn1.DataPropertyName = "idcategoria";
+            this.idcategoriaDataGridViewTextBoxColumn1.HeaderText = "idcategoria";
+            this.idcategoriaDataGridViewTextBoxColumn1.Name = "idcategoriaDataGridViewTextBoxColumn1";
+            this.idcategoriaDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // eventoBindingSource
+            // 
+            this.eventoBindingSource.DataMember = "evento";
+            this.eventoBindingSource.DataSource = this.bindingSource1;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DataSource = this.categoriaBindingSource1;
+            this.comboBox3.DisplayMember = "nome";
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(383, 75);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 0;
+            this.comboBox3.ValueMember = "idcategoria";
+            // 
+            // categoriaBindingSource1
+            // 
+            this.categoriaBindingSource1.DataMember = "categoria";
+            this.categoriaBindingSource1.DataSource = this.bindingSource1;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // atletaTableAdapter
+            // 
+            this.atletaTableAdapter.ClearBeforeFill = true;
+            // 
+            // duplaTableAdapter
+            // 
+            this.duplaTableAdapter.ClearBeforeFill = true;
+            // 
+            // categoriaTableAdapter
+            // 
+            this.categoriaTableAdapter.ClearBeforeFill = true;
+            // 
+            // eventoTableAdapter
+            // 
+            this.eventoTableAdapter.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -622,6 +850,11 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -683,6 +916,28 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.BindingSource categoriaBindingSource1;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.BindingSource eventoBindingSource;
+        private frescobol_system_dbDataSetTableAdapters.eventoTableAdapter eventoTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ideventoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datainicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datafimDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn horainicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idcategoriaDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MaskedTextBox textBox11;
     }
 }
 

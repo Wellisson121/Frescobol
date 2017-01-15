@@ -12,6 +12,8 @@ namespace Gerenciador
 {
     public partial class MainForm : Form
     {
+        private TextBox selectedDateBox = null;
+
         public MainForm()
         {
             InitializeComponent();
@@ -22,6 +24,8 @@ namespace Gerenciador
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.evento' table. You can move, or remove it, as needed.
+            this.eventoTableAdapter.Fill(this.frescobol_system_dbDataSet.evento);
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.categoria' table. You can move, or remove it, as needed.
             this.categoriaTableAdapter.Fill(this.frescobol_system_dbDataSet.categoria);
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.dupla' table. You can move, or remove it, as needed.
@@ -31,8 +35,10 @@ namespace Gerenciador
 
             this.comboBox1.SelectedItem = null;
             this.comboBox2.SelectedItem = null;
+            this.comboBox3.SelectedItem = null;
         }
 
+        #region atleta
         private void button1_Click(object sender, EventArgs e)
         {
             this.openFileDialog1.Filter = "Imagem JPG|*.jpg|Imagem JPEG|*.jpeg|Imagem PNG|*.png|Imagem BMP|*.bmp";
@@ -53,8 +59,16 @@ namespace Gerenciador
 
             this.atletaTableAdapter.Insert(textBox1.Text, textBox2.Text, openFileDialog1.SafeFileName);
             this.atletaTableAdapter.Fill(this.frescobol_system_dbDataSet.atleta);
+
+            //clean up
+            this.textBox1.Text = "";
+            this.textBox2.Text = "";
+            this.textBox3.Text = "";
         }
 
+        #endregion
+
+        #region dupla
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cmb = (ComboBox)sender;
@@ -77,6 +91,7 @@ namespace Gerenciador
             this.textBox5.Text = "" + selectedValue;
         }
 
+        //cadastrar dupla
         private void button3_Click(object sender, EventArgs e)
         {
             if (this.textBox4.Text == "" || this.textBox5.Text == "")
@@ -87,8 +102,17 @@ namespace Gerenciador
 
             this.duplaTableAdapter.Insert(Int32.Parse(this.textBox4.Text), this.comboBox1.Text, Int32.Parse(this.textBox5.Text), this.comboBox2.Text);
             this.duplaTableAdapter.Fill(this.frescobol_system_dbDataSet.dupla);
+
+            //clean up
+            this.comboBox1.SelectedItem = null;
+            this.comboBox2.SelectedItem = null;
+            this.textBox4.Text = "";
+            this.textBox5.Text = "";
         }
 
+        #endregion
+
+        #region categoria
         private void button4_Click(object sender, EventArgs e)
         {
             if(this.textBox6.Text == "" || this.textBox7.Text == "")
@@ -99,6 +123,69 @@ namespace Gerenciador
 
             this.categoriaTableAdapter.Insert(this.textBox6.Text, Int32.Parse(this.textBox7.Text));
             this.categoriaTableAdapter.Fill(this.frescobol_system_dbDataSet.categoria);
+
+            //clean up
+            this.textBox6.Text = "";
+            this.textBox7.Text = "";
         }
+
+        #endregion
+
+        #region evento
+        private void textBox9_Click(object sender, EventArgs e)
+        {
+            this.monthCalendar1.Visible = true;
+            this.selectedDateBox = this.textBox9;
+        }
+
+        private void textBox10_Click(object sender, EventArgs e)
+        {
+            this.monthCalendar1.Visible = true;
+            this.selectedDateBox = this.textBox10;
+        }
+
+        private void MonthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            if(this.selectedDateBox != null)
+            {
+                this.selectedDateBox.Text = e.Start.ToString("yyyy-MM-dd");
+                this.monthCalendar1.Visible = false;
+            }
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+            this.monthCalendar1.Visible = false;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.monthCalendar1.Visible = false;
+
+            if(this.textBox8.Text == "" || this.textBox9.Text == "" || this.textBox10.Text == "" || this.textBox11.Text == "" || comboBox3.SelectedItem == null)
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos!");
+            }
+
+            //pega o id da categoria selecionada na combobox
+            int selectedValue = (int)this.comboBox3.SelectedValue;
+
+            this.eventoTableAdapter.Insert(DateTime.Parse(this.textBox9.Text),
+                                           DateTime.Parse(this.textBox10.Text),
+                                           DateTime.Parse(this.textBox9.Text + " " + this.textBox11.Text),
+                                           this.textBox8.Text,
+                                           selectedValue);
+
+            this.eventoTableAdapter.Fill(this.frescobol_system_dbDataSet.evento);
+
+            //fields clean up
+            this.textBox8.Text = "";
+            this.textBox9.Text = "";
+            this.textBox10.Text = "";
+            this.textBox11.Text = "";
+            this.comboBox3.SelectedItem = null;
+        }
+
+        #endregion
     }
 }
