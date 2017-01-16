@@ -101,11 +101,25 @@
             this.eventoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.categoriaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.duplaseventoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button6 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.atletaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.atletaTableAdapter();
             this.duplaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaTableAdapter();
             this.categoriaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.categoriaTableAdapter();
             this.eventoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.eventoTableAdapter();
+            this.duplaseventoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaseventoTableAdapter();
+            this.ideventoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horainicioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idduplaseventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idduplaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomedupla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabAtleta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -124,6 +138,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource1)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.duplaseventoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -132,6 +149,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(1, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -804,6 +822,97 @@
             this.categoriaBindingSource1.DataMember = "categoria";
             this.categoriaBindingSource1.DataSource = this.bindingSource1;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dataGridView4);
+            this.tabPage4.Controls.Add(this.button6);
+            this.tabPage4.Controls.Add(this.label18);
+            this.tabPage4.Controls.Add(this.comboBox5);
+            this.tabPage4.Controls.Add(this.label17);
+            this.tabPage4.Controls.Add(this.comboBox4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(776, 534);
+            this.tabPage4.TabIndex = 5;
+            this.tabPage4.Text = "Duplas de Evento";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.AllowUserToAddRows = false;
+            this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.AutoGenerateColumns = false;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ideventoDataGridViewTextBoxColumn1,
+            this.horainicioDataGridViewTextBoxColumn1,
+            this.idduplaseventoDataGridViewTextBoxColumn,
+            this.idduplaDataGridViewTextBoxColumn1,
+            this.nomedupla});
+            this.dataGridView4.DataSource = this.duplaseventoBindingSource;
+            this.dataGridView4.Location = new System.Drawing.Point(49, 170);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.ReadOnly = true;
+            this.dataGridView4.Size = new System.Drawing.Size(676, 356);
+            this.dataGridView4.TabIndex = 5;
+            // 
+            // duplaseventoBindingSource
+            // 
+            this.duplaseventoBindingSource.DataMember = "duplasevento";
+            this.duplaseventoBindingSource.DataSource = this.bindingSource1;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(49, 124);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "Cadastrar";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(46, 68);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(35, 13);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "Dupla";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.DataSource = this.duplaBindingSource;
+            this.comboBox5.DisplayMember = "nomedupla";
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(49, 84);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(301, 21);
+            this.comboBox5.TabIndex = 2;
+            this.comboBox5.ValueMember = "iddupla";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(46, 19);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Evento";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DataSource = this.eventoBindingSource;
+            this.comboBox4.DisplayMember = "nome";
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(49, 35);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(301, 21);
+            this.comboBox4.TabIndex = 0;
+            this.comboBox4.ValueMember = "idevento";
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -823,6 +932,48 @@
             // eventoTableAdapter
             // 
             this.eventoTableAdapter.ClearBeforeFill = true;
+            // 
+            // duplaseventoTableAdapter
+            // 
+            this.duplaseventoTableAdapter.ClearBeforeFill = true;
+            // 
+            // ideventoDataGridViewTextBoxColumn1
+            // 
+            this.ideventoDataGridViewTextBoxColumn1.DataPropertyName = "idevento";
+            this.ideventoDataGridViewTextBoxColumn1.HeaderText = "idevento";
+            this.ideventoDataGridViewTextBoxColumn1.Name = "ideventoDataGridViewTextBoxColumn1";
+            this.ideventoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.ideventoDataGridViewTextBoxColumn1.Width = 102;
+            // 
+            // horainicioDataGridViewTextBoxColumn1
+            // 
+            this.horainicioDataGridViewTextBoxColumn1.DataPropertyName = "horainicio";
+            this.horainicioDataGridViewTextBoxColumn1.HeaderText = "horainicio";
+            this.horainicioDataGridViewTextBoxColumn1.Name = "horainicioDataGridViewTextBoxColumn1";
+            this.horainicioDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.horainicioDataGridViewTextBoxColumn1.Width = 130;
+            // 
+            // idduplaseventoDataGridViewTextBoxColumn
+            // 
+            this.idduplaseventoDataGridViewTextBoxColumn.DataPropertyName = "idduplasevento";
+            this.idduplaseventoDataGridViewTextBoxColumn.HeaderText = "idduplasevento";
+            this.idduplaseventoDataGridViewTextBoxColumn.Name = "idduplaseventoDataGridViewTextBoxColumn";
+            this.idduplaseventoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idduplaDataGridViewTextBoxColumn1
+            // 
+            this.idduplaDataGridViewTextBoxColumn1.DataPropertyName = "iddupla";
+            this.idduplaDataGridViewTextBoxColumn1.HeaderText = "iddupla";
+            this.idduplaDataGridViewTextBoxColumn1.Name = "idduplaDataGridViewTextBoxColumn1";
+            this.idduplaDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nomedupla
+            // 
+            this.nomedupla.HeaderText = "nomedupla";
+            this.nomedupla.Name = "nomedupla";
+            this.nomedupla.ReadOnly = true;
+            this.nomedupla.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.nomedupla.Width = 200;
             // 
             // MainForm
             // 
@@ -855,6 +1006,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource1)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.duplaseventoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -938,6 +1093,20 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.MaskedTextBox textBox11;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.BindingSource duplaseventoBindingSource;
+        private frescobol_system_dbDataSetTableAdapters.duplaseventoTableAdapter duplaseventoTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ideventoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn horainicioDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idduplaseventoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idduplaDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomedupla;
     }
 }
 

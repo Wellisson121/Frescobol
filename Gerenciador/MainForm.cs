@@ -24,6 +24,8 @@ namespace Gerenciador
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.duplasevento' table. You can move, or remove it, as needed.
+            //this.duplaseventoTableAdapter.Fill(this.frescobol_system_dbDataSet.duplasevento);
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.evento' table. You can move, or remove it, as needed.
             this.eventoTableAdapter.Fill(this.frescobol_system_dbDataSet.evento);
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.categoria' table. You can move, or remove it, as needed.
@@ -36,6 +38,8 @@ namespace Gerenciador
             this.comboBox1.SelectedItem = null;
             this.comboBox2.SelectedItem = null;
             this.comboBox3.SelectedItem = null;
+            this.comboBox4.SelectedItem = null;
+            this.comboBox5.SelectedItem = null;
         }
 
         #region atleta
@@ -100,7 +104,7 @@ namespace Gerenciador
                 return;
             }
 
-            this.duplaTableAdapter.Insert(Int32.Parse(this.textBox4.Text), this.comboBox1.Text, Int32.Parse(this.textBox5.Text), this.comboBox2.Text);
+            this.duplaTableAdapter.Insert(Int32.Parse(this.textBox4.Text), this.comboBox1.Text, Int32.Parse(this.textBox5.Text), this.comboBox2.Text, this.comboBox1.Text + " x " + this.comboBox2.Text);
             this.duplaTableAdapter.Fill(this.frescobol_system_dbDataSet.dupla);
 
             //clean up
@@ -184,6 +188,67 @@ namespace Gerenciador
             this.textBox10.Text = "";
             this.textBox11.Text = "";
             this.comboBox3.SelectedItem = null;
+            this.comboBox4.SelectedItem = null;
+        }
+
+        #endregion
+
+        #region duplas de evento
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+
+            if (cmb.SelectedValue == null) return;
+            int selectedValue = (int)cmb.SelectedValue;
+
+            this.duplaseventoTableAdapter.FillBy(this.frescobol_system_dbDataSet.duplasevento, selectedValue);
+
+            foreach(DataGridViewRow row in dataGridView4.Rows)
+            {
+                //foreach(DataGridViewCell cell in row.Cells)
+                //{
+                //    MessageBox.Show(cell.)
+                //}
+                //MessageBox.Show(row.Cells["iddupla"].Value.ToString());
+                row.Cells["nomedupla"].Value = this.duplaTableAdapter.getNomeDupla((int)row.Cells["idduplaDataGridViewTextBoxColumn1"].Value);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if(this.comboBox4.SelectedValue == null || this.comboBox5.SelectedValue == null)
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos!");
+                return;
+            }
+
+            int idevento = (int)this.comboBox4.SelectedValue;
+            int iddupla = (int)this.comboBox5.SelectedValue;
+
+            Object t = this.eventoTableAdapter.getHoraInicio(idevento);
+            DateTime horainicio = DateTime.MinValue;
+
+            if (t is DateTime) {
+                horainicio = (DateTime)this.eventoTableAdapter.getHoraInicio(idevento);
+            }
+
+            if (horainicio == DateTime.MinValue) return; //tivemos um problema aqui na hora de pegar a hora de inicio do evento
+
+
+            this.duplaseventoTableAdapter.Insert(idevento, iddupla, horainicio.AddMinutes(this.dataGridView4.RowCount * 10));
+            this.duplaseventoTableAdapter.FillBy(this.frescobol_system_dbDataSet.duplasevento, idevento);
+
+            foreach (DataGridViewRow row in dataGridView4.Rows)
+            {
+                row.Cells["nomedupla"].Value = this.duplaTableAdapter.getNomeDupla((int)row.Cells["idduplaDataGridViewTextBoxColumn1"].Value);
+            }
+
+            this.comboBox5.SelectedItem = null;
+            //MessageBox.Show("" + idevento);
+            //MessageBox.Show("" + iddupla);
+            //MessageBox.Show(horainicio.ToString());
+            //MessageBox.Show("" + this.dataGridView4.RowCount);
         }
 
         #endregion
