@@ -9,7 +9,10 @@ using System.Text;
 using System.Media;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PdfSharp;
 using System.Drawing.Printing;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
 
 namespace Plateia
 {
@@ -31,10 +34,32 @@ namespace Plateia
             this.cronTimer = new Timer();
             this.cronTimer.Interval = 10; //10 ms
             this.cronTimer.Tick += updateCronometroText;
-            PrintDocument p = new PrintDocument();
-            p.DocumentName = "Radar Ball";
-            this.printPreviewDialog1.Document = p;
-            this.printPreviewDialog1.ShowDialog();
+            /* PrintDocument p = new PrintDocument();
+             p.DocumentName = "Radar Ball";
+             this.printPreviewDialog1.Document = p;
+             this.printPreviewDialog1.ShowDialog();
+             */
+             /*
+            PdfDocument document = new PdfDocument();
+            PdfPage page = document.AddPage();
+
+            // Get an XGraphics object for drawing
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+
+            // Create a font
+            XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
+
+            // Draw the text
+            gfx.DrawString("Hello, World!", font, XBrushes.Black,
+              new XRect(0, 0, page.Width, page.Height),
+              XStringFormats.Center);
+
+            // Save the document...
+            string filename = "HelloWorld.pdf";
+            document.Save(filename);
+            // ...and start a viewer.
+            Process.Start(filename);
+            */
         }
 
         private void updateCronometroText(object sender, EventArgs e)
