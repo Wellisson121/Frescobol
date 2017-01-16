@@ -6,8 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Diagnostics;
 using System.Text;
+using System.Media;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace Plateia
 {
@@ -29,14 +31,17 @@ namespace Plateia
             this.cronTimer = new Timer();
             this.cronTimer.Interval = 10; //10 ms
             this.cronTimer.Tick += updateCronometroText;
-
+            PrintDocument p = new PrintDocument();
+            p.DocumentName = "Radar Ball";
+            this.printPreviewDialog1.Document = p;
+            this.printPreviewDialog1.ShowDialog();
         }
 
         private void updateCronometroText(object sender, EventArgs e)
         {
             if(this.cronometro.IsRunning)
             {
-                this.label2.Text = new DateTime(this.cronometro.Elapsed.Ticks).ToString("mm:ss.fff");
+                this.label2.Text = new DateTime(this.cronometro.Elapsed.Ticks).ToString("mm:ss.ff");
             }
         }
 
@@ -47,11 +52,22 @@ namespace Plateia
             {
                 this.cronTimer.Stop();
                 this.cronometro.Stop();
+                SoundPlayer s = new SoundPlayer(Plateia.Properties.Resources.pausa);
+                s.Play();
             } else
             {
                 this.cronTimer.Start();
                 this.cronometro.Start();
+                SoundPlayer s = new SoundPlayer(Plateia.Properties.Resources.inicio);
+                s.Play();
+
+                this.textBox8.Text = ((Int32.Parse(this.textBox8.Text) + 1) + "").PadLeft(2, '0');
             }
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
