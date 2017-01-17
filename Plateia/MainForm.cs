@@ -13,15 +13,18 @@ using PdfSharp;
 using System.Drawing.Printing;
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
+using MigraDoc.DocumentObjectModel;
+using MigraDoc.DocumentObjectModel.Tables;
+using MigraDoc.Rendering;
 
 namespace Plateia
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private Stopwatch cronometro;
         private Timer cronTimer;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -39,27 +42,49 @@ namespace Plateia
              this.printPreviewDialog1.Document = p;
              this.printPreviewDialog1.ShowDialog();
              */
-             /*
-            PdfDocument document = new PdfDocument();
-            PdfPage page = document.AddPage();
+            //Estatisticas_Partida(); //Estudar como fazer o documento
+        }
 
-            // Get an XGraphics object for drawing
-            XGraphics gfx = XGraphics.FromPdfPage(page);
+        private void Estatisticas_Partida ()
+        {
+            Document document = new Document();
+            document.Info.Title = "Radar Ball - Registro de Partida";
+            document.Info.Subject = "Relatório da partida.";
 
-            // Create a font
-            XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
+            Style style = document.Styles["Normal"];
+            style.Font.Name = "Helvetica";
 
-            // Draw the text
-            gfx.DrawString("Hello, World!", font, XBrushes.Black,
-              new XRect(0, 0, page.Width, page.Height),
-              XStringFormats.Center);
+            Section section = document.AddSection();
+            Table table = section.AddTable();
+            table.Style = "Normal";
+            table.Borders.Width = 0.25;
+            table.Rows.LeftIndent = 0;
 
-            // Save the document...
-            string filename = "HelloWorld.pdf";
-            document.Save(filename);
-            // ...and start a viewer.
-            Process.Start(filename);
-            */
+            Column column = table.AddColumn("1cm");
+            column.Format.Alignment = ParagraphAlignment.Center;
+
+            column = table.AddColumn("2cm");
+            column.Format.Alignment = ParagraphAlignment.Center;
+
+            column = table.AddColumn("3.5cm");
+            column.Format.Alignment = ParagraphAlignment.Right;
+
+            Row row = table.AddRow();
+            row.HeadingFormat = true;
+            row.Format.Alignment = ParagraphAlignment.Center;
+
+            row.Cells[0].AddParagraph("Item");
+            row.Cells[1].AddParagraph("Item2");
+            row.Cells[2].AddParagraph("Item3");
+
+            //table.SetEdge(0, 0, 6, 2, Edge.Box, MigraDoc.DocumentObjectModel.BorderStyle.Single, 0.75, MigraDoc.DocumentObjectModel.Color.Empty);
+
+            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
+            pdfRenderer.Document = document;
+            pdfRenderer.RenderDocument();
+
+            pdfRenderer.PdfDocument.Save("teste.pdf");
+            Process.Start("teste.pdf");
         }
 
         private void updateCronometroText(object sender, EventArgs e)
@@ -91,6 +116,16 @@ namespace Plateia
         }
 
         private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void teste1ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void teste1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

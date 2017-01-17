@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plateia", "Plateia\Plateia.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gerenciador", "Gerenciador\Gerenciador.csproj", "{4DC7535F-B2A5-464C-97FC-8878B8922EAB}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Frescobol", "FrescobolInstaller\FrescobolInstaller.vdproj", "{6C7CBE91-A9D9-4EEF-8345-4CBB37BC5896}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -16,11 +18,14 @@ Global
 		{C463BF9D-F15C-47E5-AD28-F3421418407C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C463BF9D-F15C-47E5-AD28-F3421418407C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C463BF9D-F15C-47E5-AD28-F3421418407C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C463BF9D-F15C-47E5-AD28-F3421418407C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C463BF9D-F15C-47E5-AD28-F3421418407C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{4DC7535F-B2A5-464C-97FC-8878B8922EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4DC7535F-B2A5-464C-97FC-8878B8922EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DC7535F-B2A5-464C-97FC-8878B8922EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4DC7535F-B2A5-464C-97FC-8878B8922EAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC7535F-B2A5-464C-97FC-8878B8922EAB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6C7CBE91-A9D9-4EEF-8345-4CBB37BC5896}.Debug|Any CPU.ActiveCfg = Debug
+		{6C7CBE91-A9D9-4EEF-8345-4CBB37BC5896}.Release|Any CPU.ActiveCfg = Release
+		{6C7CBE91-A9D9-4EEF-8345-4CBB37BC5896}.Release|Any CPU.Deploy.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

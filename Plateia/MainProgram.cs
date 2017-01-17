@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Frescobol
+namespace Plateia
 {
-    static class GerenciadorMain
+    static class MainProgram
     {
         /// <summary>
         /// The main entry point for the application.
@@ -16,7 +16,7 @@ namespace Frescobol
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GerenciadorMainForm());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Plateia
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,9 +34,6 @@
             this.teste1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teste1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.teste2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.teste3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.teste4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -50,34 +47,34 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // label9
@@ -113,43 +110,24 @@
             // teste1ToolStripMenuItem1
             // 
             this.teste1ToolStripMenuItem1.Name = "teste1ToolStripMenuItem1";
-            this.teste1ToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
-            this.teste1ToolStripMenuItem1.Text = "Teste1";
+            this.teste1ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.teste1ToolStripMenuItem1.Text = "Sair";
+            this.teste1ToolStripMenuItem1.Click += new System.EventHandler(this.teste1ToolStripMenuItem1_Click);
             // 
             // testeToolStripMenuItem
             // 
             this.testeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.teste1ToolStripMenuItem,
-            this.teste2ToolStripMenuItem,
-            this.teste3ToolStripMenuItem,
-            this.teste4ToolStripMenuItem});
+            this.teste1ToolStripMenuItem});
             this.testeToolStripMenuItem.Name = "testeToolStripMenuItem";
-            this.testeToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.testeToolStripMenuItem.Text = "Teste";
+            this.testeToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.testeToolStripMenuItem.Text = "Evento";
             // 
             // teste1ToolStripMenuItem
             // 
             this.teste1ToolStripMenuItem.Name = "teste1ToolStripMenuItem";
-            this.teste1ToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.teste1ToolStripMenuItem.Text = "Teste1";
-            // 
-            // teste2ToolStripMenuItem
-            // 
-            this.teste2ToolStripMenuItem.Name = "teste2ToolStripMenuItem";
-            this.teste2ToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.teste2ToolStripMenuItem.Text = "Teste2";
-            // 
-            // teste3ToolStripMenuItem
-            // 
-            this.teste3ToolStripMenuItem.Name = "teste3ToolStripMenuItem";
-            this.teste3ToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.teste3ToolStripMenuItem.Text = "Teste3";
-            // 
-            // teste4ToolStripMenuItem
-            // 
-            this.teste4ToolStripMenuItem.Name = "teste4ToolStripMenuItem";
-            this.teste4ToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.teste4ToolStripMenuItem.Text = "Teste4";
+            this.teste1ToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.teste1ToolStripMenuItem.Text = "Selecionar Evento";
+            this.teste1ToolStripMenuItem.Click += new System.EventHandler(this.teste1ToolStripMenuItem_Click);
             // 
             // pictureBox2
             // 
@@ -197,7 +175,7 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 120F);
             this.label2.Location = new System.Drawing.Point(9, 14);
             this.label2.Name = "label2";
@@ -263,7 +241,7 @@
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(720, 13);
@@ -292,15 +270,6 @@
             this.panel1.Size = new System.Drawing.Size(315, 599);
             this.panel1.TabIndex = 12;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(315, 184);
-            this.panel2.TabIndex = 0;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.label4);
@@ -310,6 +279,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(315, 190);
             this.panel3.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(315, 184);
+            this.panel2.TabIndex = 0;
             // 
             // panel4
             // 
@@ -321,15 +299,6 @@
             this.panel4.Size = new System.Drawing.Size(315, 599);
             this.panel4.TabIndex = 13;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(315, 184);
-            this.panel5.TabIndex = 0;
-            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label3);
@@ -339,6 +308,15 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(315, 190);
             this.panel6.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(315, 184);
+            this.panel5.TabIndex = 0;
             // 
             // panel7
             // 
@@ -350,6 +328,40 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(720, 184);
             this.panel7.TabIndex = 14;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
+            this.splitContainer1.Location = new System.Drawing.Point(100, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox3);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.label10);
+            this.splitContainer1.Size = new System.Drawing.Size(520, 184);
+            this.splitContainer1.SplitterDistance = 222;
+            this.splitContainer1.TabIndex = 2;
+            // 
+            // panel11
+            // 
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel11.Location = new System.Drawing.Point(620, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(100, 184);
+            this.panel11.TabIndex = 1;
+            // 
+            // panel10
+            // 
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(100, 184);
+            this.panel10.TabIndex = 0;
             // 
             // panel8
             // 
@@ -371,41 +383,7 @@
             this.panel9.Size = new System.Drawing.Size(720, 225);
             this.panel9.TabIndex = 16;
             // 
-            // panel10
-            // 
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(100, 184);
-            this.panel10.TabIndex = 0;
-            // 
-            // panel11
-            // 
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(620, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(100, 184);
-            this.panel11.TabIndex = 1;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(100, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBox3);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.label10);
-            this.splitContainer1.Size = new System.Drawing.Size(520, 184);
-            this.splitContainer1.SplitterDistance = 222;
-            this.splitContainer1.TabIndex = 2;
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -421,7 +399,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -431,20 +409,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,9 +435,6 @@
         private System.Windows.Forms.ToolStripMenuItem teste1ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem teste1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem teste2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem teste3ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem teste4ToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label10;
