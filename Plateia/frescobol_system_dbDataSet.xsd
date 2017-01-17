@@ -259,7 +259,7 @@
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT `idevento`, `datainicio`, `datafim`, `horainicio`, `nome`, `idcategoria`, `finalizado` FROM `evento`</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -295,7 +295,16 @@
               <Mapping SourceColumn="idcategoria" DataSetColumn="idcategoria" />
               <Mapping SourceColumn="finalizado" DataSetColumn="finalizado" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="frescobol_system_dbConnectionString (Settings)" DbObjectName="frescobol_system_db.evento" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetNotFinalizedEvents" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetNotFinalizedEvents" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetNotFinalizedEvents">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT datafim, datainicio, finalizado, horainicio, idcategoria, idevento, nome FROM evento WHERE (finalizado = 0)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />

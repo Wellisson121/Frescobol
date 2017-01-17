@@ -65,7 +65,7 @@ namespace Gerenciador.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap no_image {
             get {
-                object obj = ResourceManager.GetObject("no-image", resourceCulture);
+                object obj = ResourceManager.GetObject("no_image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

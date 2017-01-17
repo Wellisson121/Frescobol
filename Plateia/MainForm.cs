@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
+using StalkerRadarLib;
 
 namespace Plateia
 {
@@ -12,6 +13,8 @@ namespace Plateia
     {
         private Stopwatch cronometro;
         private Timer cronTimer;
+        private ProIISensor radar;
+        private EventoForm eventoForm;
 
         public MainForm()
         {
@@ -21,17 +24,29 @@ namespace Plateia
         private void Form1_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized; //inicializa maximizado
+            KeyPreview = true;
 
             this.cronometro = new Stopwatch();
             this.cronTimer = new Timer();
             this.cronTimer.Interval = 10; //10 ms
             this.cronTimer.Tick += updateCronometroText;
-            /* PrintDocument p = new PrintDocument();
-             p.DocumentName = "Radar Ball";
-             this.printPreviewDialog1.Document = p;
-             this.printPreviewDialog1.ShowDialog();
-             */
-            //Estatisticas_Partida(); //Estudar como fazer o documento
+
+            eventoForm = new EventoForm();
+
+            radar = new ProIISensor(/*RadarModel.StalkerRadarRS232*/); //we need to add a RadarModel.StalkerRadarRS232 / RadarModel.StalkerRadarRS485 enum
+            radar.SpeedReceived += Radar_SpeedReceived;
+
+            try
+            {
+                radar.openSerialPort("COM4");
+            } catch (Exception) {
+                MessageBox.Show("O radar não está conectado ou está na porta errada.", "Radar não encontrado...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Radar_SpeedReceived(object sender, RadarSpeedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Estatisticas_Partida ()
@@ -104,11 +119,6 @@ namespace Plateia
             }
         }
 
-        private void printPreviewDialog1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void teste1ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -116,8 +126,27 @@ namespace Plateia
 
         private void teste1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EventoForm page = new EventoForm();
-            page.Show();
+            eventoForm.Show();
+        }
+
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch(e.KeyCode)
+            {
+                case Keys.F7:
+                    eventoForm.Show();
+                    break;
+                case Keys.F8:
+
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

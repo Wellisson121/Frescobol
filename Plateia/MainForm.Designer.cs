@@ -35,6 +35,7 @@
             this.teste1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teste1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selecionarDuplaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -95,6 +96,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Enabled = false;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivoToolStripMenuItem,
             this.testeToolStripMenuItem});
@@ -115,14 +117,15 @@
             // teste1ToolStripMenuItem1
             // 
             this.teste1ToolStripMenuItem1.Name = "teste1ToolStripMenuItem1";
-            this.teste1ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.teste1ToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
             this.teste1ToolStripMenuItem1.Text = "Sair";
             this.teste1ToolStripMenuItem1.Click += new System.EventHandler(this.teste1ToolStripMenuItem1_Click);
             // 
             // testeToolStripMenuItem
             // 
             this.testeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.teste1ToolStripMenuItem});
+            this.teste1ToolStripMenuItem,
+            this.selecionarDuplaToolStripMenuItem});
             this.testeToolStripMenuItem.Name = "testeToolStripMenuItem";
             this.testeToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.testeToolStripMenuItem.Text = "Evento";
@@ -133,6 +136,12 @@
             this.teste1ToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.teste1ToolStripMenuItem.Text = "Selecionar Evento";
             this.teste1ToolStripMenuItem.Click += new System.EventHandler(this.teste1ToolStripMenuItem_Click);
+            // 
+            // selecionarDuplaToolStripMenuItem
+            // 
+            this.selecionarDuplaToolStripMenuItem.Name = "selecionarDuplaToolStripMenuItem";
+            this.selecionarDuplaToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.selecionarDuplaToolStripMenuItem.Text = "Selecionar Dupla";
             // 
             // pictureBox2
             // 
@@ -419,6 +428,8 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -479,6 +490,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private frescobol_system_dbDataSet frescobol_system_dbDataSet;
+        private System.Windows.Forms.ToolStripMenuItem selecionarDuplaToolStripMenuItem;
     }
 }
 

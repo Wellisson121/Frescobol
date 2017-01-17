@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAtleta = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
@@ -103,6 +104,11 @@
             this.categoriaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.ideventoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horainicioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idduplaseventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idduplaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomedupla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duplaseventoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button6 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
@@ -115,11 +121,6 @@
             this.categoriaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.categoriaTableAdapter();
             this.eventoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.eventoTableAdapter();
             this.duplaseventoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaseventoTableAdapter();
-            this.ideventoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horainicioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idduplaseventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idduplaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomedupla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabAtleta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -857,6 +858,44 @@
             this.dataGridView4.Size = new System.Drawing.Size(676, 356);
             this.dataGridView4.TabIndex = 5;
             // 
+            // ideventoDataGridViewTextBoxColumn1
+            // 
+            this.ideventoDataGridViewTextBoxColumn1.DataPropertyName = "idevento";
+            this.ideventoDataGridViewTextBoxColumn1.HeaderText = "idevento";
+            this.ideventoDataGridViewTextBoxColumn1.Name = "ideventoDataGridViewTextBoxColumn1";
+            this.ideventoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.ideventoDataGridViewTextBoxColumn1.Width = 102;
+            // 
+            // horainicioDataGridViewTextBoxColumn1
+            // 
+            this.horainicioDataGridViewTextBoxColumn1.DataPropertyName = "horainicio";
+            this.horainicioDataGridViewTextBoxColumn1.HeaderText = "horainicio";
+            this.horainicioDataGridViewTextBoxColumn1.Name = "horainicioDataGridViewTextBoxColumn1";
+            this.horainicioDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.horainicioDataGridViewTextBoxColumn1.Width = 130;
+            // 
+            // idduplaseventoDataGridViewTextBoxColumn
+            // 
+            this.idduplaseventoDataGridViewTextBoxColumn.DataPropertyName = "idduplasevento";
+            this.idduplaseventoDataGridViewTextBoxColumn.HeaderText = "idduplasevento";
+            this.idduplaseventoDataGridViewTextBoxColumn.Name = "idduplaseventoDataGridViewTextBoxColumn";
+            this.idduplaseventoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idduplaDataGridViewTextBoxColumn1
+            // 
+            this.idduplaDataGridViewTextBoxColumn1.DataPropertyName = "iddupla";
+            this.idduplaDataGridViewTextBoxColumn1.HeaderText = "iddupla";
+            this.idduplaDataGridViewTextBoxColumn1.Name = "idduplaDataGridViewTextBoxColumn1";
+            this.idduplaDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nomedupla
+            // 
+            this.nomedupla.HeaderText = "nomedupla";
+            this.nomedupla.Name = "nomedupla";
+            this.nomedupla.ReadOnly = true;
+            this.nomedupla.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.nomedupla.Width = 200;
+            // 
             // duplaseventoBindingSource
             // 
             this.duplaseventoBindingSource.DataMember = "duplasevento";
@@ -937,50 +976,13 @@
             // 
             this.duplaseventoTableAdapter.ClearBeforeFill = true;
             // 
-            // ideventoDataGridViewTextBoxColumn1
-            // 
-            this.ideventoDataGridViewTextBoxColumn1.DataPropertyName = "idevento";
-            this.ideventoDataGridViewTextBoxColumn1.HeaderText = "idevento";
-            this.ideventoDataGridViewTextBoxColumn1.Name = "ideventoDataGridViewTextBoxColumn1";
-            this.ideventoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.ideventoDataGridViewTextBoxColumn1.Width = 102;
-            // 
-            // horainicioDataGridViewTextBoxColumn1
-            // 
-            this.horainicioDataGridViewTextBoxColumn1.DataPropertyName = "horainicio";
-            this.horainicioDataGridViewTextBoxColumn1.HeaderText = "horainicio";
-            this.horainicioDataGridViewTextBoxColumn1.Name = "horainicioDataGridViewTextBoxColumn1";
-            this.horainicioDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.horainicioDataGridViewTextBoxColumn1.Width = 130;
-            // 
-            // idduplaseventoDataGridViewTextBoxColumn
-            // 
-            this.idduplaseventoDataGridViewTextBoxColumn.DataPropertyName = "idduplasevento";
-            this.idduplaseventoDataGridViewTextBoxColumn.HeaderText = "idduplasevento";
-            this.idduplaseventoDataGridViewTextBoxColumn.Name = "idduplaseventoDataGridViewTextBoxColumn";
-            this.idduplaseventoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idduplaDataGridViewTextBoxColumn1
-            // 
-            this.idduplaDataGridViewTextBoxColumn1.DataPropertyName = "iddupla";
-            this.idduplaDataGridViewTextBoxColumn1.HeaderText = "iddupla";
-            this.idduplaDataGridViewTextBoxColumn1.Name = "idduplaDataGridViewTextBoxColumn1";
-            this.idduplaDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // nomedupla
-            // 
-            this.nomedupla.HeaderText = "nomedupla";
-            this.nomedupla.Name = "nomedupla";
-            this.nomedupla.ReadOnly = true;
-            this.nomedupla.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.nomedupla.Width = 200;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Frescobol - Interface de Gerenciamento";
             this.Load += new System.EventHandler(this.MainForm_Load);

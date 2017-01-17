@@ -153,6 +153,12 @@
   <ItemGroup>
     <None Include="Resources\RADAR logo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\back\Visual Studio 2015\Visual Studio 2015\Projects\StalkerRadarLib\StalkerRadarLib\StalkerRadarLib.csproj">
+      <Project>{a259320a-197f-4a33-b52d-7123d9b50c7b}</Project>
+      <Name>StalkerRadarLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

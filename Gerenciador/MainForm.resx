@@ -117,59 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="atletaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>361, 17</value>
+  </metadata>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="frescobol_system_dbDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>154, 17</value>
+  </metadata>
+  <metadata name="atletaBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>982, 20</value>
+  </metadata>
+  <metadata name="duplaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>817, 19</value>
+  </metadata>
+  <metadata name="categoriaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>173, 56</value>
+  </metadata>
+  <metadata name="eventoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <metadata name="categoriaBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>529, 56</value>
+  </metadata>
   <metadata name="nomedupla.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="duplaseventoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>347, 95</value>
-  </metadata>
-  <metadata name="atletaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>361, 17</value>
-  </metadata>
-  <metadata name="atletaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>361, 17</value>
-  </metadata>
-  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="frescobol_system_dbDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>154, 17</value>
-  </metadata>
-  <metadata name="frescobol_system_dbDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>154, 17</value>
-  </metadata>
-  <metadata name="atletaBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>982, 20</value>
-  </metadata>
-  <metadata name="atletaBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>982, 20</value>
-  </metadata>
-  <metadata name="duplaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>817, 19</value>
-  </metadata>
-  <metadata name="duplaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>817, 19</value>
-  </metadata>
-  <metadata name="categoriaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>173, 56</value>
-  </metadata>
-  <metadata name="categoriaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>173, 56</value>
-  </metadata>
-  <metadata name="eventoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 95</value>
-  </metadata>
-  <metadata name="eventoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 95</value>
-  </metadata>
-  <metadata name="categoriaBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>529, 56</value>
-  </metadata>
-  <metadata name="categoriaBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>529, 56</value>
   </metadata>
   <metadata name="duplaseventoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>347, 95</value>
@@ -192,7 +165,29 @@
   <metadata name="duplaseventoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>551, 95</value>
   </metadata>
-  <metadata name="nomedupla.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AABAREQCQEREBEBERARAREQELDAwECgrK2ItMTEOQEREBEBERAQpLCwuKCsrYDI1NQgoKytWKSwsPEBE
+        RARAREQCQEREBEBERARAREQEQEREBCgsLFQoKyv/KCsroEBERAQ4OzsGKCsrzCgrK+IoLCxMKCsrmCgr
+        K8QpLCw4QEREBEBERAJAREQEQEREBEBERAQpLS0sKCsr/ygrK/8oKyu+KCsrxigrK/ooLCxSKCsr5Cgr
+        K6IoKyusKy8vFkBERARAREQEKSwsOCksLDoxNDQKKCsrkigrK/8oKyvsKCsruigrK7ooKyt6KCsrsigr
+        K/8oKyvqKCwsTCksLEJAREQENzs7BCgrK+IoKyv/KCsr8igrK/woKyt8MDMzCkBERARAREQEKCsrbigr
+        K/8oKyv0KCwsUCgrK9woKyu8QEREBEBERAQpLCxMKCsr8CgrK/8oKyt4QEREBDg8PAYoKyuQKCsrjCgr
+        K/YoKyv6KCwsWigrK8woKyvgKi0tJkBERAJAREQEQEREBCgrK4woKyvmMjU1CEBERAQoKytuKCsr6Cgr
+        K/AoKyv/KCsrbi4yMgwoKyvuKCsrdkBERARAREQEQEREAjI2NggoKyu8KCsrrEBERAQqLi4cKCsr6Cks
+        LC4qLS0qKCsr5igrK55AREQEKCsruCgrK7IuMTEOQEREBCgrK1goKyvkKCsr/ygrK6hAREQEKy8vFigs
+        LFBAREQEKSwsLigrK+4oLCxSQEREBCgrK7YoKyv/KCsr8igrK2woKyuUKCsr/ygrK/8oKyvgNjo6BkBE
+        RARAREQEKy4uFigrK9ooKytaQEREBDE1NQooKyvqKCsr/CgrK+woKytyOT09BC0wMBAqLS0oKCsr9igr
+        K2pAREQEQEREBDU4OAYqLi4cQEREBEBERAQoKyt2KCsr7iwvLxRAREQEQEREAkBERARAREQEQEREBCgr
+        K6IoKyv4KCsrajc7OwZAREQEQEREBDQ3NwYoKytyKCsr+igrK5pAREQEQEREBEBERARAREQCQEREBCsv
+        LxQoKyvyKCsr/ygrK/woKyveKCsrpigrK6goKyviKCsr+igrK/8oKyv2Ki0tIEBERARAREQEQEREBEBE
+        RAQpLCw8KCsr+igrK54rLi4aKCsrdCgrK/8oKyv/KCsrbiwvLxYoKyuKKCsr8iksLD5AREQEQEREBEBE
+        RAJAREQEQEREBCouLiBAREQEQEREBDY5OQYoKyvuKCsr9jM2NghAREQEQEREBC4xMQ5AREQEQEREBEBE
+        RARAREQCQEREAkBERARAREQCQEREBEBERARAREQCKCsrbigrK35AREQEQEREBEBERAJAREQEQEREAkBE
+        RARAREQC//8AAPmTAAD4IwAA8EcAAIfJAADOEwAAzjcAAM2TAACPsQAAD3EAAO/3AADn5wAA4AcAAOZn
+        AAD+fwAA//8AAA==
+</value>
+  </data>
 </root>
