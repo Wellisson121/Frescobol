@@ -28,6 +28,12 @@
         "Entry"
         {
         "MsmKey" = "8:_15910EEE8C94D9391EE0D43C3C3C1E9B"
+        "OwnerKey" = "8:_B0D19CA4A0F34AA198977489CE07DA16"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_15910EEE8C94D9391EE0D43C3C3C1E9B"
         "OwnerKey" = "8:_7081EDD6A1E34DEA974D2A26318EDB58"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -75,14 +81,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1F8E0369D57791424EACE04FB35A51BA"
-        "OwnerKey" = "8:_14E4C708346D4402A63A936BD380FB76"
+        "MsmKey" = "8:_2E9B44907AB9F14253428F80FB9DCDB4"
+        "OwnerKey" = "8:_CBBB2B494BB509572740A494B5FDC4DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_2E9B44907AB9F14253428F80FB9DCDB4"
-        "OwnerKey" = "8:_CBBB2B494BB509572740A494B5FDC4DD"
+        "OwnerKey" = "8:_B0D19CA4A0F34AA198977489CE07DA16"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -112,6 +118,12 @@
         "Entry"
         {
         "MsmKey" = "8:_7297A1EC9A325FFFDCC6294244D5CF15"
+        "OwnerKey" = "8:_B0D19CA4A0F34AA198977489CE07DA16"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7297A1EC9A325FFFDCC6294244D5CF15"
         "OwnerKey" = "8:_7081EDD6A1E34DEA974D2A26318EDB58"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -119,6 +131,12 @@
         {
         "MsmKey" = "8:_780688B77F01DE5CC4F99774C7D523CA"
         "OwnerKey" = "8:_14E4C708346D4402A63A936BD380FB76"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_780688B77F01DE5CC4F99774C7D523CA"
+        "OwnerKey" = "8:_B0D19CA4A0F34AA198977489CE07DA16"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -141,8 +159,26 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_96EBD62FB2334F0D94522805162EB7E4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B0D19CA4A0F34AA198977489CE07DA16"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B17B424A9411F3AEAAD367B6ED75F4AA"
         "OwnerKey" = "8:_2E9B44907AB9F14253428F80FB9DCDB4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B17B424A9411F3AEAAD367B6ED75F4AA"
+        "OwnerKey" = "8:_B0D19CA4A0F34AA198977489CE07DA16"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -171,6 +207,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B65DDEF6CCDD3A21FAF3F8E49B8CBAB8"
+        "OwnerKey" = "8:_14E4C708346D4402A63A936BD380FB76"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C0C3B66F27D735D9D10FD26993599C19"
         "OwnerKey" = "8:_1B1959EF831D773F0947F2D6D22E7EC4"
         "MsmSig" = "8:_UNDEFINED"
@@ -185,6 +227,12 @@
         {
         "MsmKey" = "8:_CBBB2B494BB509572740A494B5FDC4DD"
         "OwnerKey" = "8:_14E4C708346D4402A63A936BD380FB76"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CBBB2B494BB509572740A494B5FDC4DD"
+        "OwnerKey" = "8:_B0D19CA4A0F34AA198977489CE07DA16"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -214,6 +262,12 @@
         "Entry"
         {
         "MsmKey" = "8:_FB2E19FE441FA476C0EED4285270F425"
+        "OwnerKey" = "8:_B0D19CA4A0F34AA198977489CE07DA16"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FB2E19FE441FA476C0EED4285270F425"
         "OwnerKey" = "8:_7081EDD6A1E34DEA974D2A26318EDB58"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -221,6 +275,18 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7081EDD6A1E34DEA974D2A26318EDB58"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B0D19CA4A0F34AA198977489CE07DA16"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B65DDEF6CCDD3A21FAF3F8E49B8CBAB8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -251,12 +317,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_14E4C708346D4402A63A936BD380FB76"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1F8E0369D57791424EACE04FB35A51BA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -487,37 +547,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1F8E0369D57791424EACE04FB35A51BA"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:StalkerRadarLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_1F8E0369D57791424EACE04FB35A51BA"
-                    {
-                    "Name" = "8:StalkerRadarLib.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:StalkerRadarLib.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_EA3B96706CB74EFCB1F404D3ECB25F3C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2E9B44907AB9F14253428F80FB9DCDB4"
             {
             "AssemblyRegister" = "3:1"
@@ -642,6 +671,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_96EBD62FB2334F0D94522805162EB7E4"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\Downloads\\icons\\work_icon_4445_256px.ico"
+            "TargetName" = "8:gerenciador.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_BD929836DC304086976CFFF17B3122BA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B17B424A9411F3AEAAD367B6ED75F4AA"
             {
             "AssemblyRegister" = "3:1"
@@ -659,6 +708,37 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A57058990ECF4F2B92B7DFD1B8F145C0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B65DDEF6CCDD3A21FAF3F8E49B8CBAB8"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:StalkerRadarLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_B65DDEF6CCDD3A21FAF3F8E49B8CBAB8"
+                    {
+                    "Name" = "8:StalkerRadarLib.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:StalkerRadarLib.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_EA3B96706CB74EFCB1F404D3ECB25F3C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -953,11 +1033,11 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Frescobol"
         "ProductCode" = "8:{E2DE2425-F962-4D68-9C9F-0F752B1EF3CB}"
-        "PackageCode" = "8:{8281D0A5-BB19-4F24-8E77-BE45DCB82DEC}"
+        "PackageCode" = "8:{47D63743-C90D-4A7A-BC96-472F70278BA4}"
         "UpgradeCode" = "8:{67B095B9-C657-4678-A8C4-D567C2D40657}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
@@ -1073,6 +1153,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_24B130D4B7E640E5A46EDD254A9BAD56"
+            {
+            "Name" = "8:Gerenciador"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_7081EDD6A1E34DEA974D2A26318EDB58"
+            "Folder" = "8:_E4122FCAB73E412994091297A523CC9C"
+            "WorkingFolder" = "8:_9A94A90DCC8E4D618A6FAB965BC26A40"
+            "Icon" = "8:_96EBD62FB2334F0D94522805162EB7E4"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
@@ -1521,6 +1615,34 @@
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:Release|Any CPU"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{4DC7535F-B2A5-464C-97FC-8878B8922EAB}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B0D19CA4A0F34AA198977489CE07DA16"
+            {
+            "SourcePath" = "8:..\\Gerenciador\\obj\\Release\\Gerenciador.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9A94A90DCC8E4D618A6FAB965BC26A40"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{4DC7535F-B2A5-464C-97FC-8878B8922EAB}"
             "ShowKeyOutput" = "11:TRUE"

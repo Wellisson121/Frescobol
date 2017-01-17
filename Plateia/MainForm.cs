@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Diagnostics;
 using System.Media;
 using System.Windows.Forms;
@@ -15,14 +16,15 @@ namespace Plateia
         private Timer cronTimer;
         private ProIISensor radar;
         private EventoForm eventoForm;
+        private DuplasForm duplasForm;
+
+        private DataRow eventoAtual;
+        private DataRow duplaAtual;
 
         public MainForm()
         {
             InitializeComponent();
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
             WindowState = FormWindowState.Maximized; //inicializa maximizado
             KeyPreview = true;
 
@@ -31,11 +33,12 @@ namespace Plateia
             this.cronTimer.Interval = 10; //10 ms
             this.cronTimer.Tick += updateCronometroText;
 
-            eventoForm = new EventoForm();
-
             radar = new ProIISensor(/*RadarModel.StalkerRadarRS232*/); //we need to add a RadarModel.StalkerRadarRS232 / RadarModel.StalkerRadarRS485 enum
             radar.SpeedReceived += Radar_SpeedReceived;
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
             try
             {
                 radar.openSerialPort("COM4");
@@ -129,23 +132,46 @@ namespace Plateia
             eventoForm.Show();
         }
 
-        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
             switch(e.KeyCode)
             {
                 case Keys.F7:
-                    eventoForm.Show();
+                    if(eventoForm == null || eventoForm.IsDisposed)
+                    {
+                        eventoForm = new EventoForm();
+                        eventoForm.Show();
+                        eventoForm.Disposed += EventoForm_Disposed;
+                    }
                     break;
                 case Keys.F8:
+                    if(duplasForm == null || duplasForm.IsDisposed) {
+                        if(eventoAtual == null)
+                        {
+                            MessageBox.Show("Você deve selecionar um evento antes.", "Evento não selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
 
+                        duplasForm = new DuplasForm(Int32.Parse(eventoAtual["idevento"].ToString()));
+                        duplasForm.Show();
+                    }
+                    break;
+                case Keys.F9:
+                    label2_Click(null, null);
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void EventoForm_Disposed(object sender, EventArgs e)
+        {
+            if (eventoForm.GetSelectedEventId() > 0)
+            {
+                eventoAtual = this.eventoTableAdapter1.GetById(this.eventoForm.GetSelectedEventId()).Rows[0];
+            } else
+            {
+                eventoAtual = null;
             }
         }
     }

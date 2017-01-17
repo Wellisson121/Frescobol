@@ -12,6 +12,8 @@ namespace Plateia
 {
     public partial class EventoForm : Form
     {
+        private int selectedEventId = -1;
+
         public EventoForm()
         {
             InitializeComponent();
@@ -36,6 +38,24 @@ namespace Plateia
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(this.comboBox1.SelectedValue == null)
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos!");
+                return;
+            }
+
+            this.selectedEventId = (int)this.comboBox1.SelectedValue;
+
+            this.Dispose();
+        }
+
+        public int GetSelectedEventId ()
+        {
+            return this.selectedEventId;
         }
     }
 }

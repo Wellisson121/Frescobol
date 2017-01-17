@@ -62,6 +62,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.frescobol_system_dbDataSet = new Plateia.frescobol_system_dbDataSet();
+            this.eventoTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.eventoTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -407,6 +408,10 @@
             this.frescobol_system_dbDataSet.DataSetName = "frescobol_system_dbDataSet";
             this.frescobol_system_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // eventoTableAdapter1
+            // 
+            this.eventoTableAdapter1.ClearBeforeFill = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,7 +434,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -491,6 +495,7 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private frescobol_system_dbDataSet frescobol_system_dbDataSet;
         private System.Windows.Forms.ToolStripMenuItem selecionarDuplaToolStripMenuItem;
+        private frescobol_system_dbDataSetTableAdapters.eventoTableAdapter eventoTableAdapter1;
     }
 }
 
