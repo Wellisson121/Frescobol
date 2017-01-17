@@ -78,6 +78,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventoForm.Designer.cs">
+      <DependentUpon>EventoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="frescobol_system_dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +97,9 @@
     </Compile>
     <Compile Include="MainProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EventoForm.resx">
+      <DependentUpon>EventoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

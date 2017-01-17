@@ -116,7 +116,8 @@ namespace Plateia
 
         private void teste1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            EventoForm page = new EventoForm();
+            page.Show();
         }
     }
 }
