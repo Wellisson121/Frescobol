@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +59,8 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.frescobol_system_dbDataSet = new Plateia.frescobol_system_dbDataSet();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,6 +78,8 @@
             this.splitContainer1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frescobol_system_dbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -383,6 +388,16 @@
             this.panel9.Size = new System.Drawing.Size(720, 225);
             this.panel9.TabIndex = 16;
             // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = this.frescobol_system_dbDataSet;
+            this.bindingSource1.Position = 0;
+            // 
+            // frescobol_system_dbDataSet
+            // 
+            this.frescobol_system_dbDataSet.DataSetName = "frescobol_system_dbDataSet";
+            this.frescobol_system_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,6 +438,8 @@
             this.splitContainer1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frescobol_system_dbDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,6 +476,8 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private frescobol_system_dbDataSet frescobol_system_dbDataSet;
     }
 }
 
