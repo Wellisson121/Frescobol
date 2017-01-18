@@ -4323,7 +4323,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `idduplasevento`, `idevento`, `iddupla`, `horainicio`, `finalizado` FROM `" +
@@ -4343,17 +4343,29 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "select idduplasevento, idevento, `dupla`.`iddupla`, horainicio, `dupla`.`nomedupl" +
-                "a`, finalizado from `dupla` join `duplasevento` on `dupla`.`iddupla`=`duplaseven" +
-                "to`.`iddupla` where `duplasevento`.`idevento`=@p1 and finalizado=0";
+            this._commandCollection[2].CommandText = "SELECT `idduplasevento`, `idevento`, `iddupla`, `horainicio`, `finalizado` FROM `" +
+                "duplasevento` WHERE idduplasevento=@p1";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "idevento";
+            param.SourceColumn = "idduplasevento";
             this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "select idduplasevento, idevento, `dupla`.`iddupla`, horainicio, `dupla`.`nomedupl" +
+                "a`, finalizado from `dupla` join `duplasevento` on `dupla`.`iddupla`=`duplaseven" +
+                "to`.`iddupla` where `duplasevento`.`idevento`=@p1 and finalizado=0";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "idevento";
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4384,8 +4396,20 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual frescobol_system_dbDataSet.duplaseventoDataTable GetDuplaById(int p1) {
+        public virtual frescobol_system_dbDataSet.duplaseventoDataTable GetDuplaByDuplaId(int p1) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(p1));
+            frescobol_system_dbDataSet.duplaseventoDataTable dataTable = new frescobol_system_dbDataSet.duplaseventoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual frescobol_system_dbDataSet.duplaseventoDataTable GetDuplaById(int p1) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(p1));
             frescobol_system_dbDataSet.duplaseventoDataTable dataTable = new frescobol_system_dbDataSet.duplaseventoDataTable();
             this.Adapter.Fill(dataTable);
@@ -4397,7 +4421,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int GetDuplasByEventoId(frescobol_system_dbDataSet.duplaseventoDataTable dataTable, int p1) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(p1));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();

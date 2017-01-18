@@ -61,6 +61,26 @@ namespace Plateia.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ataque_in {
+            get {
+                object obj = ResourceManager.GetObject("ataque_in", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ataque_out {
+            get {
+                object obj = ResourceManager.GetObject("ataque_out", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream inicio {
@@ -110,63 +130,45 @@ namespace Plateia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Velocidade1 {
+        internal static System.IO.UnmanagedMemoryStream velocidade50 {
             get {
-                return ResourceManager.GetStream("Velocidade1", resourceCulture);
+                return ResourceManager.GetStream("velocidade50", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Velocidade2 {
+        internal static System.IO.UnmanagedMemoryStream velocidade60 {
             get {
-                return ResourceManager.GetStream("Velocidade2", resourceCulture);
+                return ResourceManager.GetStream("velocidade60", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Velocidade21 {
+        internal static System.IO.UnmanagedMemoryStream velocidade70 {
             get {
-                return ResourceManager.GetStream("Velocidade21", resourceCulture);
+                return ResourceManager.GetStream("velocidade70", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Velocidade3 {
+        internal static System.IO.UnmanagedMemoryStream velocidade80 {
             get {
-                return ResourceManager.GetStream("Velocidade3", resourceCulture);
+                return ResourceManager.GetStream("velocidade80", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Velocidade4 {
+        internal static System.IO.UnmanagedMemoryStream velocidade90 {
             get {
-                return ResourceManager.GetStream("Velocidade4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Velocidade5 {
-            get {
-                return ResourceManager.GetStream("Velocidade5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Velocidade89 {
-            get {
-                return ResourceManager.GetStream("Velocidade89", resourceCulture);
+                return ResourceManager.GetStream("velocidade90", resourceCulture);
             }
         }
     }

@@ -133,25 +133,25 @@
   <data name="termino" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\termino.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Velocidade1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Velocidade1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ataque_in" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ataque_in.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Velocidade2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Velocidade2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ataque_out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ataque_out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Velocidade21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Velocidade21.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="velocidade50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\velocidade50.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Velocidade3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Velocidade3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="velocidade60" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\velocidade60.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Velocidade4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Velocidade4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="velocidade70" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\velocidade70.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Velocidade5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Velocidade5.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="velocidade80" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\velocidade80.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Velocidade89" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Velocidade89.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="velocidade90" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\velocidade90.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

@@ -2,6 +2,7 @@
 using System.Data;
 using System.Diagnostics;
 using System.Media;
+using System.Collections;
 using System.Windows.Forms;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
@@ -18,12 +19,36 @@ namespace Plateia
         private EventoForm eventoForm;
         private DuplasForm duplasForm;
 
+        private ArrayList registrosRadar;
+
         private DataRow eventoAtual;
         private DataRow duplaAtual;
         private DataRow duplasEventoAtual;
         private DataRow categoriaAtual;
         private DataRow atleta1;
         private DataRow atleta2;
+
+        int v = 100;
+
+        private int idAtleta1;
+        private int idAtleta2;
+        private int idEvento;
+        private int idDupla;
+        private int idDuplasEvento;
+
+        private int categoriaVelocidadeMinima = 0;
+        private int ataquesAtleta1 = 0;
+        private int ataquesAtleta2 = 0;
+        private int ataquesTotal = 0;
+        private int somaAtaquesAtleta1 = 0;
+        private int somaAtaquesAtleta2 = 0;
+        private int somaAtaquesTotal = 0;
+        private double potenciaAtleta1 = 0;
+        private double potenciaAtleta2 = 0;
+        private double potenciaTotalMedia = 0;
+
+        private int notaJuizAtleta1;
+        private int notaJuizAtleta2;
 
         public MainForm()
         {
@@ -38,7 +63,6 @@ namespace Plateia
             this.cronTimer.Tick += updateCronometroText;
 
             radar = new ProIISensor(/*RadarModel.StalkerRadarRS232*/); //we need to add a RadarModel.StalkerRadarRS232 / RadarModel.StalkerRadarRS485 enum
-            radar.SpeedReceived += Radar_SpeedReceived;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -47,13 +71,79 @@ namespace Plateia
             {
                 radar.openSerialPort("COM4");
             } catch (Exception) {
-                MessageBox.Show("O radar não está conectado ou está na porta errada.", "Radar não encontrado...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("O radar não está conectado ou está na porta errada.", "Radar não encontrado...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
+        //IMPORTANT: o atleta1 (esquerda na exibição dos atletas) é o atleta da direção in
         private void Radar_SpeedReceived(object sender, RadarSpeedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (cronometro.IsRunning == false) return;
+
+            SoundPlayer s;
+            int velocidade = e.pSpeed;
+            int direcao = e.direction;
+            long tempo = cronometro.ElapsedTicks;
+
+            if(velocidade >= categoriaVelocidadeMinima)
+            {
+                if (direcao == 0) //ataque na direcao in
+                {
+                    ++ataquesAtleta1;
+                    somaAtaquesAtleta1 += velocidade;
+                    potenciaAtleta1 = (double)somaAtaquesAtleta1 / ataquesAtleta1;
+
+                    //registrosRadar.Add(new SpeedRecord(idAtleta2, idDupla, idEvento, idDuplasEvento, velocidade, direcao, tempo));
+                } else //ataque na direção out
+                {
+                    ++ataquesAtleta2;
+                    somaAtaquesAtleta2 += velocidade;
+                    potenciaAtleta2 = (double)somaAtaquesAtleta2 / ataquesAtleta2;
+
+                    //registrosRadar.Add(new SpeedRecord(idAtleta2, idDupla, idEvento, idDuplasEvento, velocidade, direcao, tempo));
+                }
+
+                ++ataquesTotal;
+                somaAtaquesTotal += velocidade;
+                potenciaTotalMedia = (double)somaAtaquesTotal / ataquesTotal;
+
+                UpdateWindowContent(velocidade, direcao);
+
+                if (velocidade < 60)
+                {
+                    s = new SoundPlayer(Properties.Resources.velocidade50);
+                    s.Play();
+                }
+                else if (velocidade < 70)
+                {
+                    s = new SoundPlayer(Properties.Resources.velocidade60);
+                    s.Play();
+                }
+                else if (velocidade < 80)
+                {
+                    s = new SoundPlayer(Properties.Resources.velocidade70);
+                    s.Play();
+                }
+                else if (velocidade < 90)
+                {
+                    s = new SoundPlayer(Properties.Resources.velocidade80);
+                    s.Play();
+                }
+                else if (velocidade < 150)
+                {
+                    s = new SoundPlayer(Properties.Resources.velocidade90);
+                    s.Play();
+                }
+            }
+        }
+
+        private void UpdateWindowContent(int velocidade, int direcao)
+        {
+            this.label6.Text = string.Format("{0:000}", ataquesTotal);
+            this.label7.Text = string.Format("{0:00.00}", potenciaTotalMedia);
+            this.label10.Text = string.Format("{0}", velocidade);
+            this.pictureBox3.Image = direcao == 0 ? Properties.Resources.ataque_in : Properties.Resources.ataque_out;
         }
 
         private void Estatisticas_Partida ()
@@ -98,13 +188,41 @@ namespace Plateia
             Process.Start("teste.pdf");
         }
 
+        private void Reset_Window_Content ()
+        {
+            this.cronometro = new Stopwatch();
+
+            this.duplaAtual = null;
+            this.duplasEventoAtual = null;
+            this.atleta1 = null;
+            this.atleta2 = null;
+
+            ataquesAtleta1 = 0;
+            ataquesAtleta2 = 0;
+            ataquesTotal = 0;
+            somaAtaquesAtleta1 = 0;
+            somaAtaquesAtleta2 = 0;
+            somaAtaquesTotal = 0;
+            potenciaAtleta1 = 0;
+            potenciaAtleta2 = 0;
+            potenciaTotalMedia = 0;
+
+            this.label2.Text = "00:00.00";
+            this.label9.Text = "Jogador 1 (ID) x (ID) Jogador 2 - Categoria";
+            this.textBox8.Text = "00";
+            this.label7.Text = "00,00";
+            this.label6.Text = "000";
+            this.label10.Text = "000";
+            this.pictureBox3.Image = null;
+        }
+
         private void updateCronometroText(object sender, EventArgs e)
         {
             if(this.cronometro.IsRunning)
             {
                 this.label2.Text = new DateTime(this.cronometro.Elapsed.Ticks).ToString("mm:ss.ff");
                 
-                if(this.cronometro.ElapsedMilliseconds >= 30)
+                if(this.cronometro.ElapsedMilliseconds >= 300000)
                 {
                     this.cronTimer.Stop();
                     this.cronometro.Stop();
@@ -112,7 +230,7 @@ namespace Plateia
                     s.Play();
 
                     this.duplasEventoAtual["finalizado"] = 1;
-                    this.duplaseventoTableAdapter1.Update(this.duplasEventoAtual);
+                    this.duplaseventoTableAdapter1.Update(this.duplasEventoAtual); //marca a dupla como finalizada
 
                     //continue
 
@@ -120,13 +238,7 @@ namespace Plateia
                     //cleanup
                     if(MessageBox.Show("Partida Finalizada!", "Tempo Esgtado", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {
-                        this.cronometro = new Stopwatch();
-                        this.label2.Text = "00:00.00";
-                        this.label9.Text = "Jogador 1 (ID) x (ID) Jogador 2 - Categoria";
-                        this.duplaAtual = null;
-                        this.atleta1 = null;
-                        this.atleta2 = null;
-                        this.duplasEventoAtual = null;
+                        Reset_Window_Content();
                     }
                 }
             }
@@ -134,8 +246,14 @@ namespace Plateia
 
         private void label2_Click(object sender, EventArgs e)
         {
+            if (eventoAtual == null || duplaAtual == null)
+            {
+                MessageBox.Show("Você deve selecionar um Evento e Dupla.", "Evento ou Dupla não selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             //start / stop cronometro
-            if(this.cronometro.IsRunning == true)
+            if (this.cronometro.IsRunning == true)
             {
                 this.cronTimer.Stop();
                 this.cronometro.Stop();
@@ -157,6 +275,7 @@ namespace Plateia
             switch(e.KeyCode)
             {
                 case Keys.F5:
+                    Radar_SpeedReceived(null, new RadarSpeedEventArgs(v--, (byte)(v % 2)));
                     //w.o. na dupla selecionada
                     break;
                 case Keys.F7:
@@ -181,11 +300,6 @@ namespace Plateia
                     }
                     break;
                 case Keys.F9:
-                    if(eventoAtual == null || duplaAtual == null)
-                    {
-                        MessageBox.Show("Você deve selecionar um Evento e Dupla.", "Evento ou Dupla não selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
                     label2_Click(null, null);
                     break;
                 default:
@@ -197,6 +311,7 @@ namespace Plateia
         {
             if(duplasForm.getSelectedDuplaId() > 0 && duplasForm.getSelectedDuplaEventoId() > 0)
             {
+                registrosRadar = new ArrayList();
                 duplasEventoAtual = this.duplaseventoTableAdapter1.GetDuplaById(this.duplasForm.getSelectedDuplaEventoId()).Rows[0];
                 duplaAtual = this.duplaTableAdapter1.GetDuplaById(this.duplasForm.getSelectedDuplaId()).Rows[0];
                 atleta1 = this.atletaTableAdapter1.GetAtletaById(Int32.Parse(duplaAtual["idatl1"].ToString())).Rows[0];
@@ -215,6 +330,7 @@ namespace Plateia
             {
                 eventoAtual = this.eventoTableAdapter1.GetById(this.eventoForm.GetSelectedEventId()).Rows[0];
                 categoriaAtual = this.categoriaTableAdapter1.GetCategoriaById(Int32.Parse(eventoAtual["idcategoria"].ToString())).Rows[0];
+                categoriaVelocidadeMinima = Int32.Parse(categoriaAtual["velocidade"].ToString());
             } else
             {
                 eventoAtual = null;

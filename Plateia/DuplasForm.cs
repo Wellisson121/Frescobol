@@ -50,7 +50,9 @@ namespace Plateia
         public int getSelectedDuplaEventoId ()
         {
             if (this.SelectedDuplaId > 0)
-                return Int32.Parse(this.duplaseventoTableAdapter.GetDuplaById(this.SelectedDuplaId).Rows[0]["idduplasevento"].ToString());
+            {
+                return Int32.Parse(this.duplaseventoTableAdapter.GetDuplaByDuplaId(this.SelectedDuplaId).Rows[0]["idduplasevento"].ToString());
+            }
             else return -1;
         }
     }

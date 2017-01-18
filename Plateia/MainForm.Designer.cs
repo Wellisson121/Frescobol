@@ -57,10 +57,10 @@
             this.duplaTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.duplaTableAdapter();
             this.categoriaTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.categoriaTableAdapter();
             this.atletaTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.atletaTableAdapter();
+            this.duplaseventoTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.duplaseventoTableAdapter();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.duplaseventoTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.duplaseventoTableAdapter();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -94,15 +94,15 @@
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 120F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Margin = new System.Windows.Forms.Padding(30);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(344, 181);
+            this.label10.Size = new System.Drawing.Size(344, 184);
             this.label10.TabIndex = 8;
             this.label10.Text = "000";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -339,10 +339,13 @@
             // 
             this.atletaTableAdapter1.ClearBeforeFill = true;
             // 
+            // duplaseventoTableAdapter1
+            // 
+            this.duplaseventoTableAdapter1.ClearBeforeFill = true;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox3.Image = global::Plateia.Properties.Resources.RADAR_logo;
             this.pictureBox3.Location = new System.Drawing.Point(22, 0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(200, 184);
@@ -371,10 +374,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
-            // 
-            // duplaseventoTableAdapter1
-            // 
-            this.duplaseventoTableAdapter1.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -406,7 +405,6 @@
             this.panel7.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);

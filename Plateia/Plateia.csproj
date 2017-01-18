@@ -105,7 +105,9 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainProgram.cs" />
+    <Compile Include="Pontuacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpeedRecord.cs" />
     <EmbeddedResource Include="DuplasForm.resx">
       <DependentUpon>DuplasForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +193,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Velocidade89.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ataque_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ataque_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\velocidade50.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\velocidade60.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\velocidade70.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\velocidade80.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\velocidade90.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
