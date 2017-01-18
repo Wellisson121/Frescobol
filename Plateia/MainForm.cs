@@ -20,6 +20,10 @@ namespace Plateia
 
         private DataRow eventoAtual;
         private DataRow duplaAtual;
+        private DataRow duplasEventoAtual;
+        private DataRow categoriaAtual;
+        private DataRow atleta1;
+        private DataRow atleta2;
 
         public MainForm()
         {
@@ -99,6 +103,32 @@ namespace Plateia
             if(this.cronometro.IsRunning)
             {
                 this.label2.Text = new DateTime(this.cronometro.Elapsed.Ticks).ToString("mm:ss.ff");
+                
+                if(this.cronometro.ElapsedMilliseconds >= 30)
+                {
+                    this.cronTimer.Stop();
+                    this.cronometro.Stop();
+                    SoundPlayer s = new SoundPlayer(Properties.Resources.termino);
+                    s.Play();
+
+                    this.duplasEventoAtual["finalizado"] = 1;
+                    this.duplaseventoTableAdapter1.Update(this.duplasEventoAtual);
+
+                    //continue
+
+
+                    //cleanup
+                    if(MessageBox.Show("Partida Finalizada!", "Tempo Esgtado", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        this.cronometro = new Stopwatch();
+                        this.label2.Text = "00:00.00";
+                        this.label9.Text = "Jogador 1 (ID) x (ID) Jogador 2 - Categoria";
+                        this.duplaAtual = null;
+                        this.atleta1 = null;
+                        this.atleta2 = null;
+                        this.duplasEventoAtual = null;
+                    }
+                }
             }
         }
 
@@ -122,20 +152,13 @@ namespace Plateia
             }
         }
 
-        private void teste1ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
-        private void teste1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            eventoForm.Show();
-        }
-
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
             switch(e.KeyCode)
             {
+                case Keys.F5:
+                    //w.o. na dupla selecionada
+                    break;
                 case Keys.F7:
                     if(eventoForm == null || eventoForm.IsDisposed)
                     {
@@ -154,13 +177,35 @@ namespace Plateia
 
                         duplasForm = new DuplasForm(Int32.Parse(eventoAtual["idevento"].ToString()));
                         duplasForm.Show();
+                        duplasForm.Disposed += DuplasForm_Disposed;
                     }
                     break;
                 case Keys.F9:
+                    if(eventoAtual == null || duplaAtual == null)
+                    {
+                        MessageBox.Show("Você deve selecionar um Evento e Dupla.", "Evento ou Dupla não selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     label2_Click(null, null);
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void DuplasForm_Disposed(object sender, EventArgs e)
+        {
+            if(duplasForm.getSelectedDuplaId() > 0 && duplasForm.getSelectedDuplaEventoId() > 0)
+            {
+                duplasEventoAtual = this.duplaseventoTableAdapter1.GetDuplaById(this.duplasForm.getSelectedDuplaEventoId()).Rows[0];
+                duplaAtual = this.duplaTableAdapter1.GetDuplaById(this.duplasForm.getSelectedDuplaId()).Rows[0];
+                atleta1 = this.atletaTableAdapter1.GetAtletaById(Int32.Parse(duplaAtual["idatl1"].ToString())).Rows[0];
+                atleta2 = this.atletaTableAdapter1.GetAtletaById(Int32.Parse(duplaAtual["idatl2"].ToString())).Rows[0];
+
+                this.label9.Text = atleta1["apelido"] + " (" + atleta1["idatleta"].ToString().PadLeft(3, '0') + ") x (" + atleta2["idatleta"].ToString().PadLeft(3, '0') + ") " + atleta2["apelido"] + " - " + categoriaAtual["nome"];
+            } else
+            {
+                duplaAtual = null;
             }
         }
 
@@ -169,6 +214,7 @@ namespace Plateia
             if (eventoForm.GetSelectedEventId() > 0)
             {
                 eventoAtual = this.eventoTableAdapter1.GetById(this.eventoForm.GetSelectedEventId()).Rows[0];
+                categoriaAtual = this.categoriaTableAdapter1.GetCategoriaById(Int32.Parse(eventoAtual["idcategoria"].ToString())).Rows[0];
             } else
             {
                 eventoAtual = null;

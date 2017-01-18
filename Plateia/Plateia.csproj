@@ -171,6 +171,27 @@
       <Name>StalkerRadarLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Velocidade1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Velocidade2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Velocidade3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Velocidade4.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Velocidade5.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Velocidade21.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Velocidade89.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

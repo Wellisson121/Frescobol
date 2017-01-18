@@ -24,7 +24,7 @@ namespace Plateia
         private void DuplasForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.duplasevento' table. You can move, or remove it, as needed.
-            this.duplaseventoTableAdapter.GetNomeDuplasByIdEvento(this.frescobol_system_dbDataSet.duplasevento, this.SelectedEventoId);
+            this.duplaseventoTableAdapter.GetDuplasByEventoId(this.frescobol_system_dbDataSet.duplasevento, this.SelectedEventoId);
 
             this.comboBox1.SelectedItem = null;
         }
@@ -45,6 +45,13 @@ namespace Plateia
         public int getSelectedDuplaId ()
         {
             return this.SelectedDuplaId;
+        }
+
+        public int getSelectedDuplaEventoId ()
+        {
+            if (this.SelectedDuplaId > 0)
+                return Int32.Parse(this.duplaseventoTableAdapter.GetDuplaById(this.SelectedDuplaId).Rows[0]["idduplasevento"].ToString());
+            else return -1;
         }
     }
 }

@@ -27,19 +27,6 @@ namespace Plateia
             this.comboBox1.SelectedItem = null;
         }
 
-        private void getNotFinalizedEventsToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.eventoTableAdapter.GetNotFinalizedEvents(this.frescobol_system_dbDataSet.evento);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if(this.comboBox1.SelectedValue == null)

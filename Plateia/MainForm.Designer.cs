@@ -30,14 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label9 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.teste1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.teste1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selecionarDuplaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,7 +39,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -63,10 +54,13 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.frescobol_system_dbDataSet = new Plateia.frescobol_system_dbDataSet();
             this.eventoTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.eventoTableAdapter();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.duplaTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.duplaTableAdapter();
+            this.categoriaTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.categoriaTableAdapter();
+            this.atletaTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.atletaTableAdapter();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.duplaseventoTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.duplaseventoTableAdapter();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -82,89 +76,21 @@
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frescobol_system_dbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
             // 
             this.label9.Dock = System.Windows.Forms.DockStyle.Top;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(0, 24);
+            this.label9.Location = new System.Drawing.Point(0, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(1350, 78);
             this.label9.TabIndex = 3;
             this.label9.Text = "Jogador 1 (ID) x (ID) Jogador 2 - Categoria Jogo";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Enabled = false;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem,
-            this.testeToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1350, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // arquivoToolStripMenuItem
-            // 
-            this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.teste1ToolStripMenuItem1});
-            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.arquivoToolStripMenuItem.Text = "Arquivo";
-            // 
-            // teste1ToolStripMenuItem1
-            // 
-            this.teste1ToolStripMenuItem1.Name = "teste1ToolStripMenuItem1";
-            this.teste1ToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
-            this.teste1ToolStripMenuItem1.Text = "Sair";
-            this.teste1ToolStripMenuItem1.Click += new System.EventHandler(this.teste1ToolStripMenuItem1_Click);
-            // 
-            // testeToolStripMenuItem
-            // 
-            this.testeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.teste1ToolStripMenuItem,
-            this.selecionarDuplaToolStripMenuItem});
-            this.testeToolStripMenuItem.Name = "testeToolStripMenuItem";
-            this.testeToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.testeToolStripMenuItem.Text = "Evento";
-            // 
-            // teste1ToolStripMenuItem
-            // 
-            this.teste1ToolStripMenuItem.Name = "teste1ToolStripMenuItem";
-            this.teste1ToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.teste1ToolStripMenuItem.Text = "Selecionar Evento";
-            this.teste1ToolStripMenuItem.Click += new System.EventHandler(this.teste1ToolStripMenuItem_Click);
-            // 
-            // selecionarDuplaToolStripMenuItem
-            // 
-            this.selecionarDuplaToolStripMenuItem.Name = "selecionarDuplaToolStripMenuItem";
-            this.selecionarDuplaToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.selecionarDuplaToolStripMenuItem.Text = "Selecionar Dupla";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::Plateia.Properties.Resources.logo_TopRAKET;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(315, 184);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::Plateia.Properties.Resources.RADAR_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(315, 184);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
             // 
             // label10
             // 
@@ -192,7 +118,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 120F);
-            this.label2.Location = new System.Drawing.Point(9, 14);
+            this.label2.Location = new System.Drawing.Point(9, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(699, 181);
             this.label2.TabIndex = 1;
@@ -257,32 +183,21 @@
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(0, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(720, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cronômetro";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox3.Image = global::Plateia.Properties.Resources.RADAR_logo;
-            this.pictureBox3.Location = new System.Drawing.Point(22, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(200, 184);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 11;
-            this.pictureBox3.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 102);
+            this.panel1.Location = new System.Drawing.Point(0, 78);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(315, 599);
+            this.panel1.Size = new System.Drawing.Size(315, 623);
             this.panel1.TabIndex = 12;
             // 
             // panel3
@@ -290,7 +205,7 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 409);
+            this.panel3.Location = new System.Drawing.Point(0, 433);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(315, 190);
             this.panel3.TabIndex = 1;
@@ -309,9 +224,9 @@
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(1035, 102);
+            this.panel4.Location = new System.Drawing.Point(1035, 78);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(315, 599);
+            this.panel4.Size = new System.Drawing.Size(315, 623);
             this.panel4.TabIndex = 13;
             // 
             // panel6
@@ -319,7 +234,7 @@
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.textBox8);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 409);
+            this.panel6.Location = new System.Drawing.Point(0, 433);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(315, 190);
             this.panel6.TabIndex = 1;
@@ -339,7 +254,7 @@
             this.panel7.Controls.Add(this.panel11);
             this.panel7.Controls.Add(this.panel10);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(315, 102);
+            this.panel7.Location = new System.Drawing.Point(315, 78);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(720, 184);
             this.panel7.TabIndex = 14;
@@ -393,9 +308,9 @@
             this.panel9.Controls.Add(this.label1);
             this.panel9.Controls.Add(this.label2);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(315, 286);
+            this.panel9.Location = new System.Drawing.Point(315, 262);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(720, 225);
+            this.panel9.Size = new System.Drawing.Size(720, 249);
             this.panel9.TabIndex = 16;
             // 
             // bindingSource1
@@ -412,6 +327,55 @@
             // 
             this.eventoTableAdapter1.ClearBeforeFill = true;
             // 
+            // duplaTableAdapter1
+            // 
+            this.duplaTableAdapter1.ClearBeforeFill = true;
+            // 
+            // categoriaTableAdapter1
+            // 
+            this.categoriaTableAdapter1.ClearBeforeFill = true;
+            // 
+            // atletaTableAdapter1
+            // 
+            this.atletaTableAdapter1.ClearBeforeFill = true;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox3.Image = global::Plateia.Properties.Resources.RADAR_logo;
+            this.pictureBox3.Location = new System.Drawing.Point(22, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(200, 184);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 11;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::Plateia.Properties.Resources.logo_TopRAKET;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(315, 184);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::Plateia.Properties.Resources.RADAR_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(315, 184);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // duplaseventoTableAdapter1
+            // 
+            this.duplaseventoTableAdapter1.ClearBeforeFill = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,8 +388,6 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1366, 740);
@@ -434,11 +396,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -456,18 +413,15 @@
             this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frescobol_system_dbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem teste1ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem teste1ToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label10;
@@ -494,8 +448,11 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private frescobol_system_dbDataSet frescobol_system_dbDataSet;
-        private System.Windows.Forms.ToolStripMenuItem selecionarDuplaToolStripMenuItem;
         private frescobol_system_dbDataSetTableAdapters.eventoTableAdapter eventoTableAdapter1;
+        private frescobol_system_dbDataSetTableAdapters.duplaTableAdapter duplaTableAdapter1;
+        private frescobol_system_dbDataSetTableAdapters.categoriaTableAdapter categoriaTableAdapter1;
+        private frescobol_system_dbDataSetTableAdapters.atletaTableAdapter atletaTableAdapter1;
+        private frescobol_system_dbDataSetTableAdapters.duplaseventoTableAdapter duplaseventoTableAdapter1;
     }
 }
 
