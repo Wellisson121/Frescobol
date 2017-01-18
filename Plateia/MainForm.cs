@@ -18,6 +18,7 @@ namespace Plateia
         private ProIISensor radar;
         private EventoForm eventoForm;
         private DuplasForm duplasForm;
+        private Pontuacao notas;
 
         private ArrayList registrosRadar;
 
@@ -57,6 +58,7 @@ namespace Plateia
             WindowState = FormWindowState.Maximized; //inicializa maximizado
             KeyPreview = true;
 
+            this.notas = new Pontuacao();
             this.cronometro = new Stopwatch();
             this.cronTimer = new Timer();
             this.cronTimer.Interval = 10; //10 ms
@@ -94,14 +96,14 @@ namespace Plateia
                     somaAtaquesAtleta1 += velocidade;
                     potenciaAtleta1 = (double)somaAtaquesAtleta1 / ataquesAtleta1;
 
-                    //registrosRadar.Add(new SpeedRecord(idAtleta2, idDupla, idEvento, idDuplasEvento, velocidade, direcao, tempo));
+                    registrosRadar.Add(new SpeedRecord(idAtleta1, idDupla, idEvento, idDuplasEvento, velocidade, direcao, tempo));
                 } else //ataque na direção out
                 {
                     ++ataquesAtleta2;
                     somaAtaquesAtleta2 += velocidade;
                     potenciaAtleta2 = (double)somaAtaquesAtleta2 / ataquesAtleta2;
 
-                    //registrosRadar.Add(new SpeedRecord(idAtleta2, idDupla, idEvento, idDuplasEvento, velocidade, direcao, tempo));
+                    registrosRadar.Add(new SpeedRecord(idAtleta2, idDupla, idEvento, idDuplasEvento, velocidade, direcao, tempo));
                 }
 
                 ++ataquesTotal;
@@ -222,7 +224,7 @@ namespace Plateia
             {
                 this.label2.Text = new DateTime(this.cronometro.Elapsed.Ticks).ToString("mm:ss.ff");
                 
-                if(this.cronometro.ElapsedMilliseconds >= 300000)
+                if(this.cronometro.ElapsedMilliseconds >= 30000)
                 {
                     this.cronTimer.Stop();
                     this.cronometro.Stop();
@@ -238,6 +240,33 @@ namespace Plateia
                     //cleanup
                     if(MessageBox.Show("Partida Finalizada!", "Tempo Esgtado", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {
+                        int sequencias = Int32.Parse(textBox8.Text);
+                        int ataques = ataquesTotal;
+                        double velocidade = potenciaTotalMedia;
+
+                        double pontuacao = 0;
+
+                        if (sequencias < 8) pontuacao += 150;
+                        else if (sequencias > 30) pontuacao -= 200;
+                        else pontuacao += notas.Sequencia[sequencias];
+
+                        if (ataques >= 220) pontuacao += 200;
+                        else if(ataques >= 1) pontuacao += notas.Ataque[ataques];
+
+                        if (velocidade >= 75) pontuacao += 300;
+                        else pontuacao += notas.Velocidade[string.Format("{0:00.0}", velocidade)];
+
+                        int atkmenor, atkmaior;
+
+                        if(ataquesAtleta1 < ataquesAtleta2) { atkmenor = ataquesAtleta1; atkmaior = ataquesAtleta2; }
+                        else { atkmenor = ataquesAtleta2; atkmaior = ataquesAtleta1; }
+
+                        if(atkmaior > 0)
+                        {
+                            pontuacao += ((double)atkmenor / atkmaior) * ataquesTotal * 0.681819;
+                        }
+
+                        MessageBox.Show("Nota: " + string.Format("{0:000.00}", pontuacao));
                         Reset_Window_Content();
                     }
                 }
@@ -313,9 +342,17 @@ namespace Plateia
             {
                 registrosRadar = new ArrayList();
                 duplasEventoAtual = this.duplaseventoTableAdapter1.GetDuplaById(this.duplasForm.getSelectedDuplaEventoId()).Rows[0];
-                duplaAtual = this.duplaTableAdapter1.GetDuplaById(this.duplasForm.getSelectedDuplaId()).Rows[0];
-                atleta1 = this.atletaTableAdapter1.GetAtletaById(Int32.Parse(duplaAtual["idatl1"].ToString())).Rows[0];
-                atleta2 = this.atletaTableAdapter1.GetAtletaById(Int32.Parse(duplaAtual["idatl2"].ToString())).Rows[0];
+
+                idDupla = duplasForm.getSelectedDuplaId();
+                idDuplasEvento = duplasForm.getSelectedDuplaEventoId();
+
+                duplaAtual = this.duplaTableAdapter1.GetDuplaById(idDupla).Rows[0];
+
+                idAtleta1 = Int32.Parse(duplaAtual["idatl1"].ToString());
+                idAtleta2 = Int32.Parse(duplaAtual["idatl2"].ToString());
+
+                atleta1 = this.atletaTableAdapter1.GetAtletaById(idAtleta1).Rows[0];
+                atleta2 = this.atletaTableAdapter1.GetAtletaById(idAtleta2).Rows[0];
 
                 this.label9.Text = atleta1["apelido"] + " (" + atleta1["idatleta"].ToString().PadLeft(3, '0') + ") x (" + atleta2["idatleta"].ToString().PadLeft(3, '0') + ") " + atleta2["apelido"] + " - " + categoriaAtual["nome"];
             } else
@@ -328,7 +365,9 @@ namespace Plateia
         {
             if (eventoForm.GetSelectedEventId() > 0)
             {
-                eventoAtual = this.eventoTableAdapter1.GetById(this.eventoForm.GetSelectedEventId()).Rows[0];
+                idEvento = eventoForm.GetSelectedEventId();
+
+                eventoAtual = this.eventoTableAdapter1.GetById(idEvento).Rows[0];
                 categoriaAtual = this.categoriaTableAdapter1.GetCategoriaById(Int32.Parse(eventoAtual["idcategoria"].ToString())).Rows[0];
                 categoriaVelocidadeMinima = Int32.Parse(categoriaAtual["velocidade"].ToString());
             } else

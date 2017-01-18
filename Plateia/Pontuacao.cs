@@ -281,6 +281,7 @@ namespace Plateia
         #region Velocidade
         private void FillVelocidade ()
         {
+            Velocidade.Add("50.0", 0.00);
             Velocidade.Add("50.1", 0.06);
             Velocidade.Add("50.2", 0.12);
             Velocidade.Add("50.3", 0.18);
@@ -290,7 +291,7 @@ namespace Plateia
             Velocidade.Add("50.7", 0.42);
             Velocidade.Add("50.8", 0.48);
             Velocidade.Add("50.9", 0.54);
-            Velocidade.Add("51", 0.6);
+            Velocidade.Add("51.0", 0.6);
             Velocidade.Add("51.1", 0.66);
             Velocidade.Add("51.2", 0.72);
             Velocidade.Add("51.3", 0.78);
@@ -300,7 +301,7 @@ namespace Plateia
             Velocidade.Add("51.7", 1.02);
             Velocidade.Add("51.8", 1.08);
             Velocidade.Add("51.9", 1.14);
-            Velocidade.Add("52", 1.2);
+            Velocidade.Add("52.0", 1.2);
             Velocidade.Add("52.1", 1.26);
             Velocidade.Add("52.2", 1.32);
             Velocidade.Add("52.3", 1.38);
@@ -310,7 +311,7 @@ namespace Plateia
             Velocidade.Add("52.7", 1.62);
             Velocidade.Add("52.8", 1.68);
             Velocidade.Add("52.9", 1.74);
-            Velocidade.Add("53", 1.8);
+            Velocidade.Add("53.0", 1.8);
             Velocidade.Add("53.1", 1.86);
             Velocidade.Add("53.2", 1.92);
             Velocidade.Add("53.3", 1.98);
@@ -320,7 +321,7 @@ namespace Plateia
             Velocidade.Add("53.7", 2.22);
             Velocidade.Add("53.8", 2.28);
             Velocidade.Add("53.9", 2.34);
-            Velocidade.Add("54", 2.4);
+            Velocidade.Add("54.0", 2.4);
             Velocidade.Add("54.1", 2.46);
             Velocidade.Add("54.2", 2.52);
             Velocidade.Add("54.3", 2.58);
@@ -330,7 +331,7 @@ namespace Plateia
             Velocidade.Add("54.7", 2.82);
             Velocidade.Add("54.8", 2.88);
             Velocidade.Add("54.9", 2.94);
-            Velocidade.Add("55", 3);
+            Velocidade.Add("55.0", 3);
             Velocidade.Add("55.1", 3.06);
             Velocidade.Add("55.2", 3.12);
             Velocidade.Add("55.3", 3.18);
@@ -340,7 +341,7 @@ namespace Plateia
             Velocidade.Add("55.7", 3.42);
             Velocidade.Add("55.8", 3.48);
             Velocidade.Add("55.9", 3.54);
-            Velocidade.Add("56", 3.6);
+            Velocidade.Add("56.0", 3.6);
             Velocidade.Add("56.1", 3.66);
             Velocidade.Add("56.2", 3.72);
             Velocidade.Add("56.3", 3.78);
@@ -350,7 +351,7 @@ namespace Plateia
             Velocidade.Add("56.7", 4.02);
             Velocidade.Add("56.8", 4.08);
             Velocidade.Add("56.9", 4.14);
-            Velocidade.Add("57", 4.2);
+            Velocidade.Add("57.0", 4.2);
             Velocidade.Add("57.1", 4.26);
             Velocidade.Add("57.2", 4.32);
             Velocidade.Add("57.3", 4.38);
@@ -360,7 +361,7 @@ namespace Plateia
             Velocidade.Add("57.7", 4.62);
             Velocidade.Add("57.8", 4.68);
             Velocidade.Add("57.9", 4.74);
-            Velocidade.Add("58", 4.8);
+            Velocidade.Add("58.0", 4.8);
             Velocidade.Add("58.1", 4.86);
             Velocidade.Add("58.2", 4.92);
             Velocidade.Add("58.3", 4.98);
@@ -370,7 +371,7 @@ namespace Plateia
             Velocidade.Add("58.7", 5.22);
             Velocidade.Add("58.8", 5.28);
             Velocidade.Add("58.9", 5.34);
-            Velocidade.Add("59", 5.4);
+            Velocidade.Add("59.0", 5.4);
             Velocidade.Add("59.1", 5.46);
             Velocidade.Add("59.2", 5.52);
             Velocidade.Add("59.3", 5.58);
@@ -380,7 +381,7 @@ namespace Plateia
             Velocidade.Add("59.7", 5.82);
             Velocidade.Add("59.8", 5.88);
             Velocidade.Add("59.9", 5.94);
-            Velocidade.Add("60", 6);
+            Velocidade.Add("60.0", 6);
             Velocidade.Add("60.1", 6.6);
             Velocidade.Add("60.2", 7.2);
             Velocidade.Add("60.3", 7.8);
@@ -390,7 +391,7 @@ namespace Plateia
             Velocidade.Add("60.7", 10.2);
             Velocidade.Add("60.8", 10.8);
             Velocidade.Add("60.9", 11.4);
-            Velocidade.Add("61", 12);
+            Velocidade.Add("61.0", 12);
             Velocidade.Add("61.1", 13.2);
             Velocidade.Add("61.2", 14.4);
             Velocidade.Add("61.3", 15.6);
@@ -400,7 +401,7 @@ namespace Plateia
             Velocidade.Add("61.7", 20.4);
             Velocidade.Add("61.8", 21.6);
             Velocidade.Add("61.9", 22.8);
-            Velocidade.Add("62", 24);
+            Velocidade.Add("62.0", 24);
             Velocidade.Add("62.1", 25.2);
             Velocidade.Add("62.2", 26.4);
             Velocidade.Add("62.3", 27.6);
@@ -410,7 +411,7 @@ namespace Plateia
             Velocidade.Add("62.7", 32.4);
             Velocidade.Add("62.8", 33.6);
             Velocidade.Add("62.9", 34.8);
-            Velocidade.Add("63", 36);
+            Velocidade.Add("63.0", 36);
             Velocidade.Add("63.1", 37.2);
             Velocidade.Add("63.2", 38.4);
             Velocidade.Add("63.3", 39.6);
@@ -420,7 +421,7 @@ namespace Plateia
             Velocidade.Add("63.7", 44.4);
             Velocidade.Add("63.8", 45.6);
             Velocidade.Add("63.9", 46.8);
-            Velocidade.Add("64", 48);
+            Velocidade.Add("64.0", 48);
             Velocidade.Add("64.1", 49.2);
             Velocidade.Add("64.2", 50.4);
             Velocidade.Add("64.3", 51.6);
@@ -430,7 +431,7 @@ namespace Plateia
             Velocidade.Add("64.7", 56.4);
             Velocidade.Add("64.8", 57.6);
             Velocidade.Add("64.9", 58.8);
-            Velocidade.Add("65", 60);
+            Velocidade.Add("65.0", 60);
             Velocidade.Add("65.1", 61.8);
             Velocidade.Add("65.2", 63.6);
             Velocidade.Add("65.3", 65.4);
@@ -440,7 +441,7 @@ namespace Plateia
             Velocidade.Add("65.7", 72.6);
             Velocidade.Add("65.8", 74.4);
             Velocidade.Add("65.9", 76.2);
-            Velocidade.Add("66", 78);
+            Velocidade.Add("66.0", 78);
             Velocidade.Add("66.1", 79.8);
             Velocidade.Add("66.2", 81.6);
             Velocidade.Add("66.3", 83.4);
@@ -450,7 +451,7 @@ namespace Plateia
             Velocidade.Add("66.7", 90.6);
             Velocidade.Add("66.8", 92.4);
             Velocidade.Add("66.9", 94.2);
-            Velocidade.Add("67", 96);
+            Velocidade.Add("67.0", 96);
             Velocidade.Add("67.1", 97.8);
             Velocidade.Add("67.2", 99.6);
             Velocidade.Add("67.3", 101.4);
@@ -460,7 +461,7 @@ namespace Plateia
             Velocidade.Add("67.7", 108.6);
             Velocidade.Add("67.8", 110.4);
             Velocidade.Add("67.9", 112.2);
-            Velocidade.Add("68", 114);
+            Velocidade.Add("68.0", 114);
             Velocidade.Add("68.1", 116.4);
             Velocidade.Add("68.2", 118.8);
             Velocidade.Add("68.3", 121.2);
@@ -470,7 +471,7 @@ namespace Plateia
             Velocidade.Add("68.7", 130.8);
             Velocidade.Add("68.8", 133.2);
             Velocidade.Add("68.9", 135.6);
-            Velocidade.Add("69", 138);
+            Velocidade.Add("69.0", 138);
             Velocidade.Add("69.1", 140.4);
             Velocidade.Add("69.2", 142.8);
             Velocidade.Add("69.3", 145.2);
@@ -480,7 +481,7 @@ namespace Plateia
             Velocidade.Add("69.7", 154.8);
             Velocidade.Add("69.8", 157.2);
             Velocidade.Add("69.9", 159.6);
-            Velocidade.Add("70", 162);
+            Velocidade.Add("70.0", 162);
             Velocidade.Add("70.1", 164.4);
             Velocidade.Add("70.2", 166.8);
             Velocidade.Add("70.3", 169.2);
@@ -490,7 +491,7 @@ namespace Plateia
             Velocidade.Add("70.7", 178.8);
             Velocidade.Add("70.8", 181.2);
             Velocidade.Add("70.9", 183.6);
-            Velocidade.Add("71", 186);
+            Velocidade.Add("71.0", 186);
             Velocidade.Add("71.1", 188.4);
             Velocidade.Add("71.2", 190.8);
             Velocidade.Add("71.3", 193.2);
@@ -500,7 +501,7 @@ namespace Plateia
             Velocidade.Add("71.7", 202.8);
             Velocidade.Add("71.8", 205.2);
             Velocidade.Add("71.9", 207.6);
-            Velocidade.Add("72", 210);
+            Velocidade.Add("72.0", 210);
             Velocidade.Add("72.1", 213);
             Velocidade.Add("72.2", 216);
             Velocidade.Add("72.3", 219);
@@ -510,7 +511,7 @@ namespace Plateia
             Velocidade.Add("72.7", 231);
             Velocidade.Add("72.8", 234);
             Velocidade.Add("72.9", 237);
-            Velocidade.Add("73", 240);
+            Velocidade.Add("73.0", 240);
             Velocidade.Add("73.1", 243);
             Velocidade.Add("73.2", 246);
             Velocidade.Add("73.3", 249);
@@ -520,7 +521,7 @@ namespace Plateia
             Velocidade.Add("73.7", 261);
             Velocidade.Add("73.8", 264);
             Velocidade.Add("73.9", 267);
-            Velocidade.Add("74", 270);
+            Velocidade.Add("74.0", 270);
             Velocidade.Add("74.1", 273);
             Velocidade.Add("74.2", 276);
             Velocidade.Add("74.3", 279);
