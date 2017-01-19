@@ -8,6 +8,7 @@ using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
 using StalkerRadarLib;
+using System.Globalization;
 
 namespace Plateia
 {
@@ -74,7 +75,6 @@ namespace Plateia
                 radar.openSerialPort("COM4");
             } catch (Exception) {
                 //MessageBox.Show("O radar não está conectado ou está na porta errada.", "Radar não encontrado...", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
 
@@ -244,35 +244,74 @@ namespace Plateia
                         int ataques = ataquesTotal;
                         double velocidade = potenciaTotalMedia;
 
-                        double pontuacao = 0;
+                        double pontuacao = Calcula_Pontuacao(sequencias, ataques, velocidade, notaJuizAtleta1, notaJuizAtleta2);
+                        Salvar_SpeedRecords_Database();
+                        Salvar_Resultado_Database(sequencias, pontuacao);
 
-                        if (sequencias < 8) pontuacao += 150;
-                        else if (sequencias > 30) pontuacao -= 200;
-                        else pontuacao += notas.Sequencia[sequencias];
-
-                        if (ataques >= 220) pontuacao += 200;
-                        else if(ataques >= 1) pontuacao += notas.Ataque[ataques];
-
-                        if (velocidade >= 75) pontuacao += 300;
-                        else pontuacao += notas.Velocidade[string.Format("{0:00.0}", velocidade)];
-
-                        int atkmenor, atkmaior;
-
-                        if(ataquesAtleta1 < ataquesAtleta2) { atkmenor = ataquesAtleta1; atkmaior = ataquesAtleta2; }
-                        else { atkmenor = ataquesAtleta2; atkmaior = ataquesAtleta1; }
-
-                        if(atkmaior > 0)
-                        {
-                            pontuacao += ((double)atkmenor / atkmaior) * ataquesTotal * 0.681819;
-                        }
-
-                        MessageBox.Show("Nota: " + string.Format("{0:000.00}", pontuacao));
                         Reset_Window_Content();
                     }
                 }
             }
         }
 
+        private void Salvar_SpeedRecords_Database ()
+        {
+            foreach(SpeedRecord s in registrosRadar)
+            {
+                if(s.IdEvento > 0)
+                {
+                    speedrecordsTableAdapter1.Insert(s.IdEvento, s.IdDuplasEvento, s.IdDupla, s.IdAtleta, s.Direcao, s.Velocidade, (int)s.Ticks);
+                }
+            }
+        }
+
+        private void Salvar_Resultado_Database (int sequencias, double pontuacao)
+        {
+            if (sequencias == 0 || potenciaTotalMedia == 0 || ataquesTotal == 0)
+            {
+                this.resultadoseventoTableAdapter1.Insert(idEvento, idDuplasEvento, 0, 0, 0, 0, 0, 0, 0, 0);
+            }
+            else
+            {
+                this.resultadoseventoTableAdapter1.Insert(idEvento, idDuplasEvento, sequencias, potenciaTotalMedia, ataquesTotal, ataquesAtleta1, ataquesAtleta2, potenciaAtleta1, potenciaAtleta2, pontuacao);
+            }
+        }
+
+        private double Calcula_Pontuacao (int sequencias, int ataques, double velocidade, int notajuizatleta1, int notajuizatleta2)
+        {
+            double pontuacao = 0d;
+
+            //sequencias
+            if (sequencias < 8) pontuacao += 150;
+            else if (sequencias > 30) pontuacao -= 200;
+            else if(sequencias >= 1) pontuacao += notas.Sequencia[sequencias];
+
+            //ataques
+            if (ataques >= 220) pontuacao += 200;
+            else if (ataques >= 1) pontuacao += notas.Ataque[ataques];
+
+            //potencia
+            if (velocidade == 0) pontuacao += 0;
+            else if (velocidade >= 75) pontuacao += 300;
+            else pontuacao += notas.Velocidade[string.Format(new CultureInfo("en-US"), "{0:00.0}", velocidade)];
+
+            //equilibrio
+            int atkmenor, atkmaior;
+
+            if (ataquesAtleta1 < ataquesAtleta2) { atkmenor = ataquesAtleta1; atkmaior = ataquesAtleta2; }
+            else { atkmenor = ataquesAtleta2; atkmaior = ataquesAtleta1; }
+
+            if (atkmaior > 0)
+            {
+                pontuacao += ((double)atkmenor / atkmaior) * ataquesTotal * 0.681819;
+            }
+
+            //subjetivo
+            pontuacao += notajuizatleta1 + notajuizatleta2;
+
+            return pontuacao;
+        }
+        
         private void label2_Click(object sender, EventArgs e)
         {
             if (eventoAtual == null || duplaAtual == null)

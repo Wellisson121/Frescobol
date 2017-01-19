@@ -17,7 +17,7 @@ namespace Plateia
         private int direcao;
         private long ticks;
 
-        int IdAtleta
+        public int IdAtleta
         {
             get
             {
@@ -25,7 +25,7 @@ namespace Plateia
             }
         }
 
-        int IdDupla
+        public int IdDupla
         {
             get
             {
@@ -33,7 +33,15 @@ namespace Plateia
             }
         }
 
-        int IdEvento
+        public int IdDuplasEvento
+        {
+            get
+            {
+                return idduplasevento;
+            }
+        }
+
+        public int IdEvento
         {
             get
             {
@@ -41,7 +49,7 @@ namespace Plateia
             }
         }
 
-        int Velocidade
+        public int Velocidade
         {
             get
             {
@@ -49,7 +57,7 @@ namespace Plateia
             }
         }
 
-        int Direcao
+        public int Direcao
         {
             get
             {
@@ -57,7 +65,7 @@ namespace Plateia
             }
         }
 
-        long Ticks
+        public long Ticks
         {
             get
             {
