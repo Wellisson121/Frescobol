@@ -38,6 +38,8 @@ namespace Plateia
         private int idDupla;
         private int idDuplasEvento;
 
+        private int sequencias;
+        private double pontuacao;
         private int categoriaVelocidadeMinima = 0;
         private int ataquesAtleta1 = 0;
         private int ataquesAtleta2 = 0;
@@ -51,6 +53,22 @@ namespace Plateia
 
         private int notaJuizAtleta1;
         private int notaJuizAtleta2;
+
+        public int NotaJuizAtleta1
+        {
+            set
+            {
+                notaJuizAtleta1 = value;
+            }
+        }
+
+        public int NotaJuizAtleta2
+        {
+            set
+            {
+                notaJuizAtleta2 = value;
+            }
+        }
 
         public MainForm()
         {
@@ -66,6 +84,7 @@ namespace Plateia
             this.cronTimer.Tick += updateCronometroText;
 
             radar = new ProIISensor(/*RadarModel.StalkerRadarRS232*/); //we need to add a RadarModel.StalkerRadarRS232 / RadarModel.StalkerRadarRS485 enum
+            radar.SpeedReceived += Radar_SpeedReceived;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -74,7 +93,7 @@ namespace Plateia
             {
                 radar.openSerialPort("COM4");
             } catch (Exception) {
-                //MessageBox.Show("O radar não está conectado ou está na porta errada.", "Radar não encontrado...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("O radar não está conectado ou está na porta errada. O programa será executado sem leituras do Radar.", "Radar não encontrado...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -208,6 +227,10 @@ namespace Plateia
             potenciaAtleta1 = 0;
             potenciaAtleta2 = 0;
             potenciaTotalMedia = 0;
+            notaJuizAtleta1 = 0;
+            notaJuizAtleta2 = 0;
+            sequencias = 0;
+            pontuacao = 0;
 
             this.label2.Text = "00:00.00";
             this.label9.Text = "Jogador 1 (ID) x (ID) Jogador 2 - Categoria";
@@ -223,8 +246,8 @@ namespace Plateia
             if(this.cronometro.IsRunning)
             {
                 this.label2.Text = new DateTime(this.cronometro.Elapsed.Ticks).ToString("mm:ss.ff");
-                
-                if(this.cronometro.ElapsedMilliseconds >= 30000)
+
+                if (this.cronometro.ElapsedMilliseconds >= 30000)
                 {
                     this.cronTimer.Stop();
                     this.cronometro.Stop();
@@ -240,18 +263,22 @@ namespace Plateia
                     //cleanup
                     if(MessageBox.Show("Partida Finalizada!", "Tempo Esgtado", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {
-                        int sequencias = Int32.Parse(textBox8.Text);
-                        int ataques = ataquesTotal;
-                        double velocidade = potenciaTotalMedia;
-
-                        double pontuacao = Calcula_Pontuacao(sequencias, ataques, velocidade, notaJuizAtleta1, notaJuizAtleta2);
-                        Salvar_SpeedRecords_Database();
-                        Salvar_Resultado_Database(sequencias, pontuacao);
-
-                        Reset_Window_Content();
+                        NotasJuiz notas = new NotasJuiz(this);
+                        notas.Disposed += Notas_Disposed;
+                        notas.Show();
                     }
                 }
             }
+        }
+
+        private void Notas_Disposed(object sender, EventArgs e)
+        {
+            pontuacao = Calcula_Pontuacao(sequencias, ataquesTotal, potenciaTotalMedia, notaJuizAtleta1, notaJuizAtleta2);
+
+            Salvar_Resultado_Database();
+            Salvar_SpeedRecords_Database();
+
+            Reset_Window_Content();
         }
 
         private void Salvar_SpeedRecords_Database ()
@@ -265,15 +292,15 @@ namespace Plateia
             }
         }
 
-        private void Salvar_Resultado_Database (int sequencias, double pontuacao)
+        private void Salvar_Resultado_Database ()
         {
             if (sequencias == 0 || potenciaTotalMedia == 0 || ataquesTotal == 0)
             {
-                this.resultadoseventoTableAdapter1.Insert(idEvento, idDuplasEvento, 0, 0, 0, 0, 0, 0, 0, 0);
+                this.resultadoseventoTableAdapter1.Insert(idEvento, idDuplasEvento, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
             }
             else
             {
-                this.resultadoseventoTableAdapter1.Insert(idEvento, idDuplasEvento, sequencias, potenciaTotalMedia, ataquesTotal, ataquesAtleta1, ataquesAtleta2, potenciaAtleta1, potenciaAtleta2, pontuacao);
+                this.resultadoseventoTableAdapter1.Insert(idEvento, idDuplasEvento, sequencias, potenciaTotalMedia, ataquesTotal, ataquesAtleta1, ataquesAtleta2, potenciaAtleta1, potenciaAtleta2, notaJuizAtleta1, notaJuizAtleta2, pontuacao);
             }
         }
 
@@ -335,6 +362,7 @@ namespace Plateia
                 s.Play();
 
                 this.textBox8.Text = ((Int32.Parse(this.textBox8.Text) + 1) + "").PadLeft(2, '0');
+                sequencias++;
             }
         }
 

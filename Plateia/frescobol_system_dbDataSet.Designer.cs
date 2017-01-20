@@ -2501,6 +2501,10 @@ namespace Plateia {
             
             private global::System.Data.DataColumn columnpontuacao;
             
+            private global::System.Data.DataColumn columnnotajuizatleta1;
+            
+            private global::System.Data.DataColumn columnnotajuizatleta2;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public resultadoseventoDataTable() {
@@ -2624,6 +2628,22 @@ namespace Plateia {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn notajuizatleta1Column {
+                get {
+                    return this.columnnotajuizatleta1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn notajuizatleta2Column {
+                get {
+                    return this.columnnotajuizatleta2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2659,7 +2679,7 @@ namespace Plateia {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public resultadoseventoRow AddresultadoseventoRow(int idresultadosevento, int idevento, int idduplasevento, int sequencias, double potencia, int ataquestotal, int ataquesatl1, int ataquesatl2, double potenciaatl1, double potenciaatl2, double pontuacao) {
+            public resultadoseventoRow AddresultadoseventoRow(int idresultadosevento, int idevento, int idduplasevento, int sequencias, double potencia, int ataquestotal, int ataquesatl1, int ataquesatl2, double potenciaatl1, double potenciaatl2, double pontuacao, int notajuizatleta1, int notajuizatleta2) {
                 resultadoseventoRow rowresultadoseventoRow = ((resultadoseventoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idresultadosevento,
@@ -2672,7 +2692,9 @@ namespace Plateia {
                         ataquesatl2,
                         potenciaatl1,
                         potenciaatl2,
-                        pontuacao};
+                        pontuacao,
+                        notajuizatleta1,
+                        notajuizatleta2};
                 rowresultadoseventoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowresultadoseventoRow);
                 return rowresultadoseventoRow;
@@ -2713,6 +2735,8 @@ namespace Plateia {
                 this.columnpotenciaatl1 = base.Columns["potenciaatl1"];
                 this.columnpotenciaatl2 = base.Columns["potenciaatl2"];
                 this.columnpontuacao = base.Columns["pontuacao"];
+                this.columnnotajuizatleta1 = base.Columns["notajuizatleta1"];
+                this.columnnotajuizatleta2 = base.Columns["notajuizatleta2"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2740,6 +2764,10 @@ namespace Plateia {
                 base.Columns.Add(this.columnpotenciaatl2);
                 this.columnpontuacao = new global::System.Data.DataColumn("pontuacao", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpontuacao);
+                this.columnnotajuizatleta1 = new global::System.Data.DataColumn("notajuizatleta1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnotajuizatleta1);
+                this.columnnotajuizatleta2 = new global::System.Data.DataColumn("notajuizatleta2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnotajuizatleta2);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidresultadosevento}, true));
                 this.columnidresultadosevento.AllowDBNull = false;
@@ -2754,6 +2782,8 @@ namespace Plateia {
                 this.columnpotenciaatl1.AllowDBNull = false;
                 this.columnpotenciaatl2.AllowDBNull = false;
                 this.columnpontuacao.AllowDBNull = false;
+                this.columnnotajuizatleta1.AllowDBNull = false;
+                this.columnnotajuizatleta2.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3493,6 +3523,28 @@ namespace Plateia {
                 }
                 set {
                     this[this.tableresultadosevento.pontuacaoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int notajuizatleta1 {
+                get {
+                    return ((int)(this[this.tableresultadosevento.notajuizatleta1Column]));
+                }
+                set {
+                    this[this.tableresultadosevento.notajuizatleta1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int notajuizatleta2 {
+                get {
+                    return ((int)(this[this.tableresultadosevento.notajuizatleta2Column]));
+                }
+                set {
+                    this[this.tableresultadosevento.notajuizatleta2Column] = value;
                 }
             }
         }
@@ -6932,10 +6984,12 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("potenciaatl1", "potenciaatl1");
             tableMapping.ColumnMappings.Add("potenciaatl2", "potenciaatl2");
             tableMapping.ColumnMappings.Add("pontuacao", "pontuacao");
+            tableMapping.ColumnMappings.Add("notajuizatleta1", "notajuizatleta1");
+            tableMapping.ColumnMappings.Add("notajuizatleta2", "notajuizatleta2");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `resultadosevento` WHERE ((`idresultadosevento` = @p1) AND (`idevento` = @p2) AND (`idduplasevento` = @p3) AND (`sequencias` = @p4) AND (`potencia` = @p5) AND (`ataquestotal` = @p6) AND (`ataquesatl1` = @p7) AND (`ataquesatl2` = @p8) AND (`potenciaatl1` = @p9) AND (`potenciaatl2` = @p10) AND (`pontuacao` = @p11))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `resultadosevento` WHERE ((`idresultadosevento` = @p1) AND (`idevento` = @p2) AND (`idduplasevento` = @p3) AND (`sequencias` = @p4) AND (`potencia` = @p5) AND (`ataquestotal` = @p6) AND (`ataquesatl1` = @p7) AND (`ataquesatl2` = @p8) AND (`potenciaatl1` = @p9) AND (`potenciaatl2` = @p10) AND (`notajuizatleta1` = @p11) AND (`notajuizatleta2` = @p12) AND (`pontuacao` = @p13))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -7019,6 +7073,22 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "notajuizatleta1";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "notajuizatleta2";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p13";
             param.DbType = global::System.Data.DbType.Double;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
@@ -7027,9 +7097,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `resultadosevento` (`idevento`, `idduplasevento`, `sequencias`, `pote" +
-                "ncia`, `ataquestotal`, `ataquesatl1`, `ataquesatl2`, `potenciaatl1`, `potenciaat" +
-                "l2`, `pontuacao`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `resultadosevento` (`idevento`, `idduplasevento`, `sequencias`, `potencia`, `ataquestotal`, `ataquesatl1`, `ataquesatl2`, `potenciaatl1`, `potenciaatl2`, `notajuizatleta1`, `notajuizatleta2`, `pontuacao`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -7096,6 +7164,20 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p10";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "notajuizatleta1";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "notajuizatleta2";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
             param.DbType = global::System.Data.DbType.Double;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
@@ -7103,7 +7185,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `resultadosevento` SET `idevento` = @p1, `idduplasevento` = @p2, `sequencias` = @p3, `potencia` = @p4, `ataquestotal` = @p5, `ataquesatl1` = @p6, `ataquesatl2` = @p7, `potenciaatl1` = @p8, `potenciaatl2` = @p9, `pontuacao` = @p10 WHERE ((`idresultadosevento` = @p11) AND (`idevento` = @p12) AND (`idduplasevento` = @p13) AND (`sequencias` = @p14) AND (`potencia` = @p15) AND (`ataquestotal` = @p16) AND (`ataquesatl1` = @p17) AND (`ataquesatl2` = @p18) AND (`potenciaatl1` = @p19) AND (`potenciaatl2` = @p20) AND (`pontuacao` = @p21))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `resultadosevento` SET `idevento` = @p1, `idduplasevento` = @p2, `sequencias` = @p3, `potencia` = @p4, `ataquestotal` = @p5, `ataquesatl1` = @p6, `ataquesatl2` = @p7, `potenciaatl1` = @p8, `potenciaatl2` = @p9, `notajuizatleta1` = @p10, `notajuizatleta2` = @p11, `pontuacao` = @p12 WHERE ((`idresultadosevento` = @p13) AND (`idevento` = @p14) AND (`idduplasevento` = @p15) AND (`sequencias` = @p16) AND (`potencia` = @p17) AND (`ataquestotal` = @p18) AND (`ataquesatl1` = @p19) AND (`ataquesatl2` = @p20) AND (`potenciaatl1` = @p21) AND (`potenciaatl2` = @p22) AND (`notajuizatleta1` = @p23) AND (`notajuizatleta2` = @p24) AND (`pontuacao` = @p25))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -7170,13 +7252,27 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p10";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "notajuizatleta1";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "notajuizatleta2";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
             param.DbType = global::System.Data.DbType.Double;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
             param.SourceColumn = "pontuacao";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p11";
+            param.ParameterName = "@p13";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7184,7 +7280,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p12";
+            param.ParameterName = "@p14";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7192,7 +7288,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p13";
+            param.ParameterName = "@p15";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7200,7 +7296,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
+            param.ParameterName = "@p16";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7208,7 +7304,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p15";
+            param.ParameterName = "@p17";
             param.DbType = global::System.Data.DbType.Double;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
@@ -7216,7 +7312,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p16";
+            param.ParameterName = "@p18";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7224,7 +7320,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p17";
+            param.ParameterName = "@p19";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7232,7 +7328,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p18";
+            param.ParameterName = "@p20";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7240,7 +7336,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p19";
+            param.ParameterName = "@p21";
             param.DbType = global::System.Data.DbType.Double;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
@@ -7248,7 +7344,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p20";
+            param.ParameterName = "@p22";
             param.DbType = global::System.Data.DbType.Double;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
@@ -7256,7 +7352,23 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p21";
+            param.ParameterName = "@p23";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "notajuizatleta1";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p24";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "notajuizatleta2";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p25";
             param.DbType = global::System.Data.DbType.Double;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
@@ -7339,7 +7451,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int p1, int p2, int p3, int p4, double p5, int p6, int p7, int p8, double p9, double p10, double p11) {
+        public virtual int Delete(int p1, int p2, int p3, int p4, double p5, int p6, int p7, int p8, double p9, double p10, int p11, int p12, double p13) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(p2));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(p3));
@@ -7350,7 +7462,9 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(p8));
             this.Adapter.DeleteCommand.Parameters[8].Value = ((double)(p9));
             this.Adapter.DeleteCommand.Parameters[9].Value = ((double)(p10));
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((double)(p11));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(p11));
+            this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(p12));
+            this.Adapter.DeleteCommand.Parameters[12].Value = ((double)(p13));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7371,7 +7485,7 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int p1, int p2, int p3, double p4, int p5, int p6, int p7, double p8, double p9, double p10) {
+        public virtual int Insert(int p1, int p2, int p3, double p4, int p5, int p6, int p7, double p8, double p9, int p10, int p11, double p12) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(p2));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(p3));
@@ -7381,7 +7495,9 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             this.Adapter.InsertCommand.Parameters[6].Value = ((int)(p7));
             this.Adapter.InsertCommand.Parameters[7].Value = ((double)(p8));
             this.Adapter.InsertCommand.Parameters[8].Value = ((double)(p9));
-            this.Adapter.InsertCommand.Parameters[9].Value = ((double)(p10));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(p10));
+            this.Adapter.InsertCommand.Parameters[10].Value = ((int)(p11));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((double)(p12));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7412,18 +7528,22 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
                     int p7, 
                     double p8, 
                     double p9, 
-                    double p10, 
+                    int p10, 
                     int p11, 
-                    int p12, 
+                    double p12, 
                     int p13, 
                     int p14, 
-                    double p15, 
+                    int p15, 
                     int p16, 
-                    int p17, 
+                    double p17, 
                     int p18, 
-                    double p19, 
-                    double p20, 
-                    double p21) {
+                    int p19, 
+                    int p20, 
+                    double p21, 
+                    double p22, 
+                    int p23, 
+                    int p24, 
+                    double p25) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(p2));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(p3));
@@ -7433,18 +7553,22 @@ namespace Plateia.frescobol_system_dbDataSetTableAdapters {
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(p7));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((double)(p8));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(p9));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((double)(p10));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(p10));
             this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(p11));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(p12));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((double)(p12));
             this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(p13));
             this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(p14));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((double)(p15));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(p15));
             this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(p16));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(p17));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((double)(p17));
             this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(p18));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((double)(p19));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((double)(p20));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(p19));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(p20));
             this.Adapter.UpdateCommand.Parameters[20].Value = ((double)(p21));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((double)(p22));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(p23));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(p24));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((double)(p25));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
