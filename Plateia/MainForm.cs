@@ -441,7 +441,7 @@ namespace Plateia
             {
                 this.label2.Text = new DateTime(this.cronometro.Elapsed.Ticks).ToString("mm:ss.ff");
 
-                if (this.cronometro.ElapsedMilliseconds >= 30000)
+                if (this.cronometro.ElapsedMilliseconds >= 300000)
                 {
                     this.cronTimer.Stop();
                     this.cronometro.Stop();
