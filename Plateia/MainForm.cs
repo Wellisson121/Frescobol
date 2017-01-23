@@ -9,6 +9,9 @@ using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
 using StalkerRadarLib;
 using System.Globalization;
+using MigraDoc.DocumentObjectModel.Shapes;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Plateia
 {
@@ -30,7 +33,7 @@ namespace Plateia
         private DataRow atleta1;
         private DataRow atleta2;
 
-        int v = 100;
+        int v = 400;
 
         private int idAtleta1;
         private int idAtleta2;
@@ -39,7 +42,6 @@ namespace Plateia
         private int idDuplasEvento;
 
         private int sequencias;
-        private double pontuacao;
         private int categoriaVelocidadeMinima = 0;
         private int ataquesAtleta1 = 0;
         private int ataquesAtleta2 = 0;
@@ -51,8 +53,15 @@ namespace Plateia
         private double potenciaAtleta2 = 0;
         private double potenciaTotalMedia = 0;
 
+        private double equilibrio = 0;
         private int notaJuizAtleta1;
         private int notaJuizAtleta2;
+        private double pontuacao;
+        private double pontosAtaques;
+        private double pontosSequencias;
+        private double pontosPotencia;
+
+        internal Dictionary<string, System.Drawing.Image> ImagensAtletas;
 
         public int NotaJuizAtleta1
         {
@@ -75,6 +84,8 @@ namespace Plateia
             InitializeComponent();
 
             WindowState = FormWindowState.Maximized; //inicializa maximizado
+            //FormBorderStyle = FormBorderStyle.None;
+            //TopMost = true;
             KeyPreview = true;
 
             this.notas = new Pontuacao();
@@ -92,7 +103,9 @@ namespace Plateia
             try
             {
                 radar.openSerialPort("COM4");
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 MessageBox.Show("O radar não está conectado ou está na porta errada. O programa será executado sem leituras do Radar.", "Radar não encontrado...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -105,9 +118,9 @@ namespace Plateia
             SoundPlayer s;
             int velocidade = e.pSpeed;
             int direcao = e.direction;
-            long tempo = cronometro.ElapsedTicks;
+            long tempo = cronometro.Elapsed.Ticks;
 
-            if(velocidade >= categoriaVelocidadeMinima)
+            if (velocidade >= categoriaVelocidadeMinima)
             {
                 if (direcao == 0) //ataque na direcao in
                 {
@@ -116,7 +129,8 @@ namespace Plateia
                     potenciaAtleta1 = (double)somaAtaquesAtleta1 / ataquesAtleta1;
 
                     registrosRadar.Add(new SpeedRecord(idAtleta1, idDupla, idEvento, idDuplasEvento, velocidade, direcao, tempo));
-                } else //ataque na direção out
+                }
+                else //ataque na direção out
                 {
                     ++ataquesAtleta2;
                     somaAtaquesAtleta2 += velocidade;
@@ -167,37 +181,211 @@ namespace Plateia
             this.pictureBox3.Image = direcao == 0 ? Properties.Resources.ataque_in : Properties.Resources.ataque_out;
         }
 
-        private void Estatisticas_Partida ()
+        private void Estatisticas_Partida()
         {
             Document document = new Document();
-            document.Info.Title = "Radar Ball - Registro de Partida";
+            document.Info.Title = eventoAtual["nome"].ToString() + "_" + DateTime.Now.ToString("ddMMyyyy") + "_" + duplaAtual["iddupla"].ToString();
             document.Info.Subject = "Relatório da partida.";
 
             Style style = document.Styles["Normal"];
             style.Font.Name = "Helvetica";
 
             Section section = document.AddSection();
-            Table table = section.AddTable();
-            table.Style = "Normal";
-            table.Borders.Width = 0.25;
-            table.Rows.LeftIndent = 0;
 
-            Column column = table.AddColumn("1cm");
-            column.Format.Alignment = ParagraphAlignment.Center;
+            Paragraph paragraph = new Paragraph();
+            paragraph.Format.Alignment = ParagraphAlignment.Center;
+            paragraph.AddText("Página ");
+            paragraph.AddPageField();
+            paragraph.AddText(" de ");
+            paragraph.AddNumPagesField();
 
-            column = table.AddColumn("2cm");
-            column.Format.Alignment = ParagraphAlignment.Center;
+            section.Headers.Primary.Add(paragraph);
 
-            column = table.AddColumn("3.5cm");
-            column.Format.Alignment = ParagraphAlignment.Right;
+            Paragraph title = section.AddParagraph();
+            title.Format.Alignment = ParagraphAlignment.Center;
+            title.AddFormattedText(eventoAtual["nome"].ToString(), TextFormat.Bold);
 
-            Row row = table.AddRow();
-            row.HeadingFormat = true;
-            row.Format.Alignment = ParagraphAlignment.Center;
+            section.AddParagraph();
 
-            row.Cells[0].AddParagraph("Item");
-            row.Cells[1].AddParagraph("Item2");
-            row.Cells[2].AddParagraph("Item3");
+            title = section.AddParagraph();
+            title.Format.Alignment = ParagraphAlignment.Center;
+
+            title.AddFormattedText("Data: ", TextFormat.Bold);
+            title.AddText(DateTime.Now.ToString("dd/MM/yyyy"));
+            title.AddFormattedText("\t\tHora: ", TextFormat.Bold);
+            title.AddText(DateTime.Now.ToString("HH:mm:ss"));
+            title.AddFormattedText("\t\tCategoria: ", TextFormat.Bold);
+            title.AddText(categoriaAtual["nome"].ToString());
+
+            section.AddParagraph();
+
+            #region tabela de cabeçalho
+            //Tabela de Cabeçalho
+            Table t = section.AddTable();
+            t.Style = "Normal";
+            t.Borders.Width = 0.25;
+            t.Format.Font.Size = 10;
+            t.Rows.Height = 14;
+
+            t.AddColumn("4cm").Format.Alignment = ParagraphAlignment.Center;
+            t.AddColumn("4cm").Format.Alignment = ParagraphAlignment.Center;
+            t.AddColumn("4cm").Format.Alignment = ParagraphAlignment.Center;
+            t.AddColumn("4cm").Format.Alignment = ParagraphAlignment.Center;
+
+            Row r1 = t.AddRow();
+
+            r1.VerticalAlignment = VerticalAlignment.Center;
+
+            r1.Cells[0].AddParagraph("In: " + atleta1["apelido"].ToString());
+            r1.Cells[1].AddParagraph("Out: " + atleta2["apelido"].ToString());
+            r1.Cells[2].MergeRight = 1;
+            r1.Cells[2].AddParagraph().AddFormattedText("Pontuação Total: " + string.Format("{0:0.00}", pontuacao));
+
+            Row r2 = t.AddRow();
+
+            r2.Cells[0].AddParagraph("Tempo de Jogo: " + label2.Text);
+            r2.Cells[0].MergeRight = 1;
+            r2.Cells[2].AddParagraph("Equilíbrio: " + string.Format("{0:0.00}", equilibrio));
+            r2.Cells[3].AddParagraph("Pontos: " + string.Format("{0:0.00}", equilibrio));
+
+            Row r3 = t.AddRow();
+
+            r3.Cells[0].AddParagraph("Ataques In: " + ataquesAtleta1);
+            r3.Cells[1].AddParagraph("Ataques Out: " + ataquesAtleta2);
+            r3.Cells[2].AddParagraph("Total de Ataques: " + ataquesTotal);
+            r3.Cells[3].AddParagraph("Pontos: " + string.Format("{0:0.00}", pontosAtaques));
+
+            Row r4 = t.AddRow();
+
+            r4.Cells[0].AddParagraph("Potência In: " + string.Format("{0:0.00}", potenciaAtleta1));
+            r4.Cells[1].AddParagraph("Potência Out: " + string.Format("{0:0.00}", potenciaAtleta2));
+            r4.Cells[2].AddParagraph("Potência Média: " + string.Format("{0:0.00}", potenciaTotalMedia));
+            r4.Cells[3].AddParagraph("Pontos: " + string.Format("{0:0.00}", pontosPotencia));
+
+            Row r5 = t.AddRow();
+
+            r5.Cells[0].AddParagraph("Nota Juiz In: " + notaJuizAtleta1);
+            r5.Cells[1].AddParagraph("Nota Juiz Out: " + notaJuizAtleta2);
+            r5.Cells[2].AddParagraph("Nota Juiz Total: " + (notaJuizAtleta1 + notaJuizAtleta2));
+            r5.Cells[3].AddParagraph("Pontos: " + (notaJuizAtleta1 + notaJuizAtleta2));
+
+            Row r6 = t.AddRow();
+
+            r6.Cells[1].MergeRight = 1;
+            r6.Cells[1].AddParagraph("Número de Sequências: " + sequencias);
+            r6.Cells[3].AddParagraph("Pontos: " + pontosSequencias);
+
+            section.AddParagraph();
+            section.AddParagraph();
+
+            #endregion
+
+            #region tabela de registros
+            //Tabela de registros
+            t = section.AddTable();
+
+            t.Style = "Normal";
+            t.Format.Font.Size = 10;
+            t.Rows.Height = 14;
+
+            t.AddColumn("5.33cm").Format.Alignment = ParagraphAlignment.Center;
+            t.AddColumn("5.33cm").Format.Alignment = ParagraphAlignment.Center;
+            t.AddColumn("5.33cm").Format.Alignment = ParagraphAlignment.Center;
+
+            Row r = t.AddRow();
+            Table t1 = r.Cells[0].AddTextFrame().AddTable();
+            Table t2 = r.Cells[1].AddTextFrame().AddTable();
+            Table t3 = r.Cells[2].AddTextFrame().AddTable();
+
+            Table[] tables = new Table[3] { t1, t2, t3 };
+
+            foreach (Table tab in tables)
+            {
+                tab.Borders.Width = 0.25;
+
+                tab.AddColumn("1.77cm").Format.Alignment = ParagraphAlignment.Center;
+                tab.AddColumn("1.77cm").Format.Alignment = ParagraphAlignment.Center;
+                tab.AddColumn("1.77cm").Format.Alignment = ParagraphAlignment.Center;
+
+                r = tab.AddRow();
+                r.VerticalAlignment = VerticalAlignment.Center;
+
+                r.Cells[0].AddParagraph("Tempo");
+                r.Cells[1].AddParagraph("In/Out");
+                r.Cells[2].AddParagraph("Km/h");
+            }
+
+            int start = 0;
+            int i = 0;
+            int pagelimit = 44;
+            int numberofpages = 0;
+            bool newpage = false;
+
+            foreach (SpeedRecord s in registrosRadar)
+            {
+                if (i != 0 && i % pagelimit == 0) { start++; newpage = true; }
+
+                if (start != 0 && start % 3 == 0 && newpage == true)
+                {
+                    numberofpages++;
+                    pagelimit = 55;
+                    i = (pagelimit * numberofpages);
+                    newpage = false;
+                    section.AddPageBreak();
+
+                    t = section.AddTable();
+
+                    t.Style = "Normal";
+                    t.Format.Font.Size = 10;
+                    t.Rows.Height = 14;
+
+                    t.AddColumn("5.33cm").Format.Alignment = ParagraphAlignment.Center;
+                    t.AddColumn("5.33cm").Format.Alignment = ParagraphAlignment.Center;
+                    t.AddColumn("5.33cm").Format.Alignment = ParagraphAlignment.Center;
+
+                    r = t.AddRow();
+                    t1 = r.Cells[0].AddTextFrame().AddTable();
+                    t2 = r.Cells[1].AddTextFrame().AddTable();
+                    t3 = r.Cells[2].AddTextFrame().AddTable();
+
+                    tables[0] = t1; tables[1] = t2; tables[2] = t3;
+
+                    foreach (Table tab in tables)
+                    {
+                        tab.Borders.Width = 0.25;
+
+                        tab.AddColumn("1.77cm").Format.Alignment = ParagraphAlignment.Center;
+                        tab.AddColumn("1.77cm").Format.Alignment = ParagraphAlignment.Center;
+                        tab.AddColumn("1.77cm").Format.Alignment = ParagraphAlignment.Center;
+
+                        r = tab.AddRow();
+                        r.VerticalAlignment = VerticalAlignment.Center;
+
+                        r.Cells[0].AddParagraph("Tempo");
+                        r.Cells[1].AddParagraph("In/Out");
+                        r.Cells[2].AddParagraph("Km/h");
+                    }
+                }
+
+                Row x = tables[start % 3].AddRow();
+
+                if (s.IdEvento == -1)
+                {
+                    x.Cells[0].AddParagraph("---");
+                    x.Cells[1].AddParagraph("---");
+                    x.Cells[2].AddParagraph("---");
+                }
+                else
+                {
+                    x.Cells[0].AddParagraph(new DateTime(s.Ticks).ToString("mm:ss.ff"));
+                    x.Cells[1].AddParagraph(s.Direcao == 0 ? "In" : "Out");
+                    x.Cells[2].AddParagraph(s.Velocidade.ToString());
+                }
+
+                i++;
+            }
+
+            #endregion
 
             //table.SetEdge(0, 0, 6, 2, Edge.Box, MigraDoc.DocumentObjectModel.BorderStyle.Single, 0.75, MigraDoc.DocumentObjectModel.Color.Empty);
 
@@ -205,11 +393,13 @@ namespace Plateia
             pdfRenderer.Document = document;
             pdfRenderer.RenderDocument();
 
-            pdfRenderer.PdfDocument.Save("teste.pdf");
-            Process.Start("teste.pdf");
+            string fileName = document.Info.Title + ".pdf";
+
+            pdfRenderer.PdfDocument.Save(fileName);
+            Process.Start(fileName);
         }
 
-        private void Reset_Window_Content ()
+        private void Reset_Window_Content()
         {
             this.cronometro = new Stopwatch();
 
@@ -231,6 +421,10 @@ namespace Plateia
             notaJuizAtleta2 = 0;
             sequencias = 0;
             pontuacao = 0;
+            pontosAtaques = 0;
+            pontosSequencias = 0;
+            pontosPotencia = 0;
+            equilibrio = 0;
 
             this.label2.Text = "00:00.00";
             this.label9.Text = "Jogador 1 (ID) x (ID) Jogador 2 - Categoria";
@@ -243,7 +437,7 @@ namespace Plateia
 
         private void updateCronometroText(object sender, EventArgs e)
         {
-            if(this.cronometro.IsRunning)
+            if (this.cronometro.IsRunning)
             {
                 this.label2.Text = new DateTime(this.cronometro.Elapsed.Ticks).ToString("mm:ss.ff");
 
@@ -261,7 +455,7 @@ namespace Plateia
 
 
                     //cleanup
-                    if(MessageBox.Show("Partida Finalizada!", "Tempo Esgtado", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    if (MessageBox.Show("Partida Finalizada!", "Tempo Esgtado", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {
                         NotasJuiz notas = new NotasJuiz(this);
                         notas.Disposed += Notas_Disposed;
@@ -275,24 +469,47 @@ namespace Plateia
         {
             pontuacao = Calcula_Pontuacao(sequencias, ataquesTotal, potenciaTotalMedia, notaJuizAtleta1, notaJuizAtleta2);
 
-            Salvar_Resultado_Database();
             Salvar_SpeedRecords_Database();
+
+            Estatisticas_Partida();
+
+            Salvar_Resultado_Database();
 
             Reset_Window_Content();
         }
 
-        private void Salvar_SpeedRecords_Database ()
+        private void Salvar_SpeedRecords_Database()
         {
-            foreach(SpeedRecord s in registrosRadar)
+            List<string> Rows = new List<string>();
+
+            foreach (SpeedRecord s in registrosRadar)
             {
-                if(s.IdEvento > 0)
+                if (s.IdEvento > 0)
                 {
-                    speedrecordsTableAdapter1.Insert(s.IdEvento, s.IdDuplasEvento, s.IdDupla, s.IdAtleta, s.Direcao, s.Velocidade, (int)s.Ticks);
+                    Rows.Add(string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", s.IdEvento, s.IdDuplasEvento, s.IdDupla, s.IdAtleta, s.Direcao, s.Velocidade, (int)s.Ticks));
                 }
             }
+
+            string connectionStr = "server=localhost;user id=system;password=Sys_4dm1n@;database=frescobol_system_db";
+            StringBuilder sCommand = new StringBuilder("INSERT INTO `speedrecords` (`idevento`, `idduplasevento`, `iddupla`, `idatleta`, `direcao`, `velocidade`, `ticks`) VALUES ");
+
+            using(MySql.Data.MySqlClient.MySqlConnection mconn = new MySql.Data.MySqlClient.MySqlConnection(connectionStr))
+            {
+                sCommand.Append(string.Join(",", Rows));
+                sCommand.Append(";");
+                mconn.Open();
+
+                using (MySql.Data.MySqlClient.MySqlCommand mycmd = new MySql.Data.MySqlClient.MySqlCommand(sCommand.ToString(), mconn))
+                {
+                    mycmd.CommandType = CommandType.Text;
+                    mycmd.ExecuteNonQuery();
+                }
+            }
+
+            //speedrecordsTableAdapter1.Insert(s.IdEvento, s.IdDuplasEvento, s.IdDupla, s.IdAtleta, s.Direcao, s.Velocidade, (int)s.Ticks);
         }
 
-        private void Salvar_Resultado_Database ()
+        private void Salvar_Resultado_Database()
         {
             if (sequencias == 0 || potenciaTotalMedia == 0 || ataquesTotal == 0)
             {
@@ -304,23 +521,23 @@ namespace Plateia
             }
         }
 
-        private double Calcula_Pontuacao (int sequencias, int ataques, double velocidade, int notajuizatleta1, int notajuizatleta2)
+        private double Calcula_Pontuacao(int sequencias, int ataques, double velocidade, int notajuizatleta1, int notajuizatleta2)
         {
             double pontuacao = 0d;
 
             //sequencias
-            if (sequencias < 8) pontuacao += 150;
-            else if (sequencias > 30) pontuacao -= 200;
-            else if(sequencias >= 1) pontuacao += notas.Sequencia[sequencias];
+            if (sequencias < 8) pontosSequencias = 150;
+            else if (sequencias > 30) pontosSequencias = -200;
+            else if (sequencias >= 1) pontosSequencias = notas.Sequencia[sequencias];
 
             //ataques
-            if (ataques >= 220) pontuacao += 200;
-            else if (ataques >= 1) pontuacao += notas.Ataque[ataques];
+            if (ataques >= 220) pontosAtaques = 200;
+            else if (ataques >= 1) pontosAtaques = notas.Ataque[ataques];
 
             //potencia
-            if (velocidade == 0) pontuacao += 0;
-            else if (velocidade >= 75) pontuacao += 300;
-            else pontuacao += notas.Velocidade[string.Format(new CultureInfo("en-US"), "{0:00.0}", velocidade)];
+            if (velocidade == 0) pontosPotencia = 0;
+            else if (velocidade >= 75) pontosPotencia = 300;
+            else pontosPotencia = notas.Velocidade[string.Format(new CultureInfo("en-US"), "{0:00.0}", velocidade)];
 
             //equilibrio
             int atkmenor, atkmaior;
@@ -330,15 +547,16 @@ namespace Plateia
 
             if (atkmaior > 0)
             {
-                pontuacao += ((double)atkmenor / atkmaior) * ataquesTotal * 0.681819;
+                equilibrio = ((double)atkmenor / atkmaior) * ataquesTotal * 0.681819;
+                if (equilibrio > 150) equilibrio = 150;
             }
 
             //subjetivo
-            pontuacao += notajuizatleta1 + notajuizatleta2;
+            pontuacao = pontosAtaques + pontosSequencias + pontosPotencia + equilibrio + notajuizatleta1 + notajuizatleta2;
 
             return pontuacao;
         }
-        
+
         private void label2_Click(object sender, EventArgs e)
         {
             if (eventoAtual == null || duplaAtual == null)
@@ -354,7 +572,8 @@ namespace Plateia
                 this.cronometro.Stop();
                 SoundPlayer s = new SoundPlayer(Plateia.Properties.Resources.pausa);
                 s.Play();
-            } else
+            }
+            else
             {
                 this.cronTimer.Start();
                 this.cronometro.Start();
@@ -363,19 +582,20 @@ namespace Plateia
 
                 this.textBox8.Text = ((Int32.Parse(this.textBox8.Text) + 1) + "").PadLeft(2, '0');
                 sequencias++;
+                registrosRadar.Add(new SpeedRecord(-1, -1, -1, -1, -1, -1, -1));
             }
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
-            switch(e.KeyCode)
+            switch (e.KeyCode)
             {
                 case Keys.F5:
                     Radar_SpeedReceived(null, new RadarSpeedEventArgs(v--, (byte)(v % 2)));
                     //w.o. na dupla selecionada
                     break;
                 case Keys.F7:
-                    if(eventoForm == null || eventoForm.IsDisposed)
+                    if (eventoForm == null || eventoForm.IsDisposed)
                     {
                         eventoForm = new EventoForm();
                         eventoForm.Show();
@@ -383,8 +603,9 @@ namespace Plateia
                     }
                     break;
                 case Keys.F8:
-                    if(duplasForm == null || duplasForm.IsDisposed) {
-                        if(eventoAtual == null)
+                    if (duplasForm == null || duplasForm.IsDisposed)
+                    {
+                        if (eventoAtual == null)
                         {
                             MessageBox.Show("Você deve selecionar um evento antes.", "Evento não selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
@@ -398,6 +619,9 @@ namespace Plateia
                 case Keys.F9:
                     label2_Click(null, null);
                     break;
+                case Keys.F10:
+                    Estatisticas_Partida();
+                    break;
                 default:
                     break;
             }
@@ -405,7 +629,7 @@ namespace Plateia
 
         private void DuplasForm_Disposed(object sender, EventArgs e)
         {
-            if(duplasForm.getSelectedDuplaId() > 0 && duplasForm.getSelectedDuplaEventoId() > 0)
+            if (duplasForm.getSelectedDuplaId() > 0 && duplasForm.getSelectedDuplaEventoId() > 0)
             {
                 registrosRadar = new ArrayList();
                 duplasEventoAtual = this.duplaseventoTableAdapter1.GetDuplaById(this.duplasForm.getSelectedDuplaEventoId()).Rows[0];
@@ -422,7 +646,8 @@ namespace Plateia
                 atleta2 = this.atletaTableAdapter1.GetAtletaById(idAtleta2).Rows[0];
 
                 this.label9.Text = atleta1["apelido"] + " (" + atleta1["idatleta"].ToString().PadLeft(3, '0') + ") x (" + atleta2["idatleta"].ToString().PadLeft(3, '0') + ") " + atleta2["apelido"] + " - " + categoriaAtual["nome"];
-            } else
+            }
+            else
             {
                 duplaAtual = null;
             }
@@ -437,7 +662,8 @@ namespace Plateia
                 eventoAtual = this.eventoTableAdapter1.GetById(idEvento).Rows[0];
                 categoriaAtual = this.categoriaTableAdapter1.GetCategoriaById(Int32.Parse(eventoAtual["idcategoria"].ToString())).Rows[0];
                 categoriaVelocidadeMinima = Int32.Parse(categoriaAtual["velocidade"].ToString());
-            } else
+            }
+            else
             {
                 eventoAtual = null;
             }

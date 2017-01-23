@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:Instalador"
+"ProjectName" = "8:FrescobolInstaller"
 "LanguageId" = "3:1046"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1046"
@@ -64,18 +64,12 @@
         "Entry"
         {
         "MsmKey" = "8:_1D31711B2782D8F7946A0A5BB998AE3D"
-        "OwnerKey" = "8:_14E4C708346D4402A63A936BD380FB76"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1D31711B2782D8F7946A0A5BB998AE3D"
         "OwnerKey" = "8:_1B1959EF831D773F0947F2D6D22E7EC4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1F8E0369D57791424EACE04FB35A51BA"
+        "MsmKey" = "8:_1D31711B2782D8F7946A0A5BB998AE3D"
         "OwnerKey" = "8:_14E4C708346D4402A63A936BD380FB76"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -177,6 +171,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B65DDEF6CCDD3A21FAF3F8E49B8CBAB8"
+        "OwnerKey" = "8:_14E4C708346D4402A63A936BD380FB76"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C0C3B66F27D735D9D10FD26993599C19"
         "OwnerKey" = "8:_1B1959EF831D773F0947F2D6D22E7EC4"
         "MsmSig" = "8:_UNDEFINED"
@@ -262,7 +262,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1F8E0369D57791424EACE04FB35A51BA"
+        "OwnerKey" = "8:_B65DDEF6CCDD3A21FAF3F8E49B8CBAB8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -424,7 +424,7 @@
             "SourcePath" = "8:MigraDoc.DocumentObjectModel.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_D53BB8A71EC94D5EACAF43BD248A3FC7"
+            "Folder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -455,7 +455,7 @@
             "SourcePath" = "8:Microsoft.ReportViewer.Common.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_1FF2B55DF3474B928D2B7AF43524A83B"
+            "Folder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -484,37 +484,6 @@
                     }
                 }
             "SourcePath" = "8:Microsoft.SqlServer.Types.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_1FF2B55DF3474B928D2B7AF43524A83B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1F8E0369D57791424EACE04FB35A51BA"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:StalkerRadarLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_1F8E0369D57791424EACE04FB35A51BA"
-                    {
-                    "Name" = "8:StalkerRadarLib.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:StalkerRadarLib.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
@@ -548,7 +517,7 @@
             "SourcePath" = "8:PdfSharp.Charting.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_A57058990ECF4F2B92B7DFD1B8F145C0"
+            "Folder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -610,7 +579,7 @@
             "SourcePath" = "8:MigraDoc.RtfRendering.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_D53BB8A71EC94D5EACAF43BD248A3FC7"
+            "Folder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -641,7 +610,7 @@
             "SourcePath" = "8:Microsoft.ReportViewer.DataVisualization.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_1FF2B55DF3474B928D2B7AF43524A83B"
+            "Folder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -692,7 +661,38 @@
             "SourcePath" = "8:PdfSharp.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_A57058990ECF4F2B92B7DFD1B8F145C0"
+            "Folder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B65DDEF6CCDD3A21FAF3F8E49B8CBAB8"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:StalkerRadarLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_B65DDEF6CCDD3A21FAF3F8E49B8CBAB8"
+                    {
+                    "Name" = "8:StalkerRadarLib.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:StalkerRadarLib.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -723,7 +723,7 @@
             "SourcePath" = "8:Microsoft.ReportViewer.ProcessingObjectModel.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_1FF2B55DF3474B928D2B7AF43524A83B"
+            "Folder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -754,7 +754,7 @@
             "SourcePath" = "8:MigraDoc.Rendering.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_D53BB8A71EC94D5EACAF43BD248A3FC7"
+            "Folder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -785,7 +785,7 @@
             "SourcePath" = "8:Microsoft.ReportViewer.WinForms.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_1FF2B55DF3474B928D2B7AF43524A83B"
+            "Folder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -878,39 +878,6 @@
                                 {
                                 }
                             }
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_DBFB89787324405792AA6FFF30F8FC8D"
-                            {
-                            "Name" = "8:lib"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_290E1000CDC84A62AE182E1E13D7190A"
-                                "Folders"
-                                {
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_1FF2B55DF3474B928D2B7AF43524A83B"
-                                    {
-                                    "Name" = "8:Microsoft"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_65BE85D87E174389BA072EE8AEEC04B0"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D53BB8A71EC94D5EACAF43BD248A3FC7"
-                                    {
-                                    "Name" = "8:MigraDoc"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_06E5BABEBBDC4AA698A6EF6B1B9B1572"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                }
-                            }
                         }
                     }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_BD929836DC304086976CFFF17B3122BA"
@@ -975,15 +942,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Frescobol"
-        "ProductCode" = "8:{E2DE2425-F962-4D68-9C9F-0F752B1EF3CB}"
-        "PackageCode" = "8:{47D63743-C90D-4A7A-BC96-472F70278BA4}"
+        "ProductCode" = "8:{32D4DC84-463A-4EA7-BD03-3F1E3812F530}"
+        "PackageCode" = "8:{16663C2E-E09B-4DCC-98C4-814A61D67369}"
         "UpgradeCode" = "8:{67B095B9-C657-4678-A8C4-D567C2D40657}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.32"
         "Manufacturer" = "8:Radar Ball"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -1108,6 +1075,20 @@
             "Folder" = "8:_E4122FCAB73E412994091297A523CC9C"
             "WorkingFolder" = "8:_9A94A90DCC8E4D618A6FAB965BC26A40"
             "Icon" = "8:_96EBD62FB2334F0D94522805162EB7E4"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6DF456E5F0E14A3F9584EFF2A68561CD"
+            {
+            "Name" = "8:Plateia"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_14E4C708346D4402A63A936BD380FB76"
+            "Folder" = "8:_E4122FCAB73E412994091297A523CC9C"
+            "WorkingFolder" = "8:_D7C255AB19B04826BE96EC6E8669C0C6"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }

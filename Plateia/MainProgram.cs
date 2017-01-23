@@ -16,7 +16,24 @@ namespace Plateia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            SplashScreen splash = new SplashScreen();
+            splash.StartPosition = FormStartPosition.CenterScreen;
+            splash.Show();
+
+            Application.DoEvents();
+
+            MainForm mainForm = new MainForm();
+
+            for(int i = 0; i <= 12; i++)
+                splash.UpdateProgress(10);
+
+            //mainForm.ImagensAtletas = splash.LoadImagensAtletas();
+
+            splash.Dispose();
+            splash = null;
+
+            Application.Run(mainForm);
         }
     }
 }
