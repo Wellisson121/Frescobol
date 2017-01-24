@@ -620,11 +620,36 @@ namespace Plateia
                     label2_Click(null, null);
                     break;
                 case Keys.F10:
-                    Estatisticas_Partida();
+                    Inverter_Cores();
                     break;
                 default:
                     break;
             }
+        }
+
+        private void Inverter_Cores ()
+        {
+            //9 10 2 7 6 8 - 1 5 4 3
+            this.label9.ForeColor = Inverse_Color(label9.ForeColor);
+            this.label10.ForeColor = Inverse_Color(label10.ForeColor);
+            this.label2.ForeColor = Inverse_Color(label2.ForeColor);
+            this.label7.ForeColor = Inverse_Color(label7.ForeColor);
+            this.label6.ForeColor = Inverse_Color(label6.ForeColor);
+            this.textBox8.ForeColor = Inverse_Color(textBox8.ForeColor);
+
+            this.label1.ForeColor = Inverse_Color(label1.ForeColor);
+            this.label5.ForeColor = Inverse_Color(label5.ForeColor);
+            this.label4.ForeColor = Inverse_Color(label4.ForeColor);
+            this.label3.ForeColor = Inverse_Color(label3.ForeColor);
+
+            this.BackColor = Inverse_Color(this.BackColor);
+
+            //this.Refresh();
+        }
+
+        private System.Drawing.Color Inverse_Color (System.Drawing.Color color)
+        {
+            return color == System.Drawing.SystemColors.ControlText ? System.Drawing.Color.White : System.Drawing.SystemColors.ControlText;
         }
 
         private void DuplasForm_Disposed(object sender, EventArgs e)
