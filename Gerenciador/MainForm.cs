@@ -13,6 +13,8 @@ namespace Gerenciador
     public partial class MainForm : Form
     {
         private TextBox selectedDateBox = null;
+        TakePicture picture;
+        Bitmap atlFoto;
 
         public MainForm()
         {
@@ -40,6 +42,8 @@ namespace Gerenciador
             this.comboBox3.SelectedItem = null;
             this.comboBox4.SelectedItem = null;
             this.comboBox5.SelectedItem = null;
+
+            this.button7.Enabled = false;
         }
 
         #region atleta
@@ -68,6 +72,9 @@ namespace Gerenciador
             this.textBox1.Text = "";
             this.textBox2.Text = "";
             this.textBox3.Text = "";
+            atlFoto.Dispose();
+            atlFoto = null;
+            pictureBox1.Image = Properties.Resources.no_image;
         }
 
         #endregion
@@ -252,5 +259,28 @@ namespace Gerenciador
         }
 
         #endregion
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text == "" || textBox2.Text == "")
+            {
+                MessageBox.Show("Você deve preencher nome e apelido antes de tirar uma foto!");
+                return;
+            }
+
+            if(picture == null || picture.IsDisposed)
+            {
+                picture = new TakePicture(this);
+                picture.Show();
+            }
+        }
+
+        public void copyTakenPicture ()
+        {
+            if (atlFoto != null) this.pictureBox1.Image.Dispose();
+            atlFoto = picture.getTakenPicture().Clone() as Bitmap;
+
+            this.pictureBox1.Image = atlFoto;
+        }
     }
 }

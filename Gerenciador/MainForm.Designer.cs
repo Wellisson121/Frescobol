@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAtleta = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -159,6 +160,7 @@
             // 
             // tabAtleta
             // 
+            this.tabAtleta.Controls.Add(this.button7);
             this.tabAtleta.Controls.Add(this.button2);
             this.tabAtleta.Controls.Add(this.button1);
             this.tabAtleta.Controls.Add(this.textBox3);
@@ -177,9 +179,19 @@
             this.tabAtleta.Text = "Atleta";
             this.tabAtleta.UseVisualStyleBackColor = true;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(569, 212);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 10;
+            this.button7.Text = "Tirar Foto";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(49, 198);
+            this.button2.Location = new System.Drawing.Point(48, 198);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 9;
@@ -189,7 +201,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(428, 136);
+            this.button1.Location = new System.Drawing.Point(48, 156);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 22);
             this.button1.TabIndex = 8;
@@ -199,7 +211,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(49, 137);
+            this.textBox3.Location = new System.Drawing.Point(49, 134);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(370, 20);
@@ -208,7 +220,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 121);
+            this.label3.Location = new System.Drawing.Point(46, 118);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 13);
             this.label3.TabIndex = 6;
@@ -249,9 +261,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Gerenciador.Properties.Resources.no_image;
-            this.pictureBox1.Location = new System.Drawing.Point(575, 37);
+            this.pictureBox1.Location = new System.Drawing.Point(437, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 165);
+            this.pictureBox1.Size = new System.Drawing.Size(320, 200);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -1109,6 +1121,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idduplaseventoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idduplaDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomedupla;
+        private System.Windows.Forms.Button button7;
     }
 }
 
