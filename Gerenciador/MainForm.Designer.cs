@@ -104,6 +104,7 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.categoriaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.ideventoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horainicioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,12 +117,23 @@
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.idresultadosevento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idevento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idduplasevento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pontuacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultadoseventoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.atletaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.atletaTableAdapter();
             this.duplaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaTableAdapter();
             this.categoriaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.categoriaTableAdapter();
             this.eventoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.eventoTableAdapter();
             this.duplaseventoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaseventoTableAdapter();
+            this.resultadoseventoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.resultadoseventoTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabAtleta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -143,6 +155,9 @@
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.duplaseventoBindingSource)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultadoseventoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -152,6 +167,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(1, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -837,6 +853,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button8);
             this.tabPage4.Controls.Add(this.dataGridView4);
             this.tabPage4.Controls.Add(this.button6);
             this.tabPage4.Controls.Add(this.label18);
@@ -850,6 +867,16 @@
             this.tabPage4.TabIndex = 5;
             this.tabPage4.Text = "Duplas de Evento";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(617, 141);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(108, 23);
+            this.button8.TabIndex = 6;
+            this.button8.Text = "Imprimir Duplas";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // dataGridView4
             // 
@@ -964,6 +991,102 @@
             this.comboBox4.ValueMember = "idevento";
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.button9);
+            this.tabPage5.Controls.Add(this.label19);
+            this.tabPage5.Controls.Add(this.dataGridView5);
+            this.tabPage5.Controls.Add(this.comboBox6);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(776, 534);
+            this.tabPage5.TabIndex = 6;
+            this.tabPage5.Text = "Resultados";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(49, 141);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(120, 23);
+            this.button9.TabIndex = 3;
+            this.button9.Text = "Imprimir Resultados";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(46, 33);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 13);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Evento";
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.AllowUserToAddRows = false;
+            this.dataGridView5.AllowUserToDeleteRows = false;
+            this.dataGridView5.AutoGenerateColumns = false;
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idresultadosevento,
+            this.idevento,
+            this.idduplasevento,
+            this.pontuacao});
+            this.dataGridView5.DataSource = this.resultadoseventoBindingSource;
+            this.dataGridView5.Location = new System.Drawing.Point(49, 170);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.ReadOnly = true;
+            this.dataGridView5.Size = new System.Drawing.Size(676, 356);
+            this.dataGridView5.TabIndex = 1;
+            // 
+            // idresultadosevento
+            // 
+            this.idresultadosevento.DataPropertyName = "idresultadosevento";
+            this.idresultadosevento.HeaderText = "idresultadosevento";
+            this.idresultadosevento.Name = "idresultadosevento";
+            this.idresultadosevento.ReadOnly = true;
+            // 
+            // idevento
+            // 
+            this.idevento.DataPropertyName = "idevento";
+            this.idevento.HeaderText = "idevento";
+            this.idevento.Name = "idevento";
+            this.idevento.ReadOnly = true;
+            // 
+            // idduplasevento
+            // 
+            this.idduplasevento.DataPropertyName = "idduplasevento";
+            this.idduplasevento.HeaderText = "idduplasevento";
+            this.idduplasevento.Name = "idduplasevento";
+            this.idduplasevento.ReadOnly = true;
+            // 
+            // pontuacao
+            // 
+            this.pontuacao.DataPropertyName = "pontuacao";
+            this.pontuacao.HeaderText = "pontuacao";
+            this.pontuacao.Name = "pontuacao";
+            this.pontuacao.ReadOnly = true;
+            // 
+            // resultadoseventoBindingSource
+            // 
+            this.resultadoseventoBindingSource.DataMember = "resultadosevento";
+            this.resultadoseventoBindingSource.DataSource = this.bindingSource1;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.DataSource = this.eventoBindingSource;
+            this.comboBox6.DisplayMember = "nome";
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(49, 49);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(224, 21);
+            this.comboBox6.TabIndex = 0;
+            this.comboBox6.ValueMember = "idevento";
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -987,6 +1110,10 @@
             // duplaseventoTableAdapter
             // 
             this.duplaseventoTableAdapter.ClearBeforeFill = true;
+            // 
+            // resultadoseventoTableAdapter
+            // 
+            this.resultadoseventoTableAdapter.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -1024,6 +1151,10 @@
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.duplaseventoBindingSource)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultadoseventoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1122,6 +1253,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idduplaDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomedupla;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.BindingSource resultadoseventoBindingSource;
+        private frescobol_system_dbDataSetTableAdapters.resultadoseventoTableAdapter resultadoseventoTableAdapter;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idresultadosevento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idevento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idduplasevento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pontuacao;
     }
 }
 

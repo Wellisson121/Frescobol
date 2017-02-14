@@ -15,6 +15,8 @@ namespace Gerenciador
 {
     public partial class SplashScreen : Form
     {
+        private static string version = "1.1.21";
+
         public SplashScreen()
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace Gerenciador
         private void SplashScreen_Load(object sender, EventArgs e)
         {
             FormBorderStyle = FormBorderStyle.None;
+            this.label2.Text = "versão " + version;
         }
 
         public void UpdateProgress (int add)

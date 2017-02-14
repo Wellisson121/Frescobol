@@ -17,6 +17,8 @@ namespace Plateia
 {
     public partial class MainForm : Form
     {
+        private static string plateia_version = "1.1.21";
+
         private Stopwatch cronometro;
         private Timer cronTimer;
         private ProIISensor radar;
@@ -79,6 +81,8 @@ namespace Plateia
             }
         }
 
+        public bool FinalizarEvento { get; private set; }
+
         public MainForm()
         {
             InitializeComponent();
@@ -113,7 +117,7 @@ namespace Plateia
         //IMPORTANT: o atleta1 (esquerda na exibição dos atletas) é o atleta da direção in
         private void Radar_SpeedReceived(object sender, RadarSpeedEventArgs e)
         {
-            if (cronometro.IsRunning == false) return;
+            //if (cronometro.IsRunning == false) return;
 
             SoundPlayer s;
             int velocidade = e.pSpeed;
@@ -175,16 +179,20 @@ namespace Plateia
 
         private void UpdateWindowContent(int velocidade, int direcao)
         {
-            this.label6.Text = string.Format("{0:000}", ataquesTotal);
-            this.label7.Text = string.Format("{0:00.00}", potenciaTotalMedia);
-            this.label10.Text = string.Format("{0}", velocidade);
-            this.pictureBox3.Image = direcao == 0 ? Properties.Resources.ataque_in : Properties.Resources.ataque_out;
+            CrossThreadUtiliy.InvokeControlAction<Label>(label6, lbl => lbl.Text = string.Format("{0:000}", ataquesTotal));
+            CrossThreadUtiliy.InvokeControlAction<Label>(label7, lbl => lbl.Text = string.Format("{0:00.00}", potenciaTotalMedia));
+            CrossThreadUtiliy.InvokeControlAction<Label>(label10, lbl => string.Format("{0}", velocidade));
+            CrossThreadUtiliy.InvokeControlAction<PictureBox>(pictureBox3, pct => pct.Image = direcao == 0 ? Properties.Resources.ataque_in : Properties.Resources.ataque_out);
+            //this.label6.Text = string.Format("{0:000}", ataquesTotal);
+            //this.label7.Text = string.Format("{0:00.00}", potenciaTotalMedia);
+            //this.label10.Text = string.Format("{0}", velocidade);
+            //this.pictureBox3.Image = direcao == 0 ? Properties.Resources.ataque_in : Properties.Resources.ataque_out;
         }
 
         private void Estatisticas_Partida()
         {
             Document document = new Document();
-            document.Info.Title = eventoAtual["nome"].ToString() + "_" + DateTime.Now.ToString("ddMMyyyy") + "_" + duplaAtual["iddupla"].ToString();
+            document.Info.Title = DateTime.Now.ToString("dd-MM-yyyy") + "_" + eventoAtual["nome"].ToString() + "_" + duplaAtual["nomedupla"].ToString();
             document.Info.Subject = "Relatório da partida.";
 
             Style style = document.Styles["Normal"];
@@ -236,6 +244,7 @@ namespace Plateia
 
             r1.VerticalAlignment = VerticalAlignment.Center;
 
+            r1.Cells[0].Format.Font.Color = Colors.Red;
             r1.Cells[0].AddParagraph("In: " + atleta1["apelido"].ToString());
             r1.Cells[1].AddParagraph("Out: " + atleta2["apelido"].ToString());
             r1.Cells[2].MergeRight = 1;
@@ -250,6 +259,7 @@ namespace Plateia
 
             Row r3 = t.AddRow();
 
+            r3.Cells[0].Format.Font.Color = Colors.Red;
             r3.Cells[0].AddParagraph("Ataques In: " + ataquesAtleta1);
             r3.Cells[1].AddParagraph("Ataques Out: " + ataquesAtleta2);
             r3.Cells[2].AddParagraph("Total de Ataques: " + ataquesTotal);
@@ -257,6 +267,7 @@ namespace Plateia
 
             Row r4 = t.AddRow();
 
+            r4.Cells[0].Format.Font.Color = Colors.Red;
             r4.Cells[0].AddParagraph("Potência In: " + string.Format("{0:0.00}", potenciaAtleta1));
             r4.Cells[1].AddParagraph("Potência Out: " + string.Format("{0:0.00}", potenciaAtleta2));
             r4.Cells[2].AddParagraph("Potência Média: " + string.Format("{0:0.00}", potenciaTotalMedia));
@@ -264,6 +275,7 @@ namespace Plateia
 
             Row r5 = t.AddRow();
 
+            r5.Cells[0].Format.Font.Color = Colors.Red;
             r5.Cells[0].AddParagraph("Nota Juiz In: " + notaJuizAtleta1);
             r5.Cells[1].AddParagraph("Nota Juiz Out: " + notaJuizAtleta2);
             r5.Cells[2].AddParagraph("Nota Juiz Total: " + (notaJuizAtleta1 + notaJuizAtleta2));
@@ -378,7 +390,16 @@ namespace Plateia
                 else
                 {
                     x.Cells[0].AddParagraph(new DateTime(s.Ticks).ToString("mm:ss.ff"));
-                    x.Cells[1].AddParagraph(s.Direcao == 0 ? "In" : "Out");
+                    
+                    if(s.Direcao == 0)
+                    {
+                        x.Cells[1].Format.Font.Color = Colors.Red;
+                        x.Cells[1].AddParagraph("In");
+                    } else
+                    {
+                        x.Cells[1].AddParagraph("Out");
+                    }
+
                     x.Cells[2].AddParagraph(s.Velocidade.ToString());
                 }
 
@@ -393,7 +414,9 @@ namespace Plateia
             pdfRenderer.Document = document;
             pdfRenderer.RenderDocument();
 
-            string fileName = document.Info.Title + ".pdf";
+            string fileName = "relatorios\\" + document.Info.Title + ".pdf";
+
+            System.IO.Directory.CreateDirectory("relatorios");
 
             pdfRenderer.PdfDocument.Save(fileName);
             Process.Start(fileName);
@@ -441,15 +464,12 @@ namespace Plateia
             {
                 this.label2.Text = new DateTime(this.cronometro.Elapsed.Ticks).ToString("mm:ss.ff");
 
-                if (this.cronometro.ElapsedMilliseconds >= 300000)
+                if (this.cronometro.ElapsedMilliseconds >= 30000)
                 {
                     this.cronTimer.Stop();
                     this.cronometro.Stop();
                     SoundPlayer s = new SoundPlayer(Properties.Resources.termino);
                     s.Play();
-
-                    this.duplasEventoAtual["finalizado"] = 1;
-                    this.duplaseventoTableAdapter1.Update(this.duplasEventoAtual); //marca a dupla como finalizada
 
                     //continue
 
@@ -473,8 +493,30 @@ namespace Plateia
 
             Estatisticas_Partida();
 
+            Do_Finalize_Dupla();
+
             Salvar_Resultado_Database();
 
+            Reset_Window_Content();
+        }
+
+        private void Do_Finalize_Dupla ()
+        {
+            this.duplasEventoAtual["finalizado"] = 1;
+            this.duplaseventoTableAdapter1.Update(this.duplasEventoAtual); //marca a dupla como finalizada
+
+            if (this.FinalizarEvento == true)
+            {
+                this.eventoAtual["finalizado"] = 1;
+                this.eventoTableAdapter1.Update(this.eventoAtual);
+                this.eventoAtual = null;
+            }
+        }
+
+        private void Grava_WO ()
+        {
+            Do_Finalize_Dupla();
+            this.resultadoseventoTableAdapter1.Insert(idEvento, idDuplasEvento, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
             Reset_Window_Content();
         }
 
@@ -495,14 +537,21 @@ namespace Plateia
 
             using(MySql.Data.MySqlClient.MySqlConnection mconn = new MySql.Data.MySqlClient.MySqlConnection(connectionStr))
             {
+                if(Rows.Count == 0)
+                {
+                    return;
+                }
+
                 sCommand.Append(string.Join(",", Rows));
                 sCommand.Append(";");
+
                 mconn.Open();
 
                 using (MySql.Data.MySqlClient.MySqlCommand mycmd = new MySql.Data.MySqlClient.MySqlCommand(sCommand.ToString(), mconn))
                 {
                     mycmd.CommandType = CommandType.Text;
                     mycmd.ExecuteNonQuery();
+                    mconn.Close();
                 }
             }
 
@@ -527,16 +576,16 @@ namespace Plateia
 
             //sequencias
             if (sequencias < 8) pontosSequencias = 150;
-            else if (sequencias > 30) pontosSequencias = -200;
+            else if (sequencias > 35) pontosSequencias = -200;
             else if (sequencias >= 1) pontosSequencias = notas.Sequencia[sequencias];
 
             //ataques
-            if (ataques >= 220) pontosAtaques = 200;
-            else if (ataques >= 1) pontosAtaques = notas.Ataque[ataques];
+            if (ataques >= 260) pontosAtaques = 200;
+            else if (ataques >= 41) pontosAtaques = notas.Ataque[ataques];
 
             //potencia
-            if (velocidade == 0) pontosPotencia = 0;
-            else if (velocidade >= 75) pontosPotencia = 300;
+            if (velocidade <= 51) pontosPotencia = 0;
+            else if (velocidade >= 76) pontosPotencia = 300;
             else pontosPotencia = notas.Velocidade[string.Format(new CultureInfo("en-US"), "{0:00.0}", velocidade)];
 
             //equilibrio
@@ -590,9 +639,20 @@ namespace Plateia
         {
             switch (e.KeyCode)
             {
+                case Keys.F1:
+                    ShowHelpPage();
+                    break;
                 case Keys.F5:
-                    Radar_SpeedReceived(null, new RadarSpeedEventArgs(v--, (byte)(v % 2)));
-                    //w.o. na dupla selecionada
+                    if(duplaAtual == null || eventoAtual == null)
+                    {
+                        MessageBox.Show("Nenhuma dupla ou evento selecionados.", "Erro");
+                        return;
+                    }
+
+                    if(MessageBox.Show("Você está prestes a desclassificar uma dupla por W.O. Tem certeza?", "Atenção", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    {
+                        Grava_WO();
+                    }
                     break;
                 case Keys.F7:
                     if (eventoForm == null || eventoForm.IsDisposed)
@@ -625,6 +685,11 @@ namespace Plateia
                 default:
                     break;
             }
+        }
+
+        private void ShowHelpPage()
+        {
+            
         }
 
         private void Inverter_Cores ()
@@ -671,6 +736,13 @@ namespace Plateia
                 atleta2 = this.atletaTableAdapter1.GetAtletaById(idAtleta2).Rows[0];
 
                 this.label9.Text = atleta1["apelido"] + " (" + atleta1["idatleta"].ToString().PadLeft(3, '0') + ") x (" + atleta2["idatleta"].ToString().PadLeft(3, '0') + ") " + atleta2["apelido"] + " - " + categoriaAtual["nome"];
+
+                if(duplasForm.ultimaDupla == true)
+                {
+                    this.FinalizarEvento = true;
+                } else {
+                    this.FinalizarEvento = false;
+                }
             }
             else
             {
@@ -691,6 +763,29 @@ namespace Plateia
             else
             {
                 eventoAtual = null;
+                Reset_Window_Content();
+            }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Tem certeza que deseja encerrar a aplicação?", "Encerrar aplicação", MessageBoxButtons.YesNo);
+
+            e.Cancel = (result == DialogResult.No);
+        }
+    }
+
+    public static class CrossThreadUtiliy
+    {
+        public static void InvokeControlAction<T>(T cont, Action<T> action) where T : Control
+        {
+            if (cont.InvokeRequired)
+            {
+                cont.Invoke(new Action<T, Action<T>>(InvokeControlAction), new object[] { cont, action });
+            }
+            else
+            {
+                action(cont);
             }
         }
     }

@@ -1,8 +1,13 @@
-﻿using System;
+﻿using MigraDoc.DocumentObjectModel;
+using MigraDoc.DocumentObjectModel.Tables;
+using MigraDoc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +31,8 @@ namespace Gerenciador
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.resultadosevento' table. You can move, or remove it, as needed.
+            //this.resultadoseventoTableAdapter.Fill(this.frescobol_system_dbDataSet.resultadosevento);
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.duplasevento' table. You can move, or remove it, as needed.
             //this.duplaseventoTableAdapter.Fill(this.frescobol_system_dbDataSet.duplasevento);
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.evento' table. You can move, or remove it, as needed.
@@ -42,6 +49,7 @@ namespace Gerenciador
             this.comboBox3.SelectedItem = null;
             this.comboBox4.SelectedItem = null;
             this.comboBox5.SelectedItem = null;
+            this.comboBox6.SelectedItem = null;
 
             this.button7.Enabled = false;
         }
@@ -281,6 +289,174 @@ namespace Gerenciador
             atlFoto = picture.getTakenPicture().Clone() as Bitmap;
 
             this.pictureBox1.Image = atlFoto;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if(this.comboBox4.SelectedItem == null)
+            {
+                MessageBox.Show("Você deve selecionar um evento!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Document document = new Document();
+            document.Info.Title = DateTime.Now.ToString("dd-MM-yyyy") + "_" + this.comboBox4.Text + "_duplas";
+            document.Info.Subject = "Duplas do evento.";
+
+            Style style = document.Styles["Normal"];
+            style.Font.Name = "Helvetica";
+
+            Section section = document.AddSection();
+
+            Paragraph p = section.AddParagraph();
+            p.Format.Alignment = ParagraphAlignment.Center;
+            p.Format.Font.Bold = true;
+            p.Format.Font.Size = 14;
+            p.AddText(this.comboBox4.Text + " - Listagem de Jogos");
+
+            section.AddParagraph();
+            section.AddParagraph();
+
+            Table t = section.AddTable();
+            t.Style = "Normal";
+            t.Borders.Width = 0.25;
+            t.Format.Font.Size = 10;
+            t.Rows.Height = 16;
+
+            t.AddColumn("4cm").Format.Alignment = ParagraphAlignment.Center;
+            t.AddColumn("4cm").Format.Alignment = ParagraphAlignment.Center;
+            t.AddColumn("4cm").Format.Alignment = ParagraphAlignment.Center;
+            t.AddColumn("4cm").Format.Alignment = ParagraphAlignment.Center;
+
+            Row r1 = t.AddRow();
+            r1.Format.Font.Bold = true;
+
+            r1.Cells[0].AddParagraph("Data do Jogo");
+            r1.Cells[1].AddParagraph("Hora do Jogo");
+            r1.Cells[2].AddParagraph("Atleta (id)");
+            r1.Cells[3].AddParagraph("Atleta (id)");
+
+
+            foreach (DataGridViewRow row in dataGridView4.Rows)
+            {
+                int duplaid = Int32.Parse(row.Cells["idduplaDataGridViewTextBoxColumn1"].Value.ToString());
+                DataRow dupla = this.duplaTableAdapter.GetDuplaById(duplaid)[0];
+                int idatl1 = Int32.Parse(dupla["idatl1"].ToString());
+                int idatl2 = Int32.Parse(dupla["idatl2"].ToString());
+                DataRowCollection atletas = this.atletaTableAdapter.GetAtletasById(idatl1, idatl2).Rows;
+
+                DateTime date = DateTime.Parse(row.Cells["horainicioDataGridViewTextBoxColumn1"].Value.ToString());
+
+                Row r = t.AddRow();
+                r.Cells[0].AddParagraph(date.ToString("dd/MM/yyyy"));
+                r.Cells[1].AddParagraph(date.ToString("HH:mm:ss"));
+                r.Cells[2].AddParagraph(atletas[0]["apelido"] + " (" + atletas[0]["idatleta"].ToString().PadLeft(3, '0') + ")");
+                r.Cells[3].AddParagraph(atletas[1]["apelido"] + " (" + atletas[1]["idatleta"].ToString().PadLeft(3, '0') + ")");
+            }
+            /*
+            r1.Cells[2].MergeRight = 1;
+            r1.Cells[2].AddParagraph().AddFormattedText("Pontuação Total: " + string.Format("{0:0.00}", pontuacao));
+            */
+
+            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
+            pdfRenderer.Document = document;
+            pdfRenderer.RenderDocument();
+
+            string fileName = document.Info.Title + ".pdf";
+
+            //System.IO.Directory.CreateDirectory("relatorios");
+
+            pdfRenderer.PdfDocument.Save(fileName);
+            Process.Start(fileName);
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+
+            if (cmb.SelectedValue == null) return;
+            int selectedValue = (int)cmb.SelectedValue;
+
+            this.resultadoseventoTableAdapter.FillByIdEvento(this.frescobol_system_dbDataSet.resultadosevento, selectedValue);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (this.comboBox6.SelectedItem == null)
+            {
+                MessageBox.Show("Você deve selecionar um evento!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if(this.dataGridView5.RowCount == 0)
+            {
+                return;
+            }
+
+            Document document = new Document();
+            document.Info.Title = DateTime.Now.ToString("dd-MM-yyyy") + "_" + this.comboBox4.Text + "_resultados";
+            document.Info.Subject = "Resultados do evento.";
+
+            Style style = document.Styles["Normal"];
+            style.Font.Name = "Helvetica";
+
+            Section section = document.AddSection();
+
+            Paragraph p = section.AddParagraph();
+            p.Format.Alignment = ParagraphAlignment.Center;
+            p.Format.Font.Bold = true;
+            p.Format.Font.Size = 13;
+            p.AddText(this.comboBox6.Text + " - Resultados");
+
+            section.AddParagraph();
+            section.AddParagraph();
+
+            Table t = section.AddTable();
+            t.Style = "Normal";
+            t.Borders.Width = 0.25;
+            t.Format.Font.Size = 9;
+            t.Rows.Height = 16;
+
+            t.AddColumn("0.75cm").Format.Alignment = ParagraphAlignment.Center;
+            t.AddColumn("6.575cm").Format.Alignment = ParagraphAlignment.Center;
+            t.AddColumn("6.575cm").Format.Alignment = ParagraphAlignment.Center;
+            t.AddColumn("2cm").Format.Alignment = ParagraphAlignment.Center;
+
+            int i = 1;
+
+            foreach (DataGridViewRow row in this.dataGridView5.Rows)
+            {
+                Row r = t.AddRow();
+
+                DataRow duplasevento = duplaseventoTableAdapter.GetById(Int32.Parse(row.Cells["idduplasevento"].Value.ToString())).Rows[0];
+                DataRow dupla = duplaTableAdapter.GetDuplaById(Int32.Parse(duplasevento["iddupla"].ToString())).Rows[0];
+                DataRowCollection jogadores = atletaTableAdapter.GetAtletasById(Int32.Parse(dupla["idatl1"].ToString()), Int32.Parse(dupla["idatl2"].ToString())).Rows;
+
+                //posicao
+                r.Cells[0].AddParagraph(i.ToString());
+
+                //nome jogador1
+                r.Cells[1].AddParagraph(jogadores[0]["nome"] + " - " + jogadores[0]["apelido"] + " (" + jogadores[0]["idatleta"].ToString().PadLeft(3, '0') + ")");
+
+                //nome jogador2
+                r.Cells[2].AddParagraph(jogadores[1]["nome"] + " - " + jogadores[1]["apelido"] + " (" + jogadores[1]["idatleta"].ToString().PadLeft(3, '0') + ")");
+
+                //pontuacao
+                r.Cells[3].AddParagraph(string.Format("{0:000.00}", (double)row.Cells["pontuacao"].Value));
+
+                i++;
+            }
+
+            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
+            pdfRenderer.Document = document;
+            pdfRenderer.RenderDocument();
+
+            string fileName = document.Info.Title + ".pdf";
+
+            //System.IO.Directory.CreateDirectory("relatorios");
+
+            pdfRenderer.PdfDocument.Save(fileName);
+            Process.Start(fileName);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Plateia
     {
         private int SelectedEventoId = -1;
         private int SelectedDuplaId = -1;
+        internal bool ultimaDupla = false;
 
         public DuplasForm(int idEvento)
         {
@@ -25,6 +26,11 @@ namespace Plateia
         {
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.duplasevento' table. You can move, or remove it, as needed.
             this.duplaseventoTableAdapter.GetDuplasByEventoId(this.frescobol_system_dbDataSet.duplasevento, this.SelectedEventoId);
+
+            if (this.frescobol_system_dbDataSet.duplasevento.Rows.Count == 1)
+            {
+                this.ultimaDupla = true;
+            }
 
             this.comboBox1.SelectedItem = null;
         }
