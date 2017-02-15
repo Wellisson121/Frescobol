@@ -117,7 +117,7 @@ namespace Plateia
         //IMPORTANT: o atleta1 (esquerda na exibição dos atletas) é o atleta da direção in
         private void Radar_SpeedReceived(object sender, RadarSpeedEventArgs e)
         {
-            //if (cronometro.IsRunning == false) return;
+            if (cronometro.IsRunning == false) return;
 
             SoundPlayer s;
             int velocidade = e.pSpeed;
@@ -181,7 +181,7 @@ namespace Plateia
         {
             CrossThreadUtiliy.InvokeControlAction<Label>(label6, lbl => lbl.Text = string.Format("{0:000}", ataquesTotal));
             CrossThreadUtiliy.InvokeControlAction<Label>(label7, lbl => lbl.Text = string.Format("{0:00.00}", potenciaTotalMedia));
-            CrossThreadUtiliy.InvokeControlAction<Label>(label10, lbl => string.Format("{0}", velocidade));
+            CrossThreadUtiliy.InvokeControlAction<Label>(label10, lbl => lbl.Text = string.Format("{0:000}", velocidade));
             CrossThreadUtiliy.InvokeControlAction<PictureBox>(pictureBox3, pct => pct.Image = direcao == 0 ? Properties.Resources.ataque_in : Properties.Resources.ataque_out);
             //this.label6.Text = string.Format("{0:000}", ataquesTotal);
             //this.label7.Text = string.Format("{0:00.00}", potenciaTotalMedia);
@@ -464,7 +464,7 @@ namespace Plateia
             {
                 this.label2.Text = new DateTime(this.cronometro.Elapsed.Ticks).ToString("mm:ss.ff");
 
-                if (this.cronometro.ElapsedMilliseconds >= 30000)
+                if (this.cronometro.ElapsedMilliseconds >= 300000)
                 {
                     this.cronTimer.Stop();
                     this.cronometro.Stop();
@@ -649,10 +649,18 @@ namespace Plateia
                         return;
                     }
 
+                    if(ataquesTotal != 0 || potenciaTotalMedia != 0 || cronometro.ElapsedMilliseconds != 0)
+                    {
+                        return;
+                    }
+
                     if(MessageBox.Show("Você está prestes a desclassificar uma dupla por W.O. Tem certeza?", "Atenção", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                     {
                         Grava_WO();
                     }
+                    break;
+                case Keys.F6:
+                    //Radar_SpeedReceived(this, new RadarSpeedEventArgs(--v, (byte)(v % 2)));
                     break;
                 case Keys.F7:
                     if (eventoForm == null || eventoForm.IsDisposed)

@@ -15,7 +15,7 @@ namespace Plateia
 {
     public partial class SplashScreen : Form
     {
-        private static string version = "1.1.21";
+        private static string version = "1.1.22";
 
         public SplashScreen()
         {

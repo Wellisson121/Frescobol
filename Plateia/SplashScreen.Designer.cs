@@ -69,7 +69,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "versão 1.1.21";
+            this.label2.Text = "versão 1.1.22";
             // 
             // SplashScreen
             // 

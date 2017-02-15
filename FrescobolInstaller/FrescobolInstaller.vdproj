@@ -304,6 +304,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B65DDEF6CCDD3A21FAF3F8E49B8CBAB8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C0C3B66F27D735D9D10FD26993599C19"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -377,12 +383,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_14E4C708346D4402A63A936BD380FB76"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B65DDEF6CCDD3A21FAF3F8E49B8CBAB8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1218,7 +1218,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_A945755A49F040A7A0D2C4B41431FF75"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:C:\\[Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -1299,15 +1299,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Frescobol"
-        "ProductCode" = "8:{3B83F987-5A20-4E77-BBA8-6C57D368C932}"
-        "PackageCode" = "8:{C98CED21-27DA-4162-B82C-1D091A11F4FB}"
+        "ProductCode" = "8:{800440EC-EAF7-4B52-9DA4-A9B81076DFFA}"
+        "PackageCode" = "8:{F9F5E944-C13D-4BB7-B5EA-303B9191EA7F}"
         "UpgradeCode" = "8:{67B095B9-C657-4678-A8C4-D567C2D40657}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.21"
+        "ProductVersion" = "8:1.1.24"
         "Manufacturer" = "8:Radar Ball"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
