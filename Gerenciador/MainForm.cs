@@ -80,8 +80,8 @@ namespace Gerenciador
             this.textBox1.Text = "";
             this.textBox2.Text = "";
             this.textBox3.Text = "";
-            atlFoto.Dispose();
-            atlFoto = null;
+            //atlFoto.Dispose();
+            //atlFoto = null;
             pictureBox1.Image = Properties.Resources.no_image;
         }
 
@@ -140,7 +140,7 @@ namespace Gerenciador
                 return;
             }
 
-            this.categoriaTableAdapter.Insert(this.textBox6.Text, Int32.Parse(this.textBox7.Text));
+            this.categoriaTableAdapter.Insert(this.textBox6.Text, Int32.Parse(this.textBox7.Text), 1);
             this.categoriaTableAdapter.Fill(this.frescobol_system_dbDataSet.categoria);
 
             //clean up
