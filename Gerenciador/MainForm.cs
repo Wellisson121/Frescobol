@@ -31,6 +31,16 @@ namespace Gerenciador
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.tabelapontuacao' table. You can move, or remove it, as needed.
+            this.tabelapontuacaoTableAdapter.Fill(this.frescobol_system_dbDataSet.tabelapontuacao);
+            // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.tabelapotencia' table. You can move, or remove it, as needed.
+            //this.tabelapotenciaTableAdapter.Fill(this.frescobol_system_dbDataSet.tabelapotencia);
+            // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.tabelasequencia' table. You can move, or remove it, as needed.
+            //this.tabelasequenciaTableAdapter.Fill(this.frescobol_system_dbDataSet.tabelasequencia);
+            // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.tabelapontuacao' table. You can move, or remove it, as needed.
+            //this.tabelapontuacaoTableAdapter.Fill(this.frescobol_system_dbDataSet.tabelapontuacao);
+            // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.tabelaataque' table. You can move, or remove it, as needed.
+            //this.tabelaataqueTableAdapter.Fill(this.frescobol_system_dbDataSet.tabelaataque);
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.resultadosevento' table. You can move, or remove it, as needed.
             //this.resultadoseventoTableAdapter.Fill(this.frescobol_system_dbDataSet.resultadosevento);
             // TODO: This line of code loads data into the 'frescobol_system_dbDataSet.duplasevento' table. You can move, or remove it, as needed.
@@ -50,6 +60,8 @@ namespace Gerenciador
             this.comboBox4.SelectedItem = null;
             this.comboBox5.SelectedItem = null;
             this.comboBox6.SelectedItem = null;
+            this.comboBox7.SelectedItem = null;
+            this.comboBox8.SelectedItem = null;
 
             this.button7.Enabled = false;
         }
@@ -134,18 +146,19 @@ namespace Gerenciador
         #region categoria
         private void button4_Click(object sender, EventArgs e)
         {
-            if(this.textBox6.Text == "" || this.textBox7.Text == "")
+            if(this.textBox6.Text == "" || this.textBox7.Text == "" || comboBox7.SelectedItem == null)
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos!");
                 return;
             }
 
-            this.categoriaTableAdapter.Insert(this.textBox6.Text, Int32.Parse(this.textBox7.Text), 1);
+            this.categoriaTableAdapter.Insert(this.textBox6.Text, Int32.Parse(this.textBox7.Text), (int)this.comboBox7.SelectedValue);
             this.categoriaTableAdapter.Fill(this.frescobol_system_dbDataSet.categoria);
 
             //clean up
             this.textBox6.Text = "";
             this.textBox7.Text = "";
+            comboBox7.SelectedItem = null;
         }
 
         #endregion
@@ -457,6 +470,52 @@ namespace Gerenciador
 
             pdfRenderer.PdfDocument.Save(fileName);
             Process.Start(fileName);
+        }
+
+        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox8.SelectedItem == null) return;
+
+            int value = (int)comboBox8.SelectedValue;
+
+            tabelaataqueTableAdapter.FillBy(this.frescobol_system_dbDataSet.tabelaataque,value);
+            tabelapotenciaTableAdapter.FillBy(this.frescobol_system_dbDataSet.tabelapotencia, value);
+            tabelasequenciaTableAdapter.FillBy(this.frescobol_system_dbDataSet.tabelasequencia, value);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if(textBox12.Text == "")
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos!");
+                return;
+            }
+
+            this.tabelapontuacaoTableAdapter.Insert(textBox12.Text);
+            this.tabelapontuacaoTableAdapter.Fill(this.frescobol_system_dbDataSet.tabelapontuacao);
+
+            this.textBox12.Text = "";
+        }
+        
+        private void dataGridView7_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            e.Row.Cells[0].Value = comboBox8.SelectedValue;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            this.tabelaataqueTableAdapter.Update(frescobol_system_dbDataSet.tabelaataque);
+            this.tabelapotenciaTableAdapter.Update(frescobol_system_dbDataSet.tabelapotencia);
+            this.tabelasequenciaTableAdapter.Update(frescobol_system_dbDataSet.tabelasequencia);
+        }
+
+        private void dataGridView6_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (comboBox8.SelectedItem == null) return;
+
+            DataGridView d = sender as DataGridView;
+
+            d.Rows[e.RowIndex].Cells[0].Value = comboBox8.SelectedValue;
         }
     }
 }

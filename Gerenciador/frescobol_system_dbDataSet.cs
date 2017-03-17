@@ -4,6 +4,10 @@
 
     partial class frescobol_system_dbDataSet
     {
+        partial class tabelaataqueDataTable
+        {
+        }
+
         partial class eventoDataTable
         {
         }

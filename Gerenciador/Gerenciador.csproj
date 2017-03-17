@@ -135,7 +135,7 @@
     <None Include="frescobol_system_dbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>frescobol_system_dbDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>frescobol_system_dbDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Include="frescobol_system_dbDataSet.xss">
       <DependentUpon>frescobol_system_dbDataSet.xsd</DependentUpon>

@@ -71,6 +71,9 @@
             this.nomeatl2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duplaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label20 = new System.Windows.Forms.Label();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.tabelapontuacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button4 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -80,6 +83,7 @@
             this.idcategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.velocidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idtabelapontuacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBox11 = new System.Windows.Forms.MaskedTextBox();
@@ -127,6 +131,28 @@
             this.pontuacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultadoseventoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.dataGridView8 = new System.Windows.Forms.DataGridView();
+            this.idtabelapontuacaoDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.velocidadeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pontuacaoDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabelapotenciaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView7 = new System.Windows.Forms.DataGridView();
+            this.idtabelapontuacaoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sequenciasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pontuacaoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabelasequenciaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.idtabelapontuacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ataquesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pontuacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabelaataqueBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.atletaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.atletaTableAdapter();
             this.duplaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaTableAdapter();
@@ -134,6 +160,10 @@
             this.eventoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.eventoTableAdapter();
             this.duplaseventoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.duplaseventoTableAdapter();
             this.resultadoseventoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.resultadoseventoTableAdapter();
+            this.tabelaataqueTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.tabelaataqueTableAdapter();
+            this.tabelasequenciaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.tabelasequenciaTableAdapter();
+            this.tabelapotenciaTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.tabelapotenciaTableAdapter();
+            this.tabelapontuacaoTableAdapter = new Gerenciador.frescobol_system_dbDataSetTableAdapters.tabelapontuacaoTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabAtleta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -146,6 +176,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.duplaBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabelapontuacaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -158,6 +189,13 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultadoseventoBindingSource)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabelapotenciaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabelasequenciaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabelaataqueBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -168,6 +206,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(1, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -542,6 +581,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label20);
+            this.tabPage2.Controls.Add(this.comboBox7);
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label6);
@@ -555,6 +596,31 @@
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Categoria";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(370, 51);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(110, 13);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "Tabela de Pontuação";
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.DataSource = this.tabelapontuacaoBindingSource;
+            this.comboBox7.DisplayMember = "nome";
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(373, 67);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(206, 21);
+            this.comboBox7.TabIndex = 6;
+            this.comboBox7.ValueMember = "idtabelapontuacao";
+            // 
+            // tabelapontuacaoBindingSource
+            // 
+            this.tabelapontuacaoBindingSource.DataMember = "tabelapontuacao";
+            this.tabelapontuacaoBindingSource.DataSource = this.bindingSource1;
             // 
             // button4
             // 
@@ -607,7 +673,8 @@
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idcategoriaDataGridViewTextBoxColumn,
             this.nomeDataGridViewTextBoxColumn1,
-            this.velocidadeDataGridViewTextBoxColumn});
+            this.velocidadeDataGridViewTextBoxColumn,
+            this.idtabelapontuacao});
             this.dataGridView2.DataSource = this.categoriaBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(49, 170);
             this.dataGridView2.Name = "dataGridView2";
@@ -628,7 +695,7 @@
             this.nomeDataGridViewTextBoxColumn1.HeaderText = "nome";
             this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
             this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.nomeDataGridViewTextBoxColumn1.Width = 350;
+            this.nomeDataGridViewTextBoxColumn1.Width = 250;
             // 
             // velocidadeDataGridViewTextBoxColumn
             // 
@@ -637,6 +704,13 @@
             this.velocidadeDataGridViewTextBoxColumn.Name = "velocidadeDataGridViewTextBoxColumn";
             this.velocidadeDataGridViewTextBoxColumn.ReadOnly = true;
             this.velocidadeDataGridViewTextBoxColumn.Width = 182;
+            // 
+            // idtabelapontuacao
+            // 
+            this.idtabelapontuacao.DataPropertyName = "idtabelapontuacao";
+            this.idtabelapontuacao.HeaderText = "idtabelapontuacao";
+            this.idtabelapontuacao.Name = "idtabelapontuacao";
+            this.idtabelapontuacao.ReadOnly = true;
             // 
             // categoriaBindingSource
             // 
@@ -1087,6 +1161,201 @@
             this.comboBox6.ValueMember = "idevento";
             this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.button11);
+            this.tabPage6.Controls.Add(this.comboBox8);
+            this.tabPage6.Controls.Add(this.label22);
+            this.tabPage6.Controls.Add(this.button10);
+            this.tabPage6.Controls.Add(this.textBox12);
+            this.tabPage6.Controls.Add(this.label21);
+            this.tabPage6.Controls.Add(this.dataGridView8);
+            this.tabPage6.Controls.Add(this.dataGridView7);
+            this.tabPage6.Controls.Add(this.dataGridView6);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(776, 534);
+            this.tabPage6.TabIndex = 7;
+            this.tabPage6.Text = "Pontuação";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(636, 143);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(131, 23);
+            this.button11.TabIndex = 8;
+            this.button11.Text = "Sincronizar Tabelas";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.DataSource = this.tabelapontuacaoBindingSource;
+            this.comboBox8.DisplayMember = "nome";
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(21, 103);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(230, 21);
+            this.comboBox8.TabIndex = 7;
+            this.comboBox8.ValueMember = "idtabelapontuacao";
+            this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(18, 87);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(32, 13);
+            this.label22.TabIndex = 6;
+            this.label22.Text = "Filtrar";
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(263, 27);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 5;
+            this.button10.Text = "Cadastrar";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(21, 29);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(230, 20);
+            this.textBox12.TabIndex = 4;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(18, 13);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(35, 13);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "Nome";
+            // 
+            // dataGridView8
+            // 
+            this.dataGridView8.AutoGenerateColumns = false;
+            this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView8.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idtabelapontuacaoDataGridViewTextBoxColumn2,
+            this.velocidadeDataGridViewTextBoxColumn1,
+            this.pontuacaoDataGridViewTextBoxColumn2});
+            this.dataGridView8.DataSource = this.tabelapotenciaBindingSource;
+            this.dataGridView8.Location = new System.Drawing.Point(402, 350);
+            this.dataGridView8.Name = "dataGridView8";
+            this.dataGridView8.Size = new System.Drawing.Size(365, 176);
+            this.dataGridView8.TabIndex = 2;
+            this.dataGridView8.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView6_CellBeginEdit);
+            // 
+            // idtabelapontuacaoDataGridViewTextBoxColumn2
+            // 
+            this.idtabelapontuacaoDataGridViewTextBoxColumn2.DataPropertyName = "idtabelapontuacao";
+            this.idtabelapontuacaoDataGridViewTextBoxColumn2.HeaderText = "idtabelapontuacao";
+            this.idtabelapontuacaoDataGridViewTextBoxColumn2.Name = "idtabelapontuacaoDataGridViewTextBoxColumn2";
+            // 
+            // velocidadeDataGridViewTextBoxColumn1
+            // 
+            this.velocidadeDataGridViewTextBoxColumn1.DataPropertyName = "velocidade";
+            this.velocidadeDataGridViewTextBoxColumn1.HeaderText = "velocidade";
+            this.velocidadeDataGridViewTextBoxColumn1.Name = "velocidadeDataGridViewTextBoxColumn1";
+            // 
+            // pontuacaoDataGridViewTextBoxColumn2
+            // 
+            this.pontuacaoDataGridViewTextBoxColumn2.DataPropertyName = "pontuacao";
+            this.pontuacaoDataGridViewTextBoxColumn2.HeaderText = "pontuacao";
+            this.pontuacaoDataGridViewTextBoxColumn2.Name = "pontuacaoDataGridViewTextBoxColumn2";
+            this.pontuacaoDataGridViewTextBoxColumn2.Width = 122;
+            // 
+            // tabelapotenciaBindingSource
+            // 
+            this.tabelapotenciaBindingSource.DataMember = "tabelapotencia";
+            this.tabelapotenciaBindingSource.DataSource = this.bindingSource1;
+            // 
+            // dataGridView7
+            // 
+            this.dataGridView7.AutoGenerateColumns = false;
+            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView7.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idtabelapontuacaoDataGridViewTextBoxColumn1,
+            this.sequenciasDataGridViewTextBoxColumn,
+            this.pontuacaoDataGridViewTextBoxColumn1});
+            this.dataGridView7.DataSource = this.tabelasequenciaBindingSource;
+            this.dataGridView7.Location = new System.Drawing.Point(402, 172);
+            this.dataGridView7.Name = "dataGridView7";
+            this.dataGridView7.Size = new System.Drawing.Size(365, 172);
+            this.dataGridView7.TabIndex = 1;
+            this.dataGridView7.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView6_CellBeginEdit);
+            // 
+            // idtabelapontuacaoDataGridViewTextBoxColumn1
+            // 
+            this.idtabelapontuacaoDataGridViewTextBoxColumn1.DataPropertyName = "idtabelapontuacao";
+            this.idtabelapontuacaoDataGridViewTextBoxColumn1.HeaderText = "idtabelapontuacao";
+            this.idtabelapontuacaoDataGridViewTextBoxColumn1.Name = "idtabelapontuacaoDataGridViewTextBoxColumn1";
+            this.idtabelapontuacaoDataGridViewTextBoxColumn1.Width = 105;
+            // 
+            // sequenciasDataGridViewTextBoxColumn
+            // 
+            this.sequenciasDataGridViewTextBoxColumn.DataPropertyName = "sequencias";
+            this.sequenciasDataGridViewTextBoxColumn.HeaderText = "sequencias";
+            this.sequenciasDataGridViewTextBoxColumn.Name = "sequenciasDataGridViewTextBoxColumn";
+            this.sequenciasDataGridViewTextBoxColumn.Width = 97;
+            // 
+            // pontuacaoDataGridViewTextBoxColumn1
+            // 
+            this.pontuacaoDataGridViewTextBoxColumn1.DataPropertyName = "pontuacao";
+            this.pontuacaoDataGridViewTextBoxColumn1.HeaderText = "pontuacao";
+            this.pontuacaoDataGridViewTextBoxColumn1.Name = "pontuacaoDataGridViewTextBoxColumn1";
+            this.pontuacaoDataGridViewTextBoxColumn1.Width = 120;
+            // 
+            // tabelasequenciaBindingSource
+            // 
+            this.tabelasequenciaBindingSource.DataMember = "tabelasequencia";
+            this.tabelasequenciaBindingSource.DataSource = this.bindingSource1;
+            // 
+            // dataGridView6
+            // 
+            this.dataGridView6.AutoGenerateColumns = false;
+            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView6.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idtabelapontuacaoDataGridViewTextBoxColumn,
+            this.ataquesDataGridViewTextBoxColumn,
+            this.pontuacaoDataGridViewTextBoxColumn});
+            this.dataGridView6.DataSource = this.tabelaataqueBindingSource;
+            this.dataGridView6.Location = new System.Drawing.Point(7, 350);
+            this.dataGridView6.Name = "dataGridView6";
+            this.dataGridView6.Size = new System.Drawing.Size(363, 176);
+            this.dataGridView6.TabIndex = 0;
+            this.dataGridView6.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView6_CellBeginEdit);
+            // 
+            // idtabelapontuacaoDataGridViewTextBoxColumn
+            // 
+            this.idtabelapontuacaoDataGridViewTextBoxColumn.DataPropertyName = "idtabelapontuacao";
+            this.idtabelapontuacaoDataGridViewTextBoxColumn.HeaderText = "idtabelapontuacao";
+            this.idtabelapontuacaoDataGridViewTextBoxColumn.Name = "idtabelapontuacaoDataGridViewTextBoxColumn";
+            // 
+            // ataquesDataGridViewTextBoxColumn
+            // 
+            this.ataquesDataGridViewTextBoxColumn.DataPropertyName = "ataques";
+            this.ataquesDataGridViewTextBoxColumn.HeaderText = "ataques";
+            this.ataquesDataGridViewTextBoxColumn.Name = "ataquesDataGridViewTextBoxColumn";
+            // 
+            // pontuacaoDataGridViewTextBoxColumn
+            // 
+            this.pontuacaoDataGridViewTextBoxColumn.DataPropertyName = "pontuacao";
+            this.pontuacaoDataGridViewTextBoxColumn.HeaderText = "pontuacao";
+            this.pontuacaoDataGridViewTextBoxColumn.Name = "pontuacaoDataGridViewTextBoxColumn";
+            this.pontuacaoDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // tabelaataqueBindingSource
+            // 
+            this.tabelaataqueBindingSource.DataMember = "tabelaataque";
+            this.tabelaataqueBindingSource.DataSource = this.bindingSource1;
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -1115,6 +1384,22 @@
             // 
             this.resultadoseventoTableAdapter.ClearBeforeFill = true;
             // 
+            // tabelaataqueTableAdapter
+            // 
+            this.tabelaataqueTableAdapter.ClearBeforeFill = true;
+            // 
+            // tabelasequenciaTableAdapter
+            // 
+            this.tabelasequenciaTableAdapter.ClearBeforeFill = true;
+            // 
+            // tabelapotenciaTableAdapter
+            // 
+            this.tabelapotenciaTableAdapter.ClearBeforeFill = true;
+            // 
+            // tabelapontuacaoTableAdapter
+            // 
+            this.tabelapontuacaoTableAdapter.ClearBeforeFill = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1140,6 +1425,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.duplaBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabelapontuacaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
@@ -1155,6 +1441,14 @@
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultadoseventoBindingSource)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabelapotenciaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabelasequenciaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabelaataqueBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1208,9 +1502,6 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idcategoriaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn velocidadeDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
@@ -1265,6 +1556,39 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idevento;
         private System.Windows.Forms.DataGridViewTextBoxColumn idduplasevento;
         private System.Windows.Forms.DataGridViewTextBoxColumn pontuacao;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.DataGridView dataGridView6;
+        private System.Windows.Forms.BindingSource tabelaataqueBindingSource;
+        private frescobol_system_dbDataSetTableAdapters.tabelaataqueTableAdapter tabelaataqueTableAdapter;
+        private System.Windows.Forms.DataGridView dataGridView7;
+        private System.Windows.Forms.BindingSource tabelasequenciaBindingSource;
+        private frescobol_system_dbDataSetTableAdapters.tabelasequenciaTableAdapter tabelasequenciaTableAdapter;
+        private System.Windows.Forms.DataGridView dataGridView8;
+        private System.Windows.Forms.BindingSource tabelapotenciaBindingSource;
+        private frescobol_system_dbDataSetTableAdapters.tabelapotenciaTableAdapter tabelapotenciaTableAdapter;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.BindingSource tabelapontuacaoBindingSource;
+        private frescobol_system_dbDataSetTableAdapters.tabelapontuacaoTableAdapter tabelapontuacaoTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idcategoriaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn velocidadeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idtabelapontuacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idtabelapontuacaoDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn velocidadeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pontuacaoDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idtabelapontuacaoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sequenciasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pontuacaoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idtabelapontuacaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ataquesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pontuacaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button11;
     }
 }
 
