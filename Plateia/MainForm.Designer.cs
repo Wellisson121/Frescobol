@@ -64,6 +64,10 @@
             this.duplaseventoTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.duplaseventoTableAdapter();
             this.resultadoseventoTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.resultadoseventoTableAdapter();
             this.speedrecordsTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.speedrecordsTableAdapter();
+            this.tabelaataqueTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.tabelaataqueTableAdapter();
+            this.tabelapontuacaoTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.tabelapontuacaoTableAdapter();
+            this.tabelapotenciaTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.tabelapotenciaTableAdapter();
+            this.tabelasequenciaTableAdapter1 = new Plateia.frescobol_system_dbDataSetTableAdapters.tabelasequenciaTableAdapter();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -386,6 +390,22 @@
             // 
             this.speedrecordsTableAdapter1.ClearBeforeFill = true;
             // 
+            // tabelaataqueTableAdapter1
+            // 
+            this.tabelaataqueTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tabelapontuacaoTableAdapter1
+            // 
+            this.tabelapontuacaoTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tabelapotenciaTableAdapter1
+            // 
+            this.tabelapotenciaTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tabelasequenciaTableAdapter1
+            // 
+            this.tabelasequenciaTableAdapter1.ClearBeforeFill = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -464,6 +484,10 @@
         private frescobol_system_dbDataSetTableAdapters.duplaseventoTableAdapter duplaseventoTableAdapter1;
         private frescobol_system_dbDataSetTableAdapters.resultadoseventoTableAdapter resultadoseventoTableAdapter1;
         private frescobol_system_dbDataSetTableAdapters.speedrecordsTableAdapter speedrecordsTableAdapter1;
+        private frescobol_system_dbDataSetTableAdapters.tabelaataqueTableAdapter tabelaataqueTableAdapter1;
+        private frescobol_system_dbDataSetTableAdapters.tabelapontuacaoTableAdapter tabelapontuacaoTableAdapter1;
+        private frescobol_system_dbDataSetTableAdapters.tabelapotenciaTableAdapter tabelapotenciaTableAdapter1;
+        private frescobol_system_dbDataSetTableAdapters.tabelasequenciaTableAdapter tabelasequenciaTableAdapter1;
     }
 }
 

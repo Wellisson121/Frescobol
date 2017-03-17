@@ -35,6 +35,8 @@ namespace Plateia
         private DataRow atleta1;
         private DataRow atleta2;
 
+        private DataRow atk_start, atk_end, seq_start, seq_end, pot_start, pot_end;
+
         int v = 400;
 
         private int idAtleta1;
@@ -104,8 +106,10 @@ namespace Plateia
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Double d = Double.Parse("51.0", new CultureInfo("en-US"));
             try
             {
+
                 radar.openSerialPort("COM4");
             }
             catch (Exception)
@@ -388,18 +392,19 @@ namespace Plateia
                     x.Cells[2].AddParagraph("---");
                 }
                 else
-                {
-                    x.Cells[0].AddParagraph(new DateTime(s.Ticks).ToString("mm:ss.ff"));
-                    
+                {   
                     if(s.Direcao == 0)
                     {
+                        x.Cells[0].Format.Font.Color = Colors.Red;
                         x.Cells[1].Format.Font.Color = Colors.Red;
+                        x.Cells[2].Format.Font.Color = Colors.Red;
                         x.Cells[1].AddParagraph("In");
                     } else
                     {
                         x.Cells[1].AddParagraph("Out");
                     }
 
+                    x.Cells[0].AddParagraph(new DateTime(s.Ticks).ToString("mm:ss.ff"));
                     x.Cells[2].AddParagraph(s.Velocidade.ToString());
                 }
 
@@ -570,22 +575,42 @@ namespace Plateia
             }
         }
 
+        private int objToInt (object obj)
+        {
+            return Int32.Parse(obj.ToString());
+        }
+
+        private double objToDouble(object obj)
+        {
+            var s = obj.ToString();
+            return Double.Parse(obj.ToString());
+        }
+
         private double Calcula_Pontuacao(int sequencias, int ataques, double velocidade, int notajuizatleta1, int notajuizatleta2)
         {
             double pontuacao = 0d;
 
+            int min_seq = objToInt(seq_start["sequencias"]), max_seq = objToInt(seq_end["sequencias"]);
+            int min_seq_points = objToInt(seq_start["pontuacao"]), max_seq_points = objToInt(seq_end["pontuacao"]);
+
+            int min_atk = objToInt(atk_start["ataques"]), max_atk = objToInt(atk_end["ataques"]);
+            int atkpmax = objToInt(atk_end["pontuacao"]);
+
+            double vmin = Double.Parse(pot_start["velocidade"].ToString(), new CultureInfo("en-US")), vmax = objToDouble(pot_end["velocidade"]);
+            double pvmin = objToDouble(pot_start["pontuacao"]), pvmax = objToDouble(pot_end["pontuacao"]);
+
             //sequencias
-            if (sequencias < 8) pontosSequencias = 150;
-            else if (sequencias > 35) pontosSequencias = -200;
+            if (sequencias < min_seq) pontosSequencias = min_seq_points;
+            else if (sequencias > max_seq) pontosSequencias = max_seq_points;
             else if (sequencias >= 1) pontosSequencias = notas.Sequencia[sequencias];
 
             //ataques
-            if (ataques >= 260) pontosAtaques = 200;
-            else if (ataques >= 41) pontosAtaques = notas.Ataque[ataques];
+            if (ataques >= max_atk) pontosAtaques = atkpmax;
+            else if (ataques >= min_atk) pontosAtaques = notas.Ataque[ataques];
 
             //potencia
-            if (velocidade <= 51) pontosPotencia = 0;
-            else if (velocidade >= 76) pontosPotencia = 300;
+            if (velocidade <= vmin) pontosPotencia = 0;
+            else if (velocidade >= vmax) pontosPotencia = pvmax;
             else pontosPotencia = notas.Velocidade[string.Format(new CultureInfo("en-US"), "{0:00.0}", velocidade)];
 
             //equilibrio
@@ -767,11 +792,49 @@ namespace Plateia
                 eventoAtual = this.eventoTableAdapter1.GetById(idEvento).Rows[0];
                 categoriaAtual = this.categoriaTableAdapter1.GetCategoriaById(Int32.Parse(eventoAtual["idcategoria"].ToString())).Rows[0];
                 categoriaVelocidadeMinima = Int32.Parse(categoriaAtual["velocidade"].ToString());
+                int tabelapont = Int32.Parse(categoriaAtual["idtabelapontuacao"].ToString());
+
+                AtualizaInfoPontuacao(tabelapont);
             }
             else
             {
                 eventoAtual = null;
                 Reset_Window_Content();
+            }
+        }
+
+        private void AtualizaInfoPontuacao(int tabelapont)
+        {
+            this.notas.Ataque = new Dictionary<int, double>();
+            this.notas.Sequencia = new Dictionary<int, int>();
+            this.notas.Velocidade = new Dictionary<string, double>();
+
+            this.tabelaataqueTableAdapter1.FillBy(frescobol_system_dbDataSet.tabelaataque, tabelapont);
+            this.tabelasequenciaTableAdapter1.FillBy(frescobol_system_dbDataSet.tabelasequencia, tabelapont);
+            this.tabelapotenciaTableAdapter1.FillBy(frescobol_system_dbDataSet.tabelapotencia, tabelapont);
+
+            seq_start = frescobol_system_dbDataSet.tabelasequencia.Rows[0];
+            seq_end = frescobol_system_dbDataSet.tabelasequencia.Rows[frescobol_system_dbDataSet.tabelasequencia.Rows.Count - 1];
+
+            atk_start = frescobol_system_dbDataSet.tabelaataque.Rows[0];
+            atk_end = frescobol_system_dbDataSet.tabelaataque.Rows[frescobol_system_dbDataSet.tabelaataque.Rows.Count - 1];
+
+            pot_start = frescobol_system_dbDataSet.tabelapotencia.Rows[0];
+            pot_end = frescobol_system_dbDataSet.tabelapotencia.Rows[frescobol_system_dbDataSet.tabelapotencia.Rows.Count - 1];
+
+            foreach (DataRow row in frescobol_system_dbDataSet.tabelaataque.Rows)
+            {
+                notas.Ataque.Add(Int32.Parse(row["ataques"].ToString()), Double.Parse(row["pontuacao"].ToString()));
+            }
+
+            foreach (DataRow row in frescobol_system_dbDataSet.tabelasequencia.Rows)
+            {
+                notas.Sequencia.Add(Int32.Parse(row["sequencias"].ToString()), Int32.Parse(row["pontuacao"].ToString()));
+            }
+
+            foreach (DataRow row in frescobol_system_dbDataSet.tabelapotencia.Rows)
+            {
+                notas.Velocidade.Add(row["velocidade"].ToString(), Double.Parse(row["pontuacao"].ToString()));
             }
         }
 
